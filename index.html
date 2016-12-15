@@ -12176,10 +12176,665 @@
 
 
           </div>
+          
+<div class="show-content user_content clearfix enhanced">
+  <h1 class="page-title">JSONP</h1>
+  
+    <p>JSONP stands for JSON with Padding. It is an alternate way to get around CORS issues. Server-side pass throughs are a common solution, JSONP is the other solution.</p>
+<p>CORS restricts calls made via XMLHttpRequest( ) and fetch( ). However, we can load any script we want through an HTML &lt;script&gt; tag.&nbsp;</p>
+<pre>&lt;script src="app.js"&gt;&lt;/script&gt;<br>&lt;!-- &lt;script src="http://www.example.com/data.js"&gt;&lt;/script&gt; --&gt;<br>&lt;script src="http://www.example.com/data.js?callback=myfunc"&gt;&lt;/script&gt;</pre>
+<p>The first script tag is your local javascript file. The second is a normal request for a JavaScript file. The third&nbsp;one is requesting the same JavaScript file but also includes a querystring parameter. The third&nbsp;one is what a JSONP request looks like. We don't need the commented one.</p>
+<p>The server that hosts the javascript must support JSONP. There must be some server-side code that alters the contents of the JavaScript file. If the original version of the JavaScript file looked like this</p>
+<pre>{"pets": [ <br>  {"name":"Bob", "age": 2},<br>  {"name":"Jesse", "age": 4},<br>  {"name":"Woody", "age": 14}]};</pre>
+<p>Then the JSONP version could look like this:</p>
+<pre>myfunc( 
+  {"pets": [ <br>  {"name":"Bob", "age": 2},<br>  {"name":"Jesse", "age": 4},<br>  {"name":"Woody", "age": 14}]};
+));</pre>
+<p>The "data" which comprised the whole file is now wrapped inside a call to a function called myfunc. The data becomes a parameter being passed to the function.</p>
+<p>In your other JavaScript file, the one you created in your project, you will have a function called myfunc.</p>
+<pre>function myfunc( data ){<br>  //'data' is now the data that came from the external source<br>}</pre>
+<p>&nbsp;</p>
+<p>So, we pass the name of our function as a querystring parameter to the external URL. The URL might point to a file with a .js extension, a .php extension, or no extension. The important thing is that what gets returned is JavaScript. That JavaScript will be formatted as a bunch of JSON data, WRAPPED in a function call.&nbsp;</p>
+<p>In our own JavaScript code we create the function with the same name that we pass as a querystring parameter. Our function will be called by the JavaScript file that comes back from the external server. Our function runs and accepts all that external data as its'&nbsp;input parameter.</p>
+<p>&nbsp;</p>
+<h3>Restrictions</h3>
+<p>The external data source must have code that accepts the request including the querystring parameter. The external course will have a specific name for the querystring parameter, although "callback" is a common one.</p>
+<p>We must have a function in our code that matches the name of the one that we send in the querystring.</p>
+<p>&nbsp;</p>
+  
+</div>
 
 </div>
   
+ <div class=“week9>
+
+<div class="show-content user_content clearfix enhanced">
+  <h1 class="page-title">Week 9 Summary</h1>
   
+    <h1 style="font-weight: 200;">&nbsp;</h1>
+<h4>
+<strong><strong>Learning Objective:&nbsp;</strong></strong><span>By the end of this week, students will have demonstrated the following: How to work with JavaScript JSON APIs in situations requiring CORS.</span>
+</h4>
+<p>&nbsp;</p>
+<table style="height: 229px; float: left;" border="1px" width="100%">
+<tbody>
+<tr>
+<th style="background-color: #99cc00;" width="30%">Prior to Class</th>
+<th style="background-color: #99cc00;" width="30%">During Class</th>
+<th style="background-color: #99cc00;" width="30%">Following Class</th>
+</tr>
+<tr>
+<td style="vertical-align: top;">
+<ul>
+<li>Review material from first eight weeks</li>
+<li>Read the contents of Module 9</li>
+<li>Work on the <a class="" title="AJAX Lotto" href="https://algonquin.instructure.com/courses/501988/assignments/4783224" target="" data-api-endpoint="https://algonquin.instructure.com/api/v1/courses/501988/assignments/4783224" data-api-returntype="Assignment">AJAX Lotto</a>&nbsp;assignment&nbsp;</li>
+<li>
+</li>
+</ul>
+</td>
+<td style="vertical-align: top;">The learning activities for this week will include:<br>
+<ul>
+<li>Lectures about programming concepts</li>
+<li>Lectures and practice with&nbsp;JavaScript to&nbsp;make AJAX calls</li>
+<li>Working with JavaScript&nbsp;JSON APIs</li>
+<li>discussions about AJAX assignments</li>
+<li>work on&nbsp;<a class="" title="AJAX Lotto" href="https://algonquin.instructure.com/courses/501988/assignments/4783224" target="" data-api-endpoint="https://algonquin.instructure.com/api/v1/courses/501988/assignments/4783224" data-api-returntype="Assignment">AJAX Lotto</a>&nbsp;assignment</li>
+<li>work on&nbsp;<a class="" title="Forecast Web App" href="https://algonquin.instructure.com/courses/501988/assignments/4783226" target="" data-api-endpoint="https://algonquin.instructure.com/api/v1/courses/501988/assignments/4783226" data-api-returntype="Assignment">Forecast Web App</a>
+</li>
+</ul>
+</td>
+<td style="vertical-align: top;">
+<ul>
+<li>Read all the content from this week's module</li>
+<li>Review all Tutorial material (video &amp; text)</li>
+<li>Read the Summary for next week</li>
+<li>Work on the&nbsp;<a class="" title="Forecast Web App" href="https://algonquin.instructure.com/courses/501988/assignments/4783226" target="" data-api-endpoint="https://algonquin.instructure.com/api/v1/courses/501988/assignments/4783226" data-api-returntype="Assignment">Forecast Web App</a>
+</li>
+</ul>
+<ul></ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+  
+</div>
+
+<div class="show-content user_content clearfix enhanced">
+  <h1 class="page-title">localStorage and sessionStorage</h1>
+  
+    <p>localStorage and sessionStorage are two methods that we can use to save data locally in the user's browser. If you want to save a list of names, a game highscore, the last video watched and the time stopped in that video, then localStorage is an ideal method to save this information.</p>
+<p>When the browser saves this information, it also remembers what domain and folder it was saved from. This way the information can be restricted and other websites will not be able to read it.</p>
+<p>If I am on <a href="http://www.example.com" class="external" target="_blank" rel="noreferrer"><span><span>www.example.com</span><span class="screenreader-only">&nbsp;(Links to an external site.)</span></span><span class="ui-icon ui-icon-extlink ui-icon-inline" title="Links to an external site."></span></a>&nbsp;and I save some information in localStorage, then navigate to <a href="http://www.algonquincollege.com" class="external" target="_blank" rel="noreferrer"><span><span>www.algonquincollege.com</span><span class="screenreader-only">&nbsp;(Links to an external site.)</span></span><span class="ui-icon ui-icon-extlink ui-icon-inline" title="Links to an external site."></span></a>, the information from <a href="http://www.example.com" class="external" target="_blank" rel="noreferrer"><span><span>www.example.com</span><span class="screenreader-only">&nbsp;(Links to an external site.)</span></span><span class="ui-icon ui-icon-extlink ui-icon-inline" title="Links to an external site."></span></a>&nbsp;will NOT be accessible by any JavaScript code on <a href="http://www.algonquincollege.com" class="external" target="_blank" rel="noreferrer"><span><span>www.algonquincollege.com</span><span class="screenreader-only">&nbsp;(Links to an external site.)</span></span><span class="ui-icon ui-icon-extlink ui-icon-inline" title="Links to an external site."></span></a>.</p>
+<p>SessionStorage and localStorage work the same way. The difference between them is that sessionStorage is deleted when you close your browser.</p>
+<p>&nbsp;</p>
+<h3>Putting Data into localStorage</h3>
+<p>All the data that you put into localStorage will be the String equivalent of the data.</p>
+<p>Each thing that you want to save will need to have a key to identify it.</p>
+<pre>localStorage.setItem(key, value);       //using variables<br>localStorage.setItem('name', 'Steve');  //using strings<br>localStorage.setItem("names", '["Rick","Morty"]' );     //saving an Array as a String</pre>
+<p>Every key needs to be unique.</p>
+<p>&nbsp;</p>
+<h3>Retrieving Data from localStorage</h3>
+<p>When you want to retrieve that information we need to know the key.</p>
+<pre>let name = localStorage.getItem('name');      //The string Steve<br>let names = localStorage.getItem('names');    //this will be a String, not an array</pre>
+<p>See below about how to use the JSON object to convert that String into a real Array.</p>
+<p>To remove a single item from localStorage we would use the removeItem( ) method. To remove ALL the information from localStorage we would use the clear( ) method.</p>
+<pre>localStorage.removeItem('name');      //remove the item with the key 'name'<br>localStorage.clear( );                //remove ALL the items</pre>
+<p>We can also check to see if a key already exists.</p>
+<pre>if( localStorage.getItem('booya') ){<br>  //that key exists<br>}else{<br>  //nothing with that key exists<br>}</pre>
+<p>&nbsp;</p>
+<h3>JSON Again</h3>
+<p>All the data that you put into localStorage will be a string. However, the most efficient use of that string is to use&nbsp;a JSON string. When we pull the string out of localStorage we will convert it into a JSON object. If you make a change to the JSON data and then want to put it back into localStorage we convert the JSON object back into a String.</p>
+<pre>let jsonData = JSON.parse( myStringOfJsonData );<br><br>let stringVersion = JSON.stringify( jsonData );</pre>
+<p>&nbsp;</p>
+<p>Codepen sample showing how you can save a list of names in localStorage, edit the list, display the list, etc.</p>
+<p><a href="http://codepen.io/mad-d/pen/qajOQj?editors=1010" class="external" target="_blank" rel="noreferrer"><span><span>http://codepen.io/mad-d/pen/qajOQj?editors=1010</span><span class="screenreader-only">&nbsp;(Links to an external site.)</span></span><span class="ui-icon ui-icon-extlink ui-icon-inline" title="Links to an external site."></span></a> &nbsp;</p>
+<p><iframe height="452" scrolling="no" src="//codepen.io/mad-d/embed/qajOQj/?height=452&amp;theme-id=0&amp;default-tab=result&amp;embed-version=2" frameborder="no" allowfullscreen="true" style="width: 100%;">See the Pen &amp;lt;a href="http://codepen.io/mad-d/pen/qajOQj/"&amp;gt;qajOQj&amp;lt;/a&amp;gt; by Mobile Application Design-Development (&amp;lt;a href="http://codepen.io/mad-d"&amp;gt;@mad-d&amp;lt;/a&amp;gt;) on &amp;lt;a href="http://codepen.io"&amp;gt;CodePen&amp;lt;/a&amp;gt;.
+</iframe></p>
+<p>&nbsp;</p>
+  
+</div>
+
+
+<div class="show-content user_content clearfix enhanced">
+  <h1 class="page-title">bitwise operators</h1>
+  
+    <p>&nbsp;The Bitwise operators allow us to use JavaScript and work with numbers at the binary level.</p>
+<h3>The Bitwise AND operator</h3>
+<pre>&amp; - binary AND operator</pre>
+<p>The binary &amp; operator is used to AND two numbers at the binary level</p>
+<pre>  11001010 <br>&amp; 00001111  //the result of this is 00001010</pre>
+<p>&nbsp;For each bit we compare the matching positions if both are a 1 then the result in that position is 1.</p>
+<h3>The Bitwise Shift Operators</h3>
+<p>Sometimes we want to trim off the last few digits of a binary number or we want to add some more digits. The shift operators let us do that. The best example of this is when we want to extract the red, green, and blue parts of a colour value.</p>
+<p>Hex colours are made up of three values 00-FF, 00-FF, and 00-FF. Each one is a number between 0 and 255.&nbsp;</p>
+<p>In binary, 255 is 11111111. That is 8 ones. So, for each colour there are 8 bits. The colour white is (255, 255, 255) or #FFFFFF.</p>
+<p>In binary white would be 11111111 11111111 11111111. That is why Jpegs are called 24 bit images. Each pixel is a colour made up of 24 bits. Black would be represented by 24 zeroes - 00000000 00000000 00000000.</p>
+<p>If you write 24 ones as a decimal number it is 2 to the power of 24 or 16,777,216.</p>
+<p>A random colour would be a value between 0 and 16,777,216.</p>
+<p>So, if we had the random number&nbsp;1,654,344, in binary that would be 00011001 00111110 01001000. The first 8 bits represent the red colour, the middle 8 bits are the green value, and the last 8 bits are the blue value.</p>
+<p>If you want to extract those three parts of the one colour, we will use the shift operator.</p>
+<p>For the red colour, we will shift the bits 16 places to the right. Basically, we are stripping off the rightmost 16 bits. Leaving us only the first 8 bits 00011001. In decimal, that would be - 25.</p>
+<p>For the blue colour, we will use the AND operator. We AND the whole number with 255 (or 11111111). This will make the left most 16 bits zero. Only the 8 right most bits could possibly line up with our 255. The result will be 01001000 or 72.</p>
+<p>For the green colour we need to do both things - shift over 8 bits and then AND the right most 8 bits with 11111111 (255). The green portion 00111110 is 62.</p>
+<p>So, the RGB version of&nbsp;<span>00011001 00111110 01001000 is rgb(25, 62, 72).</span></p>
+<p>&nbsp;</p>
+<h3>Codepen Samples</h3>
+<p>Here are some CodePens using the Bitwise operators.</p>
+<h4>Generating a Random Colour, Displaying it in RGB with Contrasting Text</h4>
+<p><iframe style="width: 100%;" src="//codepen.io/mad-d/embed/rrmJOv/?height=465&amp;theme-id=0&amp;default-tab=js,result&amp;embed-version=2" width="300" height="465" allowfullscreen="allowfullscreen">See the Pen &amp;amp;lt;a href="http://codepen.io/mad-d/pen/rrmJOv/"&amp;amp;gt;Random Colours Using Bitwise&amp;amp;lt;/a&amp;amp;gt; by Mobile Application Design-Development (&amp;amp;lt;a href="http://codepen.io/mad-d"&amp;amp;gt;@mad-d&amp;amp;lt;/a&amp;amp;gt;) on &amp;amp;lt;a href="http://codepen.io"&amp;amp;gt;CodePen&amp;amp;lt;/a&amp;amp;gt;.</iframe></p>
+<p>&nbsp;</p>
+<h4>Converting from HEX to decimal numbers for Colours</h4>
+<p><iframe style="width: 100%;" src="//codepen.io/mad-d/embed/wzdpXG/?height=439&amp;theme-id=0&amp;default-tab=js,result&amp;embed-version=2" width="300" height="439" allowfullscreen="allowfullscreen">See the Pen &amp;amp;amp;lt;a href="http://codepen.io/mad-d/pen/wzdpXG/"&amp;amp;amp;gt;wzdpXG&amp;amp;amp;lt;/a&amp;amp;amp;gt; by Mobile Application Design-Development (&amp;amp;amp;lt;a href="http://codepen.io/mad-d"&amp;amp;amp;gt;@mad-d&amp;amp;amp;lt;/a&amp;amp;amp;gt;) on &amp;amp;amp;lt;a href="http://codepen.io"&amp;amp;amp;gt;CodePen&amp;amp;amp;lt;/a&amp;amp;amp;gt;.</iframe></p>
+<p>&nbsp;</p>
+<h4>Calculating Odd and Even</h4>
+<p><a href="http://s.codepen.io/mad-d/debug/RGVQBK" class="external" target="_blank" rel="noreferrer"><span>http://s.codepen.io/mad-d/debug/RGVQBK</span><span aria-hidden="true" class="ui-icon ui-icon-extlink ui-icon-inline" title="Links to an external site."></span><span class="screenreader-only">&nbsp;(Links to an external site.)</span></a>&nbsp;- open this one in a new page and open the development tools console to see the results.</p>
+<p>&nbsp;</p>
+<p>MDN reference for Bitwise operators</p>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Bitwise_Operators" class="external" target="_blank" rel="noreferrer"><span>https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Bitwise_Operators</span><span aria-hidden="true" class="ui-icon ui-icon-extlink ui-icon-inline" title="Links to an external site."></span><span class="screenreader-only">&nbsp;(Links to an external site.)</span></a></p>
+<p>&nbsp;</p>
+  
+</div>
+
+<div class="show-content user_content clearfix enhanced">
+  <h1 class="page-title">geolocation API</h1>
+  
+    <p>Geolocation in the browser runs through&nbsp;two methods</p>
+<pre>navigator.geolocation.getCurrentPosition( successCallback, failCallback, options);<br>navigator.geolocation.watchPosition( successCallback, failCallback, options);</pre>
+<p>The two functions are the same except that getCurrentPosition runs once and watchPosition runs repeatedly. If you want to stop the watchPosition method running then we call:</p>
+<pre>navigator.geolocation.clearWatch();</pre>
+<p>Both methods accept a success callback function and a failure callback function. The success function will be passed a position object. The failure callback will be passed a position error object. See the code below for examples.</p>
+<p>Position reference -&nbsp;<a href="https://developer.mozilla.org/en-US/docs/Web/API/Position" class="external" target="_blank" rel="noreferrer"><span><span>https://developer.mozilla.org/en-US/docs/Web/API/Position</span><span class="screenreader-only">&nbsp;(Links to an external site.)</span></span><span class="ui-icon ui-icon-extlink ui-icon-inline" title="Links to an external site."></span></a>&nbsp;</p>
+<p>PositionError reference -&nbsp;<a href="https://developer.mozilla.org/en-US/docs/Web/API/PositionError" class="external" target="_blank" rel="noreferrer"><span><span>https://developer.mozilla.org/en-US/docs/Web/API/PositionError</span><span class="screenreader-only">&nbsp;(Links to an external site.)</span></span><span class="ui-icon ui-icon-extlink ui-icon-inline" title="Links to an external site."></span></a>&nbsp;</p>
+<p>The third parameter is the options object.</p>
+<pre>let options = {<br>  enableHighAccuracy: true,<br>  timeout: 5000,<br>  maximumAge: 0<br>}</pre>
+<p>more details on the options - <a href="https://developer.mozilla.org/en-US/docs/Web/API/PositionOptions" class="external" target="_blank" rel="noreferrer"><span><span>https://developer.mozilla.org/en-US/docs/Web/API/PositionOptions</span><span class="screenreader-only">&nbsp;(Links to an external site.)</span></span><span class="ui-icon ui-icon-extlink ui-icon-inline" title="Links to an external site."></span></a> &nbsp;</p>
+<p>&nbsp;</p>
+<p><iframe style="width: 100%;" src="//codepen.io/mad-d/embed/mymOBy/?height=526&amp;theme-id=0&amp;default-tab=js,result&amp;embed-version=2" width="300" height="526" allowfullscreen="allowfullscreen">See the Pen &amp;lt;a href="https://codepen.io/mad-d/pen/mymOBy/"&amp;gt;Geolocation&amp;lt;/a&amp;gt; by Mobile Application Design-Development (&amp;lt;a href="http://codepen.io/mad-d"&amp;gt;@mad-d&amp;lt;/a&amp;gt;) on &amp;lt;a href="http://codepen.io"&amp;gt;CodePen&amp;lt;/a&amp;gt;.</iframe></p>
+<p>&nbsp;</p>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/API/Geolocation" class="external" target="_blank" rel="noreferrer"><span><span>https://developer.mozilla.org/en-US/docs/Web/API/Geolocation</span><span class="screenreader-only">&nbsp;(Links to an external site.)</span></span><span class="ui-icon ui-icon-extlink ui-icon-inline" title="Links to an external site."></span></a></p>
+<p>&nbsp;</p>
+  
+</div>
+
+<div class="show-content user_content clearfix enhanced">
+  <h1 class="page-title">Date methods</h1>
+  
+    <p>Dates in JavaScript are a special type of Object. They are not just Strings.</p>
+<p>They have a long list of methods that we can use to set or retrieve a date value or a portion of the date. To create a Date object we need to use the <strong>new</strong> constructor.</p>
+<pre>let today = new Date();<br>let dt1 = new Date('28/9/2016 14:30:00.000');<br>let dt2 = new Date(2016, 9, 28, 14, 30, 0);</pre>
+<p>The first line above will create a new Date object and it will fill it with the current date and time from the computer that is running the script.</p>
+<p>The second line creates a new Date object and sets a specific date and time. We pass in a String with a valid date and time. The values for day, month, year, hour, minutes, seconds, and milliseconds would be set inside our Date object. The String that is passed in must be a date string that would be recognized by the Date.parse( ) method. See here for examples -&nbsp;<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/parse#Examples" class="external" target="_blank" rel="noreferrer"><span><span>https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/parse#Examples</span><span class="screenreader-only">&nbsp;(Links to an external site.)</span></span><span class="ui-icon ui-icon-extlink ui-icon-inline" title="Links to an external site."></span></a>&nbsp;</p>
+<p>The third line accepts up to seven arguments for the parts of the Date. The last argument is the milliseconds. dt2 will contain the same date as dt1 from the example code.</p>
+<p>&nbsp;</p>
+<h3>Setting Date Values</h3>
+<p>If you want to update any part of the date or time then we use one of the following methods.</p>
+<pre>today.setHours(12);         // from 0-23. OR  setHours(hour, mins, seconds, milliseconds)<br>today.setMinutes(3);        // from 0-59. OR setMinutes(mins, seconds, milliseconds)<br>today.setSeconds(50);       // from 0 - 59  OR setSeconds(seconds, milliseconds)<br>today.setMilliseconds(123); // from 0 - 999<br>today.setFullYear(2044);<br>today.setMonth(0);          //value from 0 - 11 (like an array) OR setMonth( month, day)<br>today.setDate();            //value from 1 - 31  invalid dates will move forward to a valid one<br><br>Date.UTC(y, m, d, hr, min, sec, ms);  //creates a date object and returns the timestamp<br>                                      //equivalent of the date</pre>
+<p>&nbsp;</p>
+<h3>Retrieving Date Values</h3>
+<p>If you want to retrieve any part of the date or time then you can use the matching "get" methods. Start with using your Date variable and then call the method on the variable</p>
+<pre>today.getHours();<br>today.getMinutes();<br>today.getSeconds();<br>today.getMilliseconds();<br>today.getFullYear();<br>today.getMonth();        // value from 0 - 11<br>today.getDate();         // value from 1 - 31<br>today.getDay();          //day of week Sunday (0) - Saturday (6)<br><br>Date.now();       //Using the Date object, call now( ) to get a timestamp<br>                  //which is the number of milliseconds since the start of the UNIX Epoch<br>                  //midnight January 1, 1970</pre>
+<p>&nbsp;</p>
+<h3>Outputting Dates</h3>
+<p>There are many methods for outputting the date object's value. Here is a list of the various methods.</p>
+<pre>today.toDateString(); //returns the date portion in human readable format<br>today.toTimeString(); //returns the time portion in human readable format</pre>
+<p>&nbsp;<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toDateString" class="external" target="_blank" rel="noreferrer"><span><span>https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toDateString</span><span class="screenreader-only">&nbsp;(Links to an external site.)</span></span><span class="ui-icon ui-icon-extlink ui-icon-inline" title="Links to an external site."></span></a></p>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toTimeString" class="external" target="_blank" rel="noreferrer"><span><span>https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toTimeString</span><span class="screenreader-only">&nbsp;(Links to an external site.)</span></span><span class="ui-icon ui-icon-extlink ui-icon-inline" title="Links to an external site."></span></a>&nbsp;</p>
+<pre>today.toISOString();  //<span>returns a string in </span><em>simplified</em><span> extended ISO format</span></pre>
+<p>&nbsp;<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString" class="external" target="_blank" rel="noreferrer"><span><span>https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString</span><span class="screenreader-only">&nbsp;(Links to an external site.)</span></span><span class="ui-icon ui-icon-extlink ui-icon-inline" title="Links to an external site."></span></a></p>
+<pre>today.toJSON();   //converts the date to a string intended to be used in JSON</pre>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toJSON" class="external" target="_blank" rel="noreferrer"><span><span>https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toJSON</span><span class="screenreader-only">&nbsp;(Links to an external site.)</span></span><span class="ui-icon ui-icon-extlink ui-icon-inline" title="Links to an external site."></span></a>&nbsp;</p>
+<pre>today.toLocaleDateString('en-CA');  //returns a string representation based on the <br>                                    //computer's locale settings or provided locale<br>today.toLocaleString('en-GB');      //same thing effectively<br>today.toLocaleString('en-US');</pre>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toLocaleDateString" class="external" target="_blank" rel="noreferrer"><span><span>https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toLocaleDateString</span><span class="screenreader-only">&nbsp;(Links to an external site.)</span></span><span class="ui-icon ui-icon-extlink ui-icon-inline" title="Links to an external site."></span></a></p>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toLocaleString" class="external" target="_blank" rel="noreferrer"><span><span>https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toLocaleString</span><span class="screenreader-only">&nbsp;(Links to an external site.)</span></span><span class="ui-icon ui-icon-extlink ui-icon-inline" title="Links to an external site."></span></a></p>
+<pre>today.toUTCString();  //returns the date string using UTC time zone</pre>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toUTCString" class="external" target="_blank" rel="noreferrer"><span><span>https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toUTCString</span><span class="screenreader-only">&nbsp;(Links to an external site.)</span></span><span class="ui-icon ui-icon-extlink ui-icon-inline" title="Links to an external site."></span></a>&nbsp;</p>
+<p>&nbsp;</p>
+<h3>Working With Months</h3>
+<p>In the JavaScript Date object, months are stored as a number between 0 and 11.&nbsp;</p>
+<p>If you want to see or use the name of the month then you need to create your own array of the month names and use the Date object month as the index for that array.</p>
+<pre>let months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Sep','Oct','Nov','Dec'];<br>let today = new Date();<br>console.log('Current month is:', months[ today.getMonths() ] );</pre>
+<p>&nbsp;</p>
+<h3>Converting to Timestamps (unary)</h3>
+<p>The unary operator is an easy way to convert a date into its numeric timestamp.</p>
+<pre>let timestamp = +today;        //convert the value in the date to a timestamp<br>let timestamp = +new Date();   //convert the current computer time to a timestamp</pre>
+<p>&nbsp;</p>
+<p>The Date object reference page:</p>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" class="external" target="_blank" rel="noreferrer"><span><span>https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date</span><span class="screenreader-only">&nbsp;(Links to an external site.)</span></span><span class="ui-icon ui-icon-extlink ui-icon-inline" title="Links to an external site."></span></a></p>
+<p>&nbsp;</p>
+<h3>Moment.JS Library</h3>
+<p>If you are building something that works with a lot of dates or times then it can help to have a JavaScript library that you can use. MomentJS is a great JS library&nbsp;<a href="http://momentjs.com/" class="external" target="_blank" rel="noreferrer"><span><span>http://momentjs.com/</span><span class="screenreader-only">&nbsp;(Links to an external site.)</span></span><span class="ui-icon ui-icon-extlink ui-icon-inline" title="Links to an external site."></span></a>&nbsp;for formatting and validating dates.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+  
+</div>
+
+<div class="show-content user_content clearfix enhanced">
+  <h1 class="page-title">JavaScript Timers</h1>
+  
+    <h3>Timeouts&nbsp;</h3>
+<p>&nbsp;When you want to run a function after a specific time delay then setTimeout is the built-in function to accomplish this.</p>
+<pre>setTimeout( myFunc, 3000);  //call the function myFunc after 3000ms<br>setTimeout( function(){ alert('hi'); }, 2500);  //run the anonymous function after 2500ms<br>setTimeout( 'myFunc()', 1000);     //call the function myFunc after 1 second<br>window.setTimeout( myFunc, 300);   //same as first example</pre>
+<p>&nbsp;</p>
+<h3>Intervals</h3>
+<p>When you want to run something repeatedly after a set time, for example, once every ten seconds, then setInterval is the function to call.&nbsp;</p>
+<p>Timers running on intervals can be stopped if you call the clearInterval( ) method. Just make sure that you keep a reference to the interval.</p>
+<pre>let intervalId = setInterval( myFunc, 3000);<br>//keep calling myFunc every 3 seconds <br>....<br>//use the intervalId to stop the interval calls running<br>clearInterval( intervalId ); </pre>
+<p>&nbsp;</p>
+<h3>Recursive Timeouts</h3>
+<p>Another way to approach timed intervals is with a recursive call to the setTimeout function. Inside the function that runs following your setTimeout, you make another call to the same function. The process repeats itself.</p>
+<p>The difference with the recursive calls is that it allows us to change the amount of time between the calls or stop it after any call.&nbsp;</p>
+<p>We can use this method to create ever shorter time spans between callbacks or random times between callbacks.</p>
+<p>&nbsp;</p>
+<p>Here is a CodePen that shows the shrinking timeout. Click the Div to start the countdown. Each time the function runs, the delay between calls is reduced by 7%. When the delay is less than 15 milliseconds it will cease to callback the function.&nbsp;</p>
+<p><iframe style="width: 100%;" src="//codepen.io/mad-d/embed/xEAwkw/?height=456&amp;theme-id=0&amp;default-tab=js,result&amp;embed-version=2" width="300" height="456" allowfullscreen="allowfullscreen">See the Pen &amp;lt;a href="http://codepen.io/mad-d/pen/xEAwkw/"&amp;gt;JavaScript Recursive Timeouts&amp;lt;/a&amp;gt; by Mobile Application Design-Development (&amp;lt;a href="http://codepen.io/mad-d"&amp;gt;@mad-d&amp;lt;/a&amp;gt;) on &amp;lt;a href="http://codepen.io"&amp;gt;CodePen&amp;lt;/a&amp;gt;.</iframe></p>
+<p>&nbsp;</p>
+  
+</div>
+
+<div class="show-content user_content clearfix enhanced">
+  <h1 class="page-title">Creating Modal Windows with JavaScript</h1>
+  
+    <p>A Modal Window is like a pop-up interface that the user must interact with before returning to the main page. There are two key parts when creating Modal Windows in the browser. First you need to create an overlay and second you create the div that will appear on top of the overlay as the modal window.</p>
+<h3>Creating the Overlay</h3>
+<p>The overlay is mostly CSS. With JavaScript we will be toggling&nbsp;the value of <strong>display</strong>&nbsp;between <strong>none</strong>&nbsp;and&nbsp;<strong>block</strong>.</p>
+<p>The HTML:</p>
+<pre>&lt;div class="overlay"&gt;&lt;/div&gt;</pre>
+<p>The CSS:</p>
+<pre>.overlay{<br>  display:none;<br>  position: fixed;<br>  z-index: 100;<br>  top: 0;<br>  left: 0;<br>  right: 0;<br>  bottom: 0;<br>  background-color: hsla(0, 0%, 0%, 0.8);<br>}</pre>
+<p>We start the overlay as display none and then use JavaScript to switch it to display block. We position it so that it covers the entire screen and has a black 80% opaque background. So, it obscures most of the page content. The z-index needs to be a number higher than everything EXCEPT the modal window.</p>
+<p>&nbsp;</p>
+<h3>Creating the Modal</h3>
+<p>The modal is similar to the overlay. It is a div, positioned on top of the rest of the page. It covers MOST of the page. There will still be part of the overlay visible around and behind the modal.&nbsp;</p>
+<p>HTML for the Modal:</p>
+<pre>&lt;div class="modal"&gt;<br>  &lt;!-- content to show the user. Often this will contain a form --&gt;<br>  &lt;button id="btnClose"&gt;Close | Save&lt;/button&gt;<br>&lt;/div&gt;</pre>
+<p>CSS for the Modal:</p>
+<pre>.modal{<br>  display: none;<br>  position: fixed; /* so it doesn't matter about scrolling */<br>  z-index: 200;  /* some number higher than the overlay */<br>  top: 10vh;<br>  left: 10vw;<br>  right: 10vw;<br>  bottom: 10vh;<br>  background-color: #e4e4e4;<br>}</pre>
+<p>The modal needs a z-index that is higher than the overlay. It will be position fixed to avoid any issues with the main page being scrolled. For it's top, right, bottom, and left values we want to use percentages to keep it contained, regardless of the size of the screen. If you use the % unit, many browsers will use the width of the parent element to calculate the size. While that works for the width, it can cause problems for the height of your modal.&nbsp;</p>
+<p>So, instead we use the vw and vh units. vw is a percentage of the viewport width and vh is a percentage of the viewport height. Alternatively we can provide a value for top and left and then use</p>
+<pre>width: 80vw;<br>height: 80vh;</pre>
+<p>Remember to provide a colour for your modal window. The default background is transparent.</p>
+<p>The JavaScript to hide the modal</p>
+<pre>document.querySelector("#btnClose").addEventListener("click", function(ev){<br>  ev.preventDefault();<br>  /* if the button was a submit button we need to stop the form submitting */<br><br>  document.querySelector(".overlay").style.display = "none";<br>  document.querySelector(".modal").style.display = "none";<br>  /* Add any code you need to process the contents of the form <br>    shown in the modal window */<br>});</pre>
+<p>To show the modal we would just do the reverse, set display = "block" for both divs.</p>
+<p>&nbsp;&nbsp;</p>
+  
+</div>
+
+<div id="assignment_show" class="assignment content_underline_links">
+    <!--Student View-->
+    <div class="assignment-title">
+      <div class="title-content">
+        <h1 class="title">
+          LocalStorage Contacts
+        </h1>
+      </div>
+      <div class="assignment-buttons">
+        <span style="display: inline-block">
+          
+        </span>
+        <a class="btn btn-primary submit_assignment_link " href="#">Re-submit Assignment</a>
+      </div>
+    </div>
+    <ul class="student-assignment-overview">
+      <li>
+        <span class="title">Due</span>
+        <span class="value">
+          <span class="date_text">
+                <span class="display_date">Nov 22</span> by 
+                <span class="display_time">11:59pm</span>
+          </span>
+        </span>
+      </li>
+      <li>
+        <span class="title">Points</span>
+        <span class="value">15</span>
+      </li>
+        <li>
+          <span class="title">Submitting</span>
+          <span class="value">a website url</span>
+        </li>
+      
+      <div class="clear"></div>
+    </ul>
+
+  <div class="clear"></div>
+
+
+  <div class="clear"></div>
+
+  <div class="description user_content student-version enhanced"><h3>Description</h3>
+<p>You will build an HTML page that displays&nbsp;a list of contact information saved in localStorage and a pop-up form for adding and editing contacts. Each item in the list should have a button to delete the contact. Adding a contact will save the information in localStorage. Editing an item will update the information in localStorage.</p>
+<p>Everytime localStorage is updated, the interface should be updated to reflect the change in localStorage.</p>
+<h3>Layout</h3>
+<p><iframe style="width: 100%;" src="//codepen.io/mad-d/embed/6c79314f69908752d233b29e5ace6ece/?height=536&amp;theme-id=0&amp;default-tab=result&amp;embed-version=2" width="300" height="536" allowfullscreen="allowfullscreen">See the Pen &amp;amp;amp;lt;a href="http://codepen.io/mad-d/pen/6c79314f69908752d233b29e5ace6ece/"&amp;amp;amp;gt;Contact Manager&amp;amp;amp;lt;/a&amp;amp;amp;gt; by Mobile Application Design-Development (&amp;amp;amp;lt;a href="http://codepen.io/mad-d"&amp;amp;amp;gt;@mad-d&amp;amp;amp;lt;/a&amp;amp;amp;gt;) on &amp;amp;amp;lt;a href="http://codepen.io"&amp;amp;amp;gt;CodePen&amp;amp;amp;lt;/a&amp;amp;amp;gt;.</iframe></p>
+<h3>Restrictions</h3>
+<p>All your contact information must be saved as a single key in localstorage.</p>
+<p>You must use your Algonquin username as the key to store your information. Eg: abcd0001&nbsp;</p>
+<p>When you app starts, check to see if the key exists, if not then create it and add yourself as the first contact.</p>
+<h3>References</h3>
+<p>Sample JSON data. This is just an example of the type of data that could be stored. Use these fields, but your own values.</p>
+<pre>[{"fullname":"Han Solo","phone":"613-727-4723","email":"han.solo@falcon.com"},<br>{"fullname":"Luke Skywalker","phone":"613-321-8765","email":"luke.skywalker@jedi.org"},<br>{"fullname":"Kylo Ren","phone":"613-876-9400","email":"kylo.ren@firstorder.io"}]&nbsp;</pre>
+<p>You need to have a full name, phone number, and email address field for each person that you save.&nbsp;</p>
+<p>&nbsp;</p>
+<h3>Submission</h3>
+<p>Upload your finished HTML, CSS, and JS to the edumedia server.</p>
+<p>Save your web app inside a folder /mad9014/contacts/index.html</p>
+<p>Eg: <a href="https://abcd0001.edumedia.ca/mad9014/contacts/index.html" class="external" target="_blank" rel="noreferrer"><span><span>https://abcd0001.edumedia.ca/mad9014/contacts/index.html</span><span class="screenreader-only">&nbsp;(Links to an external site.)</span></span><span class="ui-icon ui-icon-extlink ui-icon-inline" title="Links to an external site."></span></a></p>
+<p>&nbsp;</p>
+<h3>Challenges</h3>
+<p>1. Add automatic sorting to the list of names. See the <a class="" title="Numeric or Multi-dimensional Sorting" href="/courses/501988/pages/numeric-or-multi-dimensional-sorting" target="" data-api-endpoint="https://algonquin.instructure.com/api/v1/courses/501988/pages/numeric-or-multi-dimensional-sorting" data-api-returntype="Page">Numeric or Multi-dimensional Sorting</a>&nbsp;page.</p>
+<p>2. Add CSS transitions to the modal window that appears when you add or edit a contact so it animates on and off the screen.</p>
+<p>&nbsp;</p></div>
+
+
+  <div style="display: none;">
+    <span class="timestamp">1479877140</span>
+    <span class="due_date_string">11/22/2016</span>
+    <span class="due_time_string">11:59pm</span>
+  </div>
+</div>
+
+
+
+
+</div>
+
+ <div class=“week10”>
+
+<div class="show-content user_content clearfix enhanced">
+  <h1 class="page-title">Week 10 Summary</h1>
+  
+    <h1 style="font-weight: 200;">&nbsp;</h1>
+<h4>
+<strong><strong>Learning Objective:&nbsp;</strong></strong><span>By the end of this week, students will have demonstrated the following: How to install the Android SDK, Android APIs, Android AVDs, and run the Emulator.</span>
+</h4>
+<p>&nbsp;</p>
+<table style="height: 229px; float: left;" border="1px" width="100%">
+<tbody>
+<tr>
+<th style="background-color: #99cc00;" width="30%">Prior to Class</th>
+<th style="background-color: #99cc00;" width="30%">During Class</th>
+<th style="background-color: #99cc00;" width="30%">Following Class</th>
+</tr>
+<tr>
+<td style="vertical-align: top;">
+<ul>
+<li>Review material from first nine weeks</li>
+<li>Read the contents of Module 10</li>
+<li>Finish&nbsp;the <a class="" title="Forecast Web App" href="https://algonquin.instructure.com/courses/501988/assignments/4783226" target="" data-api-endpoint="https://algonquin.instructure.com/api/v1/courses/501988/assignments/4783226" data-api-returntype="Assignment">Forecast Web App</a>&nbsp;assignment&nbsp;</li>
+<li>Work on the&nbsp;<a class="" title="LocalStorage Contacts" href="https://algonquin.instructure.com/courses/501988/assignments/4783234" target="" data-api-endpoint="https://algonquin.instructure.com/api/v1/courses/501988/assignments/4783234" data-api-returntype="Assignment">LocalStorage Contacts</a>&nbsp;assignment</li>
+</ul>
+</td>
+<td style="vertical-align: top;">The learning activities for this week will include:<br>
+<ul>
+<li>Lectures about programming concepts</li>
+<li>Lectures about the Android SDK, Android APIs, Android Emulator</li>
+<li>Lectures about Cordova</li>
+</ul>
+</td>
+<td style="vertical-align: top;">
+<ul>
+<li>Read all the content from this week's module</li>
+<li>Review all Tutorial material (video &amp; text)</li>
+<li>Read the Summary for next week</li>
+<li>Finish&nbsp;the&nbsp;<a class="" title="LocalStorage Contacts" href="https://algonquin.instructure.com/courses/501988/assignments/4783234" target="" data-api-endpoint="https://algonquin.instructure.com/api/v1/courses/501988/assignments/4783234" data-api-returntype="Assignment">LocalStorage Contacts</a>&nbsp;assignment</li>
+<li>Work on the&nbsp;<a class="" title="JS Best Practices" href="https://algonquin.instructure.com/courses/501988/assignments/4783229" target="" data-api-endpoint="https://algonquin.instructure.com/api/v1/courses/501988/assignments/4783229" data-api-returntype="Assignment">JS Best Practices</a>&nbsp;assignment</li>
+</ul>
+<ul></ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+  
+</div>
+
+<div id="content" class="ic-Layout-contentMain" role="main">
+            
+
+<div id="wiki_page_show">
+<div class="header-bar-outer-container">
+  <div class="header-bar-container sticky-toolbar" data-sticky="">
+    <div class="header-bar flex-container">
+      <div class="header-bar-left header-left-flex">
+        
+          
+        
+      </div>
+      <div class="header-bar-right header-right-flex">
+        
+          
+          
+            
+          
+        
+        
+        
+      </div>
+    </div>
+    <div class="page-changed-alert" role="alert" aria-atomic="true" aria-live="polite"></div>
+  </div>
+</div>
+
+
+<div class="show-content user_content clearfix enhanced">
+  <h1 class="page-title">Preparing your Android Environment</h1>
+  
+    <p>Before proceeding, you have a rather important decision to make: you can choose to develop your Android apps on Mac or Windows (or both if you really want to, but not recommended). If your preference is Windows, then be mindful and boot your Mac to run Windows natively. Running Windows as a virtual machine for your Android development would not be wise. You should know why.</p>
+<p>Before choosing, please know this: I will be using my Mac exclusively for all of my Android development in this course.</p>
+<p>The choice is now yours to make; you've made an informed choice.</p>
+<h3>Get the Java JDK</h3>
+<p>The Java programming language is used to create <em>native</em> Android applications.</p>
+<p>For this course, you are instructed to use this version of the Java Development Kit (JDK): <a class="external" title="Java JDK" href="http://www.oracle.com/technetwork/java/javase/downloads/index.html" target="_blank" rel="noreferrer"><span><span><span>Java SE 8u92</span><span class="screenreader-only">&nbsp;(Links to an external site.)</span></span></span><span class="ui-icon ui-icon-extlink ui-icon-inline" title="Links to an external site."></span></a></p>
+<p>Notes:</p>
+<ul>
+<li>we're Android developers, so we require the full JDK. The Java Runtime Edition (JRE) cannot be used to develop Java applications nor Android apps</li>
+<li>the JDK includes the JRE (but not vice-versa; see the previous statement :)</li>
+</ul>
+<h4>Reference Screen Shot</h4>
+<p>Accept Oracle's Licence Agreement:</p>
+<p><img src="https://algonquin.instructure.com/courses/501988/files/42478075/preview" alt="javaSDK.png" width="769" height="1105" data-api-endpoint="https://algonquin.instructure.com/api/v1/courses/501988/files/42478075" data-api-returntype="File" style="max-width: 974px;"></p>
+<h3>The Android Integrated Development Environment (IDE)</h3>
+<p>"Android Studio is the official IDE for Android application development (source: http://developer.android.com/tools/studio)."</p>
+<p><a class="external" title="" href="http://developer.android.com/sdk/index.html" target="_blank" rel="noreferrer"><span><span><span>Download</span><span class="screenreader-only">&nbsp;(Links to an external site.)</span></span></span><span class="ui-icon ui-icon-extlink ui-icon-inline" title="Links to an external site."></span></a> the latest version of Android Studio for your preferred operating system (remember, Mac for me). Make sure the Android SDK tools are bundled too; this is the default behaviour.</p>
+<p><u>Important Note Regarding Eclipse</u></p>
+<p>Eclipse is no longer the preferred IDE for Android development, as it's been replaced by Android Studio. As such, I won't be accepting Eclipse-based Android projects.</p>
+<p>&nbsp;</p>
+<h3>Verify Java</h3>
+<p>Verify you have the correct version of the Java compiler (javac) and the Java virtual machine (java).</p>
+<p>javac is the Java compiler (man javac). Recall from your OOP course, the Java compiler takes your Java source files (*.java) and compiles them into Java byte files (*.class). The generated byte codes within the .class files are machine independent. That means Java runs on any platform that has a Java virtual machine (a.k.a java). The Java virtual machine --- simply known as java --- load the .class files and interprets the Java byte codes. Cool, eh?</p>
+<p>On the Mac, open Terminal.app and run: javac -version</p>
+<p>Next, run: java -version</p>
+<p>Finally, run: env | grep '^JAVA_HOME\|^PATH' | sort</p>
+<p>Your $PATH should be <em>similar</em> to mine:</p>
+<p><img src="https://algonquin.instructure.com/courses/501988/files/42478084/preview" alt="java-env.png" data-api-endpoint="https://algonquin.instructure.com/api/v1/courses/501988/files/42478084" data-api-returntype="File" style="max-width: 974px;"></p>
+<p>What's important is that you see Java and Android in your $PATH.&nbsp;My $PATH includes others paths, such as /opt/local. It's OK if &nbsp;you don't see /opt/bin (for example).</p>
+  
+</div>
+<div><div class="module-sequence-padding"></div>
+<div class="module-sequence-footer" role="navigation" aria-label="Module Navigation">
+  <div class="module-sequence-footer-content">
+    
+      <a href="https://algonquin.instructure.com/courses/501988/modules/items/9423485" role="button" class="Button module-sequence-footer-button--previous" data-tooltip="right" data-html-tooltip-title="<i class='icon-document'></i> Week 10 Summary" aria-describedby="msf0-previous-desc">
+        <i class="icon-mini-arrow-left"></i>Previous
+        <span id="msf0-previous-desc" class="hidden" hidden="">Previous: Week 10 Summary</span>
+      </a>
+    
+
+    
+      <a href="https://algonquin.instructure.com/courses/501988/modules/items/9423487" role="button" class="Button module-sequence-footer-button--next" data-tooltip="left" data-html-tooltip-title="<i class='icon-document'></i> Installing the Android SDK" aria-describedby="msf0-next-desc">
+        Next<i class="icon-mini-arrow-right"></i>
+        <span id="msf0-next-desc" class="hidden" hidden="">Next: Installing the Android SDK</span>
+      </a>
+    
+  </div>
+</div>
+</div></div>
+
+          </div>
+
+<div class="show-content user_content clearfix enhanced">
+  <h1 class="page-title">Installing the Android SDK</h1>
+  
+    <p>The Android SDK (Software Development Kit) is the software that lets you compile a Project written in Java into a runnable Android program.</p>
+<p>The Android SDK can be downloaded and installed separately. However, when you install the Android Studio IDE, the SDK is included.</p>
+<p>Downloading the SDK separately -&nbsp;<a href="https://developer.android.com/studio/index.html#downloads" class="external" target="_blank" rel="noreferrer"><span><span>https://developer.android.com/studio/index.html#downloads</span><span class="screenreader-only">&nbsp;(Links to an external site.)</span></span><span class="ui-icon ui-icon-extlink ui-icon-inline" title="Links to an external site."></span></a>&nbsp;in the Downloads section of this page look for the title "Get just the command line tools".&nbsp;</p>
+<p>Downloading the Android Studio IDE (with the SDK) -&nbsp;<a href="https://developer.android.com/studio/index.html" class="external" target="_blank" rel="noreferrer"><span><span>https://developer.android.com/studio/index.html</span><span class="screenreader-only">&nbsp;(Links to an external site.)</span></span><span class="ui-icon ui-icon-extlink ui-icon-inline" title="Links to an external site."></span></a>&nbsp;</p>
+<p>Here is an introductory guide to the interface of Android Studio -&nbsp;<a href="https://developer.android.com/studio/intro/index.html" class="external" target="_blank" rel="noreferrer"><span><span>https://developer.android.com/studio/intro/index.html</span><span class="screenreader-only">&nbsp;(Links to an external site.)</span></span><span class="ui-icon ui-icon-extlink ui-icon-inline" title="Links to an external site."></span></a></p>
+<p>&nbsp;</p>
+<p>Installing the Android Studio is the easiest way to install the SDK.</p>
+<p>We will need the Android SDK installed to be able to use Cordova for the rest of the semester.</p>
+<p>&nbsp;</p>
+  
+</div>
+
+<div class="show-content user_content clearfix enhanced">
+  <h1 class="page-title">Updating Android API versions</h1>
+  
+    <p>Whenever Google updates Android to a new version they give a name to the new version. They have moved through the alphabet in order.&nbsp;Eg: version 6.0 is API version 23 and called Marshmallow. version 7.0 is API version 24 and called Nougat.</p>
+<p><a href="http://source.android.com/source/build-numbers.html" class="external" target="_blank" rel="noreferrer"><span><span>http://source.android.com/source/build-numbers.html</span><span class="screenreader-only">&nbsp;(Links to an external site.)</span></span><span class="ui-icon ui-icon-extlink ui-icon-inline" title="Links to an external site."></span></a>&nbsp;provides a list of all the build numbers and names.</p>
+<p>If you ever want a breakdown of the current usage of Android by version -&nbsp;<a href="https://developer.android.com/about/dashboards/index.html" class="external" target="_blank" rel="noreferrer"><span><span>https://developer.android.com/about/dashboards/index.html</span><span class="screenreader-only">&nbsp;(Links to an external site.)</span></span><span class="ui-icon ui-icon-extlink ui-icon-inline" title="Links to an external site."></span></a>&nbsp;- this page will provide updated statistics about once per month.</p>
+<p>&nbsp;</p>
+<p>To be able to build for the latest versions of Android, you need to install the latest API version. This will be used by the SDK to compile your project and create your app.</p>
+<p>To launch the Android SDK Manager (Windows) from Android Studio: Tools &gt; Android &gt; SDK Manager.</p>
+<p>On the OSX version go to the Android Studio menu &gt; preferences &gt; System Settings &gt; Android</p>
+<p>Alternatively,&nbsp;you can&nbsp;click the&nbsp;<em>Launch Standalone SDK Manager </em>link in the menu. I personally prefer this option but either will work.</p>
+<p>&nbsp;</p>
+<p>We should have API versions 21, 22, 23, 24, and 25.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+  
+</div>
+
+<div class="show-content user_content clearfix enhanced">
+  <h1 class="page-title">Android Virtual Devices</h1>
+  
+    <p>Virtual Devices are a group of settings that define a virtual representation of an actual Android device. In order to test your applications you will use an Emulator. The emulator will need an AVD to know which version of the API to use and what&nbsp;hardware is available on the virtual device.</p>
+<p>&nbsp;</p>
+<h3>Create an Android Virtual Device</h3>
+<p>Launch the Android Virtual Device Manager from Android Studio: Tools&nbsp;&gt; Android &gt; AVD Manager</p>
+<p>Here is&nbsp;an example of Android Virtual Device (AVD) specifications:</p>
+<ol>
+<li>Select Hardware
+<ol>
+<li>Category: Phone (Nexus 6, Size 5.96", Resolution 1440x2560, Density 560dpi)</li>
+</ol>
+</li>
+<li>System Image &gt; Recommended (tab)
+<ol>
+<li>Marshmallow</li>
+<ol>
+<li>API Level: 23</li>
+<li>ABI: x86_64</li>
+<li>Target: Android 6.0 (with Google APIs)</li>
+</ol>
+</ol>
+</li>
+<li>Show Advanced Settings
+<ol>
+<li>Camera
+<ol>
+<li>Front:&nbsp;None</li>
+<li>Back: Webcam0</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>Change the AVD Name to: <strong>MAD9014</strong>
+</li>
+</ol>
+<p>&nbsp;</p>
+<h3>Creating an AVD from the Command Line</h3>
+<p>From the command line it is actually possible to create AVDs. Here is a cheatsheet&nbsp;<a href="http://codepen.io/mad-d/pen/OPPyOw" class="external" target="_blank" rel="noreferrer"><span><span>http://codepen.io/mad-d/pen/OPPyOw</span><span class="screenreader-only">&nbsp;(Links to an external site.)</span></span><span class="ui-icon ui-icon-extlink ui-icon-inline" title="Links to an external site."></span></a>&nbsp;on CodePen. It lists many Android and Cordova commands that you can call from the command line.</p>
+<pre><span>android create avd -n bob -t android-24</span></pre>
+<p>This line would create a new AVD with the name "bob" and include the API version 24.</p>
+<pre><span>android list avds</span></pre>
+<p><span>This command would provide you a list of AVDs that are currently available on your Macbook.</span></p>
+<p>&nbsp;</p>
+  
+</div>
+
+<div class="show-content user_content clearfix enhanced">
+  <h1 class="page-title">Android SDK Emulator</h1>
+  
+    <p><span>The Android Emulator simulates a device and displays it on your development computer. It lets you prototype, develop, and test Android apps without using a hardware device. </span></p>
+<p><span>The emulator supports Android phone, tablet, Android Wear, and Android TV devices. It comes with predefined device types so you can get started quickly, and you can create your own device definitions and emulator skins.</span></p>
+<p><span>The emulator is installed with Android Studio and/or the Android SDK</span></p>
+<p><span>Detailed information and full documentation is available here:</span></p>
+<p><span><a href="https://developer.android.com/studio/run/emulator.html" class="external" target="_blank" rel="noreferrer"><span><span>https://developer.android.com/studio/run/emulator.html</span><span class="screenreader-only">&nbsp;(Links to an external site.)</span></span><span class="ui-icon ui-icon-extlink ui-icon-inline" title="Links to an external site."></span></a></span></p>
+<p><span><strong>Note:</strong> This emulator requires <span style="color: #242729; font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; font-size: 15px; font-style: normal; font-weight: normal; text-align: left; text-indent: 0px; white-space: normal; background-color: #ffffff; display: inline !important; float: none;">Intel <strong>HAXM</strong> to be installed.</span></span></p>
+<p style="margin: 0.6em 0px 0.4em; padding: 0px; color: #000000; font-family: 'Segoe UI', Segoe, Calibri, 'Nimbus Sans L', Ubuntu, Tahoma, Arial, Helvetica, Verdana, sans-serif; font-size: 14px; font-style: normal; font-weight: normal; text-align: justify; text-indent: 0px; white-space: normal; background-color: #ffffff;">&nbsp;</p>
+<p style="margin: 0.6em 0px 0.4em; padding: 0px; color: #000000; font-family: 'Segoe UI', Segoe, Calibri, 'Nimbus Sans L', Ubuntu, Tahoma, Arial, Helvetica, Verdana, sans-serif; font-size: 14px; font-style: normal; font-weight: normal; text-align: justify; text-indent: 0px; white-space: normal; background-color: #ffffff;">To run your Android app under the emulator, you need to first create an Android Virtual Devices (AVD). An AVD models a specific device. You can create AVDs to emulate different android devices (phone/tablet, android version, screen size etc..).W</p>
+<p style="margin: 0.6em 0px 0.4em; padding: 0px; color: #000000; font-family: 'Segoe UI', Segoe, Calibri, 'Nimbus Sans L', Ubuntu, Tahoma, Arial, Helvetica, Verdana, sans-serif; font-size: 14px; font-style: normal; font-weight: normal; text-align: justify; text-indent: 0px; white-space: normal; background-color: #ffffff;">&nbsp;</p>
+<p style="margin: 0.6em 0px 0.4em; padding: 0px; color: #000000; font-family: 'Segoe UI', Segoe, Calibri, 'Nimbus Sans L', Ubuntu, Tahoma, Arial, Helvetica, Verdana, sans-serif; font-size: 14px; font-style: normal; font-weight: normal; text-align: justify; text-indent: 0px; white-space: normal; background-color: #ffffff;">In <strong>Windows&nbsp;</strong>a "Nexus 5"&nbsp;virtual device is installed during the installation., you can use this to get started.</p>
+<p style="margin: 0.6em 0px 0.4em; padding: 0px; color: #000000; font-family: 'Segoe UI', Segoe, Calibri, 'Nimbus Sans L', Ubuntu, Tahoma, Arial, Helvetica, Verdana, sans-serif; font-size: 14px; font-style: normal; font-weight: normal; text-align: justify; text-indent: 0px; white-space: normal; background-color: #ffffff;">&nbsp;</p>
+<p style="margin: 0.6em 0px 0.4em; padding: 0px; color: #000000; font-family: 'Segoe UI', Segoe, Calibri, 'Nimbus Sans L', Ubuntu, Tahoma, Arial, Helvetica, Verdana, sans-serif; font-size: 14px; font-style: normal; font-weight: normal; text-align: justify; text-indent: 0px; white-space: normal; background-color: #ffffff;">On <strong>Mac</strong></p>
+<ol style="margin: 0.3em 0px 0.2em 2.5em; padding: 0px; list-style-type: decimal; color: #000000; font-family: 'Segoe UI', Segoe, Calibri, 'Nimbus Sans L', Ubuntu, Tahoma, Arial, Helvetica, Verdana, sans-serif; font-size: 14px; font-style: normal; font-weight: normal; text-align: justify; text-indent: 0px; white-space: normal; background-color: #ffffff;">
+<li>In Android studio, select "Tools"&nbsp;then Android&nbsp;then AVD Manager.</li>
+<li>Click "Create Virtual Device".</li>
+<li>Select a phone and complete the creation process.</li>
+</ol>
+<p>&nbsp;</p>
+  
+</div>
+<div class="show-content user_content clearfix enhanced">
+  <h1 class="page-title">Visual Studio Android Emulator</h1>
+  
+    <p>The Visual Studio Android emulator boots and runs at nearly the speed of a physical device however, it&nbsp;requires Hyper-V Windows acceleration technology which is not compatible with HAXM.</p>
+<p>You can run the Visual Studio Android emulator side-by-side with the Windows Phone Emulator and other Hyper-V&nbsp;virtual machines,&nbsp;the Visual Studio Emulator for Android works over remote desktop.</p>
+<p>The Visual Studio Android emulator can be installed and used as a stand alone application, you do not need to install Visual studio.</p>
+<p>An extensive set of device profiles for the most popular hardware in the market, including devices from Samsung, Motorola, Sony, LG, and more is available and very easy to install.</p>
+<p>&nbsp;</p>
+<p>More information is available here:</p>
+<p><a href="https://www.visualstudio.com/vs/msft-android-emulator/" class="external" target="_blank" rel="noreferrer"><span><span>https://www.visualstudio.com/vs/msft-android-emulator/</span><span class="screenreader-only">&nbsp;(Links to an external site.)</span></span><span class="ui-icon ui-icon-extlink ui-icon-inline" title="Links to an external site."></span></a></p>
+  
+</div>
+
+<div class="show-content user_content clearfix enhanced">
+  <h1 class="page-title">JavaScript is prototype-based... Say what?</h1>
+  
+    <p>&nbsp;</p>
+<p><strong>FunFunFunction</strong> video PLAYLIST about Object creation in JavaScript</p>
+<p><a class="external youtubed" href="https://www.youtube.com/watch?v=GhbhD1HR5vk&amp;index=1&amp;list=PL0zVEGEvSaeHBZFy6Q8731rcwk0Gtuxub" target="_blank" rel="noreferrer"><span><span>https://www.youtube.com/watch?v=GhbhD1HR5vk&amp;index=1&amp;list=PL0zVEGEvSaeHBZFy6Q8731rcwk0Gtuxub</span><span class="screenreader-only">&nbsp;(Links to an external site.)</span></span><span class="ui-icon ui-icon-extlink ui-icon-inline" title="Links to an external site."></span></a><a href="https://www.youtube.com/watch?v=GhbhD1HR5vk&amp;index=1&amp;list=PL0zVEGEvSaeHBZFy6Q8731rcwk0Gtuxub" class="youtubed"><img src="/images/play_overlay.png" class="media_comment_thumbnail" style="background-image: url(//img.youtube.com/vi/GhbhD1HR5vk/2.jpg)"></a>&nbsp;</p>
+<p><strong>FunFunFunction</strong> video about the difference between prototype&nbsp;and__proto__</p>
+<p><a class="external youtubed" href="https://www.youtube.com/watch?v=DqGwxR_0d1M" target="_blank" rel="noreferrer"><span><span>https://www.youtube.com/watch?v=DqGwxR_0d1M</span><span class="screenreader-only">&nbsp;(Links to an external site.)</span></span><span class="ui-icon ui-icon-extlink ui-icon-inline" title="Links to an external site."></span></a><a href="https://www.youtube.com/watch?v=DqGwxR_0d1M" class="youtubed"><img src="/images/play_overlay.png" class="media_comment_thumbnail" style="background-image: url(//img.youtube.com/vi/DqGwxR_0d1M/2.jpg)"></a></p>
+<p>&nbsp;</p>
+<p><strong>FunFunFunction</strong> video on Object.create( )</p>
+<p><a class="external youtubed" href="https://www.youtube.com/watch?v=CDFN1VatiJA" target="_blank" rel="noreferrer"><span><span>https://www.youtube.com/watch?v=CDFN1VatiJA</span><span class="screenreader-only">&nbsp;(Links to an external site.)</span></span><span class="ui-icon ui-icon-extlink ui-icon-inline" title="Links to an external site."></span></a><a href="https://www.youtube.com/watch?v=CDFN1VatiJA" class="youtubed"><img src="/images/play_overlay.png" class="media_comment_thumbnail" style="background-image: url(//img.youtube.com/vi/CDFN1VatiJA/2.jpg)"></a></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/create" class="external" target="_blank" rel="noreferrer"><span><span>https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/create</span><span class="screenreader-only">&nbsp;(Links to an external site.)</span></span><span class="ui-icon ui-icon-extlink ui-icon-inline" title="Links to an external site."></span></a></p>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/assign" class="external" target="_blank" rel="noreferrer"><span><span>https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/assign</span><span class="screenreader-only">&nbsp;(Links to an external site.)</span></span><span class="ui-icon ui-icon-extlink ui-icon-inline" title="Links to an external site."></span></a></p>
+<p>&nbsp;</p>
+  
+</div>
+
+<div class="show-content user_content clearfix enhanced">
+  <h1 class="page-title">JavaScript is prototype-based... Say what?</h1>
+  
+    <p>&nbsp;</p>
+<p><strong>FunFunFunction</strong> video PLAYLIST about Object creation in JavaScript</p>
+<p><a class="external youtubed" href="https://www.youtube.com/watch?v=GhbhD1HR5vk&amp;index=1&amp;list=PL0zVEGEvSaeHBZFy6Q8731rcwk0Gtuxub" target="_blank" rel="noreferrer"><span><span>https://www.youtube.com/watch?v=GhbhD1HR5vk&amp;index=1&amp;list=PL0zVEGEvSaeHBZFy6Q8731rcwk0Gtuxub</span><span class="screenreader-only">&nbsp;(Links to an external site.)</span></span><span class="ui-icon ui-icon-extlink ui-icon-inline" title="Links to an external site."></span></a><a href="https://www.youtube.com/watch?v=GhbhD1HR5vk&amp;index=1&amp;list=PL0zVEGEvSaeHBZFy6Q8731rcwk0Gtuxub" class="youtubed"><img src="/images/play_overlay.png" class="media_comment_thumbnail" style="background-image: url(//img.youtube.com/vi/GhbhD1HR5vk/2.jpg)"></a>&nbsp;</p>
+<p><strong>FunFunFunction</strong> video about the difference between prototype&nbsp;and__proto__</p>
+<p><a class="external youtubed" href="https://www.youtube.com/watch?v=DqGwxR_0d1M" target="_blank" rel="noreferrer"><span><span>https://www.youtube.com/watch?v=DqGwxR_0d1M</span><span class="screenreader-only">&nbsp;(Links to an external site.)</span></span><span class="ui-icon ui-icon-extlink ui-icon-inline" title="Links to an external site."></span></a><a href="https://www.youtube.com/watch?v=DqGwxR_0d1M" class="youtubed"><img src="/images/play_overlay.png" class="media_comment_thumbnail" style="background-image: url(//img.youtube.com/vi/DqGwxR_0d1M/2.jpg)"></a></p>
+<p>&nbsp;</p>
+<p><strong>FunFunFunction</strong> video on Object.create( )</p>
+<p><a class="external youtubed" href="https://www.youtube.com/watch?v=CDFN1VatiJA" target="_blank" rel="noreferrer"><span><span>https://www.youtube.com/watch?v=CDFN1VatiJA</span><span class="screenreader-only">&nbsp;(Links to an external site.)</span></span><span class="ui-icon ui-icon-extlink ui-icon-inline" title="Links to an external site."></span></a><a href="https://www.youtube.com/watch?v=CDFN1VatiJA" class="youtubed"><img src="/images/play_overlay.png" class="media_comment_thumbnail" style="background-image: url(//img.youtube.com/vi/CDFN1VatiJA/2.jpg)"></a></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/create" class="external" target="_blank" rel="noreferrer"><span><span>https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/create</span><span class="screenreader-only">&nbsp;(Links to an external site.)</span></span><span class="ui-icon ui-icon-extlink ui-icon-inline" title="Links to an external site."></span></a></p>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/assign" class="external" target="_blank" rel="noreferrer"><span><span>https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/assign</span><span class="screenreader-only">&nbsp;(Links to an external site.)</span></span><span class="ui-icon ui-icon-extlink ui-icon-inline" title="Links to an external site."></span></a></p>
+<p>&nbsp;</p>
+  
+</div>
+
+
+
+</div>
    
    
     <hr> </body>
