@@ -7544,19 +7544,287 @@
 </div>
 </div></div>
     <hr>
-    
+    <div class="show-content user_content clearfix enhanced">
+  <h1 class="page-title">Week 6 Summary</h1>
+  
+    <h1 style="font-weight: 200;">&nbsp;</h1>
+<h4>
+<strong><strong>Learning Objective:&nbsp;</strong></strong><span>By the end of this week, students will have demonstrated the following: How to add event listeners to DOM elements and how to run functions that have access to information from the event object.</span>
+</h4>
+<p>&nbsp;</p>
+<table style="height: 229px; float: left;" border="1px" width="100%">
+<tbody>
+<tr>
+<th style="background-color: #99cc00;" width="30%">Prior to Class</th>
+<th style="background-color: #99cc00;" width="30%">During Class</th>
+<th style="background-color: #99cc00;" width="30%">Following Class</th>
+</tr>
+<tr>
+<td style="vertical-align: top;">
+<ul>
+<li>Review material from first five&nbsp;weeks</li>
+<li>Completed all the CodeSchool lessons on JavaScript</li>
+<li>Completed the <a class="" title="JSON &amp; XML" href="https://algonquin.instructure.com/courses/501988/assignments/4783233" target="" data-api-endpoint="https://algonquin.instructure.com/api/v1/courses/501988/assignments/4783233" data-api-returntype="Assignment">XML &amp; JSON assignment</a>
+</li>
+</ul>
+</td>
+<td style="vertical-align: top;">The learning activities for this week will include:<br>
+<ul>
+<li>Lectures about programming concepts</li>
+<li>Lectures and practice with&nbsp;JavaScript&nbsp;</li>
+<li>Working with JavaScript events and event listeners</li>
+</ul>
+</td>
+<td style="vertical-align: top;">
+<ul>
+<li>Read all the content from this week's module</li>
+<li>Review all Tutorial material (video &amp; text)</li>
+<li>Read the Summary for next week</li>
+<li>Start working on the&nbsp;<a class="" title="NameSpacing" href="https://algonquin.instructure.com/courses/501988/assignments/4783235" target="" data-api-endpoint="https://algonquin.instructure.com/api/v1/courses/501988/assignments/4783235" data-api-returntype="Assignment">NameSpacing</a>&nbsp;assignment</li>
+</ul>
+<ul></ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+  
+</div>
     <hr>
-    
+    <div class="show-content user_content clearfix enhanced">
+  <h1 class="page-title">Event Listeners</h1>
+  
+    <p>JavaScript is largely event-driven. Now, if you have never programmed with events before, that can seem like a pretty meaningless statement. So, let's break this statement down into smaller parts.</p>
+<h3>What is a Browser Event</h3>
+<p>A browser event is something that happens when a user interacts with a web page or some activity in the browser starts or ends. Examples of events: <strong>an image finishes loading; the browser finishes rendering the HTML of the current page; a data file has been brought back from a remote location; the user clicks on an HTML element; the user scrolls a webpage; the user presses a key on the keyboard</strong>. All of these things are events.</p>
+<h3>What is&nbsp;Event-Driven</h3>
+<p>When events are the trigger that starts your functions running it means that you are programming in an event-driven manner.</p>
+<p>Take the list of event examples from the previous paragraph, and add this phrase in front of each one,&nbsp;<strong>"you have a function that runs when"</strong>.</p>
+<h3>What is an Event Listener</h3>
+<p>The final part of this process is creating Event Listeners. An event listener is an object that sits in the background, attached to the web page, waiting for a specific type of event to occur. It is the glue between the event and the function that you want to run.</p>
+<p>Here is an example that will change the background colour of an h1 element to gold when the user clicks on it.</p>
+<pre>let h1 = document.querySelector("header h1");<br>h1.addEventListener("click", highlight);<br><br>function highlight(ev){<br>  ev.target.style.backgroundColor = "goldenrod";<br>}</pre>
+<p>The first line just finds the element to which&nbsp;you want to attach the listener.</p>
+<p>The second line creates the event listener object. It adds the event listener object to the h1 element and tells the event listener to listen for a "click" event. The second parameter in the addEventListener method is the name of a function to call when the event occurs.</p>
+<p>Inside the function declaration there is a variable called <code>ev</code>. This variable will be passed the click event when the function gets called. The event object contains a number of properties that can be quite useful. One of these properties is <strong>target</strong>. <code>ev.target</code> is the object with the event listener which called the function.&nbsp;</p>
+<p>In our example above <code>ev.target</code> is the local variable version of the <code>h1</code> variable. We can also use the keyword <code>this</code> as equivalent to <code>ev.target</code>.</p>
+<h4>Anonymous Functions</h4>
+<p>Another way of writing the code example from above would be with an anonymous (unnamed) function. Just replace the name of the function with the anonymous function declaration.</p>
+<pre>let h1 = document.querySelector("header h1");<br>h1.addEventListener("click", function(ev){<br>  ev.target.style.backgroundColor = "goldenrod";<br>});&nbsp;</pre>
+<p>This code will run the exact same way as the version above.&nbsp;</p>
+<p>The difference between the two is that the named function can be reused. It can be called by other parts of your code.</p>
+<h3>Leave Off the Parentheses</h3>
+<p>One very important part of the syntax here is that when we add the name of the function we must omit the parentheses at the end of the function name. If we leave the parentheses at the end of the name then JavaScript will immediately run the function and it is the result of the function that will be attached by the event listener.</p>
+<pre>var h1 = document.querySelector("header h1");<br>h1.addEventListener("click", setBold() );     //this is BAD<br><br>var h2 = document.querySelector("header h2");<br>h2.addEventListener("click", setBold );      //this is GOOD<br><br>function setBold(ev){<br>  ev.target.style.fontWeight = "900";<br>}</pre>
+<p>When the user clicks on the h1 element nothing will happen. In fact, as soon as the page loads we will have a JavaScript error that prevents your code from running. The second line of code will actually run the function <code>setBold</code> as soon as it is read. That means there is no <code>ev</code> object being passed. Since <code>ev</code> is <code>undefined</code> in our function, its first line will fail because it&nbsp;cannot find a property called <code>target</code> inside of <code>undefined</code>. The h2 version would work just fine, if not for the error.</p>
+<p>So, remember to <strong>omit the parentheses</strong>.</p>
+<p>&nbsp;</p>
+<h3>Removing Event Listeners</h3>
+<p>There will be times when you want to remove an event listener. Maybe you are building something that is intended to be clicked only once. So, you want to add the event listener but the first time the function is called you want to remove the listener so the function doesn't get called a second time.</p>
+<p>The syntax is almost the exact same as the <strong>addEventListener</strong> method.</p>
+<pre>let li = document.querySelector(".mainnav li:first-child");<br>li.removeEventListener("click", slide );</pre>
+<p>As long as you have a reference to the element that has the listener, you can remove it. You just pass the event type and the name of the function to the <code>removeEventListener</code> method.</p>
+<p>We need to pass both parameters because we can add an unlimited number of listeners to any element. We need to be specific about which one to remove.</p>
+<pre>let li = document.querySelector(".mainnav li:first-child");<br>li.addEventListener("mouseover", bounce );<br>li.addEventListener("click", slide );<br>li.addEventListener("mousedown", wobble );<br>li.addEventListener("mouseout", hum );<br>li.addEventListener("mousemove", spin );<br>li.removeEventListener("click", slide );</pre>
+<p>&nbsp;This example shows multiple listeners being added to the same object and then only ONE of them being removed.</p>
+<p>&nbsp;</p>
+<h3>Preventing Link and Form Problems</h3>
+<p>When you click a link or submit a form the browser wants to take over and actually load a new page in the browser or actually send the form off to the web server. If you want to run your own code and prevent the browser from reloading the current page then we need to add a call to the preventDefault method in our event function.</p>
+<pre>let a = document.querySelector("mainnav a"); //first link in our main nav<br>a.addEventListener("click", doSomethingCool );<br><br>function doSomethingCool(ev){<br>  ev.preventDefault( );<br>  ev.target.style.textDecoration = 'strike-through';<br>}</pre>
+<p>This example will prevent the browser from taking the user to the new page by calling the preventDefault method. The preventDefault method is another one of the things built into the Event object passed to the function.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<h3>Forcing Events to Happen</h3>
+<p>There will be times when you want to trigger one of your event listeners in your code without the user doing anything.</p>
+<p>Let's say that you have a function that you are using to display and highlight a message on the screen. In most cases this function is being called when the user clicks a button. You have an event listener attached to the button. That event listener calls the function to display the message and highlight it.</p>
+<p>We decide that we are going to dynamically load a new image and the image load event will have a listener to call some other function. We also want to call the function being used by the button click. If we know the name of the function it is easy to call. However, we will have to write code that handles the event object being missing.&nbsp;</p>
+<p>So, instead we will tell the browser to pretend that the user clicked on the button. This simulated click will actually trigger the function to display the message and highlight it.</p>
+<pre>element.dispatchEvent( eventType );</pre>
+<p>This is the basic syntax for making the browser think an event took place.</p>
+<p><iframe height="605" scrolling="no" src="//codepen.io/mad-d/embed/BLWprB/?height=605&amp;theme-id=0&amp;default-tab=js,result&amp;embed-version=2" frameborder="no" allowfullscreen="true" style="width: 100%;">See the Pen &amp;lt;a href="http://codepen.io/mad-d/pen/BLWprB/"&amp;gt;BLWprB&amp;lt;/a&amp;gt; by Mobile Application Design-Development (&amp;lt;a href="http://codepen.io/mad-d"&amp;gt;@mad-d&amp;lt;/a&amp;gt;) on &amp;lt;a href="http://codepen.io"&amp;gt;CodePen&amp;lt;/a&amp;gt;.
+</iframe></p>
+<p>&nbsp;</p>
+  
+</div>
     <hr>
-    <hr>
-    <hr>
-    <hr>
-    <hr>
-    <hr>
-    <hr>
-    <hr>
-    <hr>
-    <hr>
+   
+   <div class="show-content user_content clearfix enhanced">
+  <h1 class="page-title">DOM Events</h1>
+  
+    <p>There are many events inside the browser. Most of them are used to&nbsp;track user interaction with the webpage. Others are used to manage the loading and unloading of resources or Errors.</p>
+<p>You can create listeners for any of these events.</p>
+<p>&nbsp;</p>
+<h3>MouseEvents</h3>
+<pre>click, mousedown, mouseup, mousemove, mouseover, mouseout, focus, blur, dblclick, contextmenu&nbsp;</pre>
+<p>&nbsp;</p>
+<h3>File/Page related Events (images, scripts, html...)</h3>
+<pre>load, DOMContentLoaded, unload, scroll, resize</pre>
+<p>&nbsp;</p>
+<h3>Form Events</h3>
+<pre>submit,&nbsp;change, focus, blur, select, keydown, keyup, keypress, reset</pre>
+<p>&nbsp;</p>
+<h3>Error Event</h3>
+<pre>error</pre>
+<p>&nbsp;</p>
+  
+</div>
+   <hr>
+   <div class="show-content user_content clearfix enhanced">
+  <h1 class="page-title">Event Bubbling</h1>
+  
+    <p>HTML elements are nested inside other HTML elements. Parent elements are wrapped around child elements.</p>
+<p>When a mouse event happens to an element it can&nbsp;pass through other elements too. Using this image to demonstrate, think of a user clicking on a button that is on a webpage. The click will either pass from the &lt;button&gt; to the &lt;body&gt; to the &lt;html&gt; element OR it starts at the &lt;html&gt; and travels through the &lt;body&gt; to finally arrive at the &lt;button&gt;</p>
+<p><img src="https://algonquin.instructure.com/courses/501988/files/41593065/download" alt="Image" data-api-endpoint="https://algonquin.instructure.com/api/v1/courses/501988/files/41593065" data-api-returntype="File" style="max-width: 974px;"></p>
+<pre>&lt;html&gt;<br>  &lt;head&gt;<br>    &lt;title&gt;Event Bubbling&lt;/title&gt;<br>  &lt;/head&gt;<br>  &lt;body&gt;<br>    &lt;button id="myButton"&gt;Click me&lt;/button&gt;<br>  &lt;/body&gt;<br>&lt;/html&gt; </pre>
+<p>By default events bubble up. Looking at the&nbsp;HTML you can see that the &lt;body&gt; and the &lt;html&gt; elements are both ancestors&nbsp;of the &lt;button&gt; and they are also ABOVE the &lt;button&gt;.</p>
+<p>When you add event listeners, there is a third parameter (called useCapture) where we indicate if we want to use the Bubbling phase or the Capture phase when listening for the event.</p>
+<pre>let btn = document.getElementById("myButton");<br>btn.addEventListener("click", doSomething, false);  //this is the default - bubbling phase</pre>
+<p>To use the capture phase we would use true as the value for the third parameter</p>
+<pre>btn.addEventListener("click", doSomething, true); //use the capturing phase.</pre>
+<p>&nbsp;</p>
+<p>So, why is this important?</p>
+<p>Using the same page from above, consider this code:</p>
+<pre>let html = document.querySelector("html");<br>let body = document.querySelector("body");<br>let btn = document.querySelector("#myButton");<br><br>html.addEventListener("click", doSomethingA, false);<br>body.addEventListener("click", doSomethingB, false);<br>btn.addEventListener("click", doSomethingC, false);</pre>
+<p>When the user clicks the button, <strong>ALL THREE</strong> functions will run. The event will bubble up from the button to the html element.</p>
+<p>The <strong>button</strong> click - <strong>doSomethingC</strong> will run first</p>
+<p>Second will be the click on the <strong>body</strong> - <strong>doSomethingB</strong>.</p>
+<p>Third will be the click on the <strong>html</strong> - <strong>doSomethingA</strong>.</p>
+<p>What if you wanted to run them in the reverse order? <strong>doSomethingA</strong>, then <strong>doSomethingB</strong>, then <strong>doSomethingC</strong>?</p>
+<p>You would have to change the third parameter in all three addEventListener calls to <strong>true</strong>.</p>
+<p>&nbsp;</p>
+<h3>Stopping Events in Their Tracks</h3>
+<p>Here is another situation using the same three event listeners.&nbsp;</p>
+<p>We want to run the button click first, the body click second, and the html click third.</p>
+<p>However, if the user clicks the button we do NOT want the body or html click to run. We only want the html and body clicks to run if the user clicks somewhere on the page other than on the button.</p>
+<pre>event.stopPropagation( )</pre>
+<p>The stopPropagation method is what we need here. When called, this method will stop the event from bubbling in either direction.</p>
+<p>Step 1. make sure the events are bubbling from button to body to html</p>
+<pre>btn.addEventListener("click", doSomethingC, false);<br>body.addEventListener("click", doSomethingB, false);<br>html.addEventListener("click", doSomethingA, false);</pre>
+<p>Step 2. in the button click function stop the event from going any further.</p>
+<pre>function doSomethingC(ev){<br>  ev.stopPropagation( );  //prevent the click from bubbling<br>  // ... other code ...<br>}</pre>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+  
+</div>
+   <hr>
+   <div class="show-content user_content clearfix enhanced">
+  <h1 class="page-title">Keyword this</h1>
+  
+    <p>The keyword this can be a confusing one in JavaScript. It is typically a reference to the object that made a function run.</p>
+<p>For the purposes of this discussion we will limit the use of this to functions triggered by event listeners.</p>
+<pre>let btn1 = document.getElementById("myButton");<br>let btn2 = document.querySelector(".btn");<br>let btn3 = document.querySelector("#otherButton");<br><br>btn1.addEventListener("click", makeNoisy );<br>btn2.addEventListener("click", makeNoisy );<br>btn3.addEventListener("click", makeNoisy );<br><br>function makeNoisy(ev){<br>  ev.target.style.backgroundImage = "url(./img/noisy-pattern.png)";<br>}</pre>
+<p>In this example we have three different buttons being referenced in the variables btn1, btn2, and btn3.</p>
+<p>All three buttons have a click listener.</p>
+<p>All three click listeners will call the function <code>makeNoisy( )</code>.</p>
+<p>Inside the function makeNoisy, we are able to tell which button needs to have the background image added because ev.target gives us that information. The target property points to the button that was clicked.</p>
+<p>The keyword <code>this</code> works in the same way.</p>
+<pre>function makeNoisy( ev ){<br>  this.style.backgroundImage = "url(.img/noisy-pattern.png)";<br>}</pre>
+<p>We can replace <code>ev.target</code> with <code>this</code>.</p>
+<p>This points to the object in front of <code>addEventListener( )</code>.</p>
+<p>&nbsp;</p>
+  
+</div>
+   <hr>
+   <div class="show-content user_content clearfix enhanced">
+  <h1 class="page-title">Protecting Your Scripts with Namespaces</h1>
+  
+    <p>As the complexity of your web projects grows, you will eventually run into a situation where you are sharing the code writing duties with another person. You may or may not know the person. You may or may not be in contact with that person. You may just be using a JavaScript file provided to you by a previous employee at your company.</p>
+<p>Now, without opening their 3000 line JavaScript file and looking at all the function names... how can you write your JavaScript file in a way that will never conflict with theirs? How can you be sure that your variable and functions won't collide with theirs?</p>
+<p>The answer is by namespacing your file.</p>
+<p>Come up with a single unique name for your JavaScript. Use that as the name of your first object which will contain ALL your code.</p>
+<pre>let STEVE = {<br>  version: 1.0,<br>  date: "19/10/2016",<br>  num: 17,<br>  str: 'Hello World',<br>  message: function(msg){<br>    console.log('STEVE says', msg);<br>  }<br>};</pre>
+<p>If this is my JavaScript file then I have a single object which contains four&nbsp;properties: <code>version</code>, <code>num</code>, <code>str</code>, and <code>date</code>; plus a single method called <code>message</code>.</p>
+<p>To use my code from some other JS file:</p>
+<pre>let myMessage = "As of " + STEVE.date + " we are at version " + STEVE.version;<br>STEVE.message( myMessage );</pre>
+<p>Every time I want to use one of the properties or methods from my file I just prefix them with <code>STEVE.</code> .</p>
+<p>I can now pass my file off to anyone else to use. They can call their variables whatever they like. As long as they avoid one name - STEVE, then we are good to go.</p>
+<p>This process is known as namespacing.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+  
+</div>
+   <hr>
+   <div class="show-content user_content clearfix enhanced">
+  <h1 class="page-title">Controlling Webpages through CSS Classes</h1>
+  
+    <p>When writing your client-side JavaScript you will often be in a position where you are trying to draw your users attention to some part of the interface. You want them to notice your feedback message. You want to make them notice you just added new content to the page. You want them to realize that something was being removed.</p>
+<p>All of these changes can be thought of as <strong>state changes</strong>.</p>
+<p>A user being logged in or logged out is a difference in states.&nbsp;</p>
+<p>Adding something to a shopping cart is a state change.</p>
+<p>Adding new content to a page puts the page in an updated state.</p>
+<p>CSS classes are the best way to reflect these changes.&nbsp;</p>
+<p>&nbsp;</p>
+<h3>Multiple Team Members</h3>
+<p>Once your development team grows beyond a single person you are dividing the responsibilities of the site. Frequently that means one person or group is writing the JavaScript and one person or group is writing the CSS.&nbsp;</p>
+<p>Having the JavaScript developer changing individual style properties is not only an inefficient use of time, it is also prone to frequent errors and updates.</p>
+<p>The best plan is to have one person working on the CSS using an agreed upon list of CSS class names. Then the other developer can write the JavaScript to add and remove these classes.&nbsp;</p>
+<p>If changes in CSS classes (STATES) is immediate fine. If we want some type of animated change from one state to the other then the CSS programmer can add CSS transitions. This way the JavaScript developer never has to worry about the implementation details. To them,&nbsp;colour changes and transition animations should not matter. The JavaScript developer should worry about providing feedback to the user, gracefully handling errors, making sure the sequence of events on the page is logical.</p>
+<p>Leave design decisions to the designer.</p>
+<p>&nbsp;</p>
+<h3>JavaScript for State Changes</h3>
+<p>We should be using the classList object on the target HTML element.</p>
+<pre>let output = document.querySelector(".message");<br>output.classList.add("highlighted");<br>output.classList.add("fade");<br>output.classList.remove("hidden");<br>output.classList.toggle("show");</pre>
+<p>&nbsp;</p>
+<p>Use these methods to control your classes on your HTML elements.</p>
+<p>In your CSS you will be able to add transitions to animate these changes.</p>
+<pre>.trans{<br>  transition: all 1s ease-in-out;<br>}<br>.fade{<br>  opacity: 0;<br>}<br>.show{<br>  opacity: 1;<br>}&nbsp;<br>.highlighted{<br>  background-color: gold;<br>  font-weight: 900;<br>}</pre>
+<p>&nbsp;In your HTML you can use multiple class names to combine these styles.</p>
+<pre>&lt;div class="message trans highlighted"&gt;The output message&lt;/div&gt;</pre>
+<p>We could keep the classes <strong>message</strong> and <strong>trans</strong> on this div at all times. The JavaScript code would control adding or removing the <strong>fade</strong>, <strong>show</strong>, and <strong>highlighted</strong> classes.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+  
+</div>
+   <hr>
+   <div class="show-content user_content clearfix enhanced">
+  <h1 class="page-title">Web APIs and JavaScript Event Loop</h1>
+  
+    <h3>Core JavaScript VS. the Web APIs</h3>
+<p>The JavaScript that we use in the browser is actually made up of two different things.</p>
+<p>There is the Core JavaScript that we were using with Node.JS for the first few weeks of the semester and there are the Web APIs.</p>
+<p>The Core part is made up of the features like variables, if statements, functions, data types, arrays, loops, ternary operators, the Math object.</p>
+<p>The Web APIs are all the things that are added on top for the browser - HTML DOM, CSS style manipulation, handling AJAX requests, timers (setTImeout and setInterval), the browser events, geolocation, local storage, and all the features added to support mobile devices.</p>
+<p>&nbsp;</p>
+<h3>The JavaScript Loop</h3>
+<p>The JavaScript engines, like Chrome's V8, use a single thread to process all your code. It builds a stack of commands to run, in the order that you have written them. As long as each command belongs to the CORE JavaScript then it gets added to the main run stack.&nbsp;</p>
+<p>When something that belongs to the Web APIs is encountered it gets added to a secondary list of tasks. Each time the main stack is finished then the JavaScript engine turns it attention to the secondary list of tasks and will try to run those.</p>
+<p>The video below does a great job explaining all the parts of this process. It is about 25 minutes so give yourself some time to watch it.</p>
+<p>You don't need this information to do any of the assignments this semester. However, it will help you to avoid errors in your code and to better understand how your code will be interpreted by the JavaScript engine. This will lead to you writing much better code in the long run.</p>
+<p>&nbsp;</p>
+<h3>Everything you need to know about the JavaScript Loop</h3>
+<p><a class="external youtubed" href="https://www.youtube.com/watch?v=8aGhZQkoFbQ" target="_blank" rel="noreferrer"><span><span>https://www.youtube.com/watch?v=8aGhZQkoFbQ</span><span class="screenreader-only">&nbsp;(Links to an external site.)</span></span><span class="ui-icon ui-icon-extlink ui-icon-inline" title="Links to an external site."></span></a><a href="https://www.youtube.com/watch?v=8aGhZQkoFbQ" class="youtubed"><img src="/images/play_overlay.png" class="media_comment_thumbnail" style="background-image: url(//img.youtube.com/vi/8aGhZQkoFbQ/2.jpg)"></a></p>
+<p>&nbsp;</p>
+  
+</div>
+   <hr>
+   <div class="show-content user_content clearfix enhanced">
+  <h1 class="page-title">Web APIs and JavaScript Event Loop</h1>
+  
+    <h3>Core JavaScript VS. the Web APIs</h3>
+<p>The JavaScript that we use in the browser is actually made up of two different things.</p>
+<p>There is the Core JavaScript that we were using with Node.JS for the first few weeks of the semester and there are the Web APIs.</p>
+<p>The Core part is made up of the features like variables, if statements, functions, data types, arrays, loops, ternary operators, the Math object.</p>
+<p>The Web APIs are all the things that are added on top for the browser - HTML DOM, CSS style manipulation, handling AJAX requests, timers (setTImeout and setInterval), the browser events, geolocation, local storage, and all the features added to support mobile devices.</p>
+<p>&nbsp;</p>
+<h3>The JavaScript Loop</h3>
+<p>The JavaScript engines, like Chrome's V8, use a single thread to process all your code. It builds a stack of commands to run, in the order that you have written them. As long as each command belongs to the CORE JavaScript then it gets added to the main run stack.&nbsp;</p>
+<p>When something that belongs to the Web APIs is encountered it gets added to a secondary list of tasks. Each time the main stack is finished then the JavaScript engine turns it attention to the secondary list of tasks and will try to run those.</p>
+<p>The video below does a great job explaining all the parts of this process. It is about 25 minutes so give yourself some time to watch it.</p>
+<p>You don't need this information to do any of the assignments this semester. However, it will help you to avoid errors in your code and to better understand how your code will be interpreted by the JavaScript engine. This will lead to you writing much better code in the long run.</p>
+<p>&nbsp;</p>
+<h3>Everything you need to know about the JavaScript Loop</h3>
+<p><a class="external youtubed" href="https://www.youtube.com/watch?v=8aGhZQkoFbQ" target="_blank" rel="noreferrer"><span><span>https://www.youtube.com/watch?v=8aGhZQkoFbQ</span><span class="screenreader-only">&nbsp;(Links to an external site.)</span></span><span class="ui-icon ui-icon-extlink ui-icon-inline" title="Links to an external site."></span></a><a href="https://www.youtube.com/watch?v=8aGhZQkoFbQ" class="youtubed"><img src="/images/play_overlay.png" class="media_comment_thumbnail" style="background-image: url(//img.youtube.com/vi/8aGhZQkoFbQ/2.jpg)"></a></p>
+<p>&nbsp;</p>
+  
+</div>
+   <hr>
+   
+   <hr>
+   
+   <hr>
+   
+   <hr>
     <hr> </body>
 
 </html>
