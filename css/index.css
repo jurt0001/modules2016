@@ -42,7 +42,8 @@ a,a:visited {
   padding: 2px 5px;
   position: absolute;
 	margin: -22px 0 0 -170px;
-	top: 50%;
+	top: 0;
+    left: 0;
   width:339px;
   box-shadow:0 4px 9px rgba(0,0,0,.37);
   -moz-box-shadow:0 4px 9px rgba(0,0,0,.37);
