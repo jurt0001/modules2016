@@ -7819,12 +7819,1764 @@
   
 </div>
    <hr>
-   
+   <div class="show-content user_content clearfix enhanced">
+  <h1 class="page-title">Week 7 Summary</h1>
+  
+    <h1 style="font-weight: 200;">&nbsp;</h1>
+<h4>
+<strong><strong>Learning Objective:&nbsp;</strong></strong><span>By the end of this week, students will have demonstrated the following: How to use XMLHttpRequest or the Fetch API to retrieve data files from a web server.</span>
+</h4>
+<p>&nbsp;</p>
+<table style="height: 229px; float: left;" border="1px" width="100%">
+<tbody>
+<tr>
+<th style="background-color: #99cc00;" width="30%">Prior to Class</th>
+<th style="background-color: #99cc00;" width="30%">During Class</th>
+<th style="background-color: #99cc00;" width="30%">Following Class</th>
+</tr>
+<tr>
+<td style="vertical-align: top;">
+<ul>
+<li>Review material from first six&nbsp;weeks</li>
+<li>Read the notes from the week six module.</li>
+<li>Work on the <a class="" title="NameSpacing" href="https://algonquin.instructure.com/courses/501988/assignments/4783235" target="" data-api-endpoint="https://algonquin.instructure.com/api/v1/courses/501988/assignments/4783235" data-api-returntype="Assignment">NameSpacing</a>&nbsp;assignment&nbsp;</li>
+</ul>
+</td>
+<td style="vertical-align: top;">The learning activities for this week will include:<br>
+<ul>
+<li>Lectures about programming concepts</li>
+<li>Lectures and practice with&nbsp;JavaScript&nbsp;AJAX methods</li>
+<li>Working with&nbsp;the new Fetch API to download JSON files from a webserver to the browser</li>
+</ul>
+</td>
+<td style="vertical-align: top;">
+<ul>
+<li>Read all the content from this week's module</li>
+<li>Review all Tutorial material (video &amp; text)</li>
+<li>Read the Summary for next week</li>
+<li>Start working on the&nbsp;<a class="" title="AJAX Lotto" href="https://algonquin.instructure.com/courses/501988/assignments/4783224" target="" data-api-endpoint="https://algonquin.instructure.com/api/v1/courses/501988/assignments/4783224" data-api-returntype="Assignment">AJAX Lotto</a>&nbsp;assignment</li>
+</ul>
+<ul></ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+  
+</div>
    <hr>
-   
+   <div class="show-content user_content clearfix enhanced">
+  <h1 class="page-title">Week 7 Resources</h1>
+  
+    <p>&nbsp;</p>
+<p><a href="http://jsonplaceholder.typicode.com/" class="external" target="_blank" rel="noreferrer"><span><span>http://jsonplaceholder.typicode.com/</span><span class="screenreader-only">&nbsp;(Links to an external site.)</span></span><span class="ui-icon ui-icon-extlink ui-icon-inline" title="Links to an external site."></span></a>&nbsp;- test data for AJAX calls (JSON format)</p>
+<p><a href="https://www.mamp.info/en/downloads/" class="external" target="_blank" rel="noreferrer"><span><span>https://www.mamp.info/en/downloads/</span><span class="screenreader-only">&nbsp;(Links to an external site.)</span></span><span class="ui-icon ui-icon-extlink ui-icon-inline" title="Links to an external site."></span></a>&nbsp;- download MAMP</p>
+  
+</div>
    <hr>
-   
+   <div class="show-content user_content clearfix enhanced">
+  <h1 class="page-title">Introduction to AJAX</h1>
+  
+    <p>AJAX is a term coined back in 2005 by Jesse James Garrett. It stands for Asynchronous JavaScript and XML. At that time,&nbsp;XML was the main data format in use for transmitting information in text files.&nbsp;</p>
+<p>XML had gained popularity in the late 1990's. JSON didn't even have a name for the standard until 2001. By 2005 XML had become available as a standard&nbsp;in most&nbsp;database implementations and many programming languages. This is why the term AJAX includes XML.</p>
+<p>Putting aside the XML in the name "AJAX", the concept is quite simple.</p>
+<p style="padding-left: 30px;"><span style="background-color: #ffcc99;"><strong>The ability for JavaScript to send an independent HTTP request to a web server.</strong></span></p>
+<p>&nbsp;</p>
+<p>When you open your browser and type an address into the location bar and hit enter, you are sending an HTTP request to a web server.&nbsp;The browser sends the request, and when it receives the response back from the Server, it will display that file for you to view.</p>
+<p>With an AJAX request, JavaScript is the one making the call to the Server. When the response returns from the Server, it will be handled by JavaScript. It will NOT be displayed by the browser.</p>
+<p>So, you can use JavaScript to send a request to a web server for an image, an HTML file, a text file, an XML file, or a JSON file, amoung other types.</p>
+<p>When the file comes back to the browser, JavaScript will be notified and you will have a function that is triggered. Your function can display the contents, or partial-contents of your returned file.</p>
+<p>This is how websites like Google Maps can update the images and content on a web page WITHOUT having to reload the page. Google Maps' implementation of AJAX technology is what allowed them to create a much better user experience and how they effectively robbed Yahoo! MapQuest of all their users.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+  
+</div>
    <hr>
+   <div class="show-content user_content clearfix enhanced">
+  <h1 class="page-title">XMLHttpRequest Object (OLD AJAX Standard)</h1>
+  
+    <p>When Microsoft originally introduced the technology behind AJAX, back with&nbsp;IE 5.5, they were using a proprietary ActiveX control. The W3C created a standardized Object to be used when making AJAX calls.</p>
+<pre>var xhr = new XMLHttpRequest( );</pre>
+<p>However, it took nearly ten years for Microsoft to transition from using their proprietary version to the open standard method.</p>
+<p>Currently all browsers support this standard method. This is great for writing cross-browser compatible code. However, in recent years a new replacement for XMLHttpRequest has appeared called the Fetch API. The Fetch API has quickly gained cross-browser support and is a much more flexible interface to use in making AJAX requests. In our program we will be using the Fetch API for nearly all of our AJAX work.&nbsp;</p>
+<p>However, nearly all the AJAX code currently in production uses this older standard version. For that reason, we must know how to work with it.</p>
+<pre>var xhr = new XMLHttpRequest();<br>xhr.open('GET', 'data.json', true);<br>xhr.addEventListener('load', function(ev){<br>  switch(ev.status){<br>    case 200:<br>    case 302:<br>      //handle a good response<br>      var data = JSON.parse( ev.responseText );<br>      //call some function to do something with the JSON data<br>    case 404:<br>      //handle a 404 error gracefully<br>    default:<br>      //handle all other errors<br>  }<br>});<br>xhr.addEventListener('error', function(err){<br>  //handle any error that has to do with network failure<br>});<br>xhr.send(null);</pre>
+<p>&nbsp;</p>
+  
+</div>
+   <hr>
+   <div class="show-content user_content clearfix enhanced">
+  <h1 class="page-title">Fetch API (NEW AJAX Standard)</h1>
+  
+    <p>As previously mentioned, we will be using the Fetch API instead of the XMLHttpRequest object to make all of our AJAX calls.</p>
+<p>The primary difference between the two approaches is that the Fetch API uses the new ES6 Promises feature to make the requests and handle the responses. The XMLHttpRequest object has an open( ) method to set up the request and a send( ) method to actually send the request to the server. XMLHttpRequest uses Event Listeners to wait for load, readystatechange, error, or progress events.</p>
+<p>There is a lot of boilerplate code for the XMLHttpRequest objects.</p>
+<h3>Promises</h3>
+<p>A basic Promise looks like this:</p>
+<pre>myPromise( )<br>  .then(func1)<br>  .then(func2)<br>  .then(func3)<br>  .catch(errorFunc);</pre>
+<p>The way a Promise works is&nbsp;by chaining together a series of functions to be called in order.</p>
+<p>1. You call the initial Promise method to start the process.</p>
+<p>2. If that succeeds then it will call whatever function you put inside the then( ) method.</p>
+<p>3. You can chain together as many then( ) methods as you want.</p>
+<p>4. Each then function &nbsp;will pass it's return value to the next then( ) method function.</p>
+<p>5. If there is a failure during ANY step then the catch( ) method function at the end of the chain gets called.</p>
+<p>You can put the name of the function inside the then( ) method parentheses or you can put an anonymous function.</p>
+<pre>myPromise( )<br>  .then(function(val){ <br>    //do something with val<br>    return otherVal;<br>  })<br>  .then( function(otherval){ <br>    //do something with this new value<br>    //otherval is the return value from the first then( ) function<br>  })<br>  .catch( function(err){ <br>    //handle the error passed in variable err<br>  });</pre>
+<h3>Fetch API</h3>
+<p>As mentioned above, the Fetch API uses Promises. In fact, the primary fetch( ) method is a Promise. The methods that you use to convert your Server response into a JSON object or String or Image are also Promises.</p>
+<pre>fetch( url )<br>  .then( function(response){ <br>    return response.json();<br>  })<br>  .then( function(data){<br>    //do something with data, which is your JSON data from the url.<br>  })<br>  .catch( function(err){<br>    console.log("Error");<br>  });</pre>
+<p>&nbsp;</p>
+<p>Here is a CodePen that demonstrates using fetch to retrieve a JSON file from a web server.</p>
+<p><iframe style="width: 100%;" src="//codepen.io/mad-d/embed/oxgLRK/?height=599&amp;theme-id=0&amp;default-tab=js,result&amp;embed-version=2" width="300" height="599" allowfullscreen="allowfullscreen">See the Pen &amp;amp;amp;amp;lt;a href="http://codepen.io/mad-d/pen/oxgLRK/"&amp;amp;amp;amp;gt;MAD9022 Fetch API&amp;amp;amp;amp;lt;/a&amp;amp;amp;amp;gt; by Mobile Application Design-Development (&amp;amp;amp;amp;lt;a href="http://codepen.io/mad-d"&amp;amp;amp;amp;gt;@mad-d&amp;amp;amp;amp;lt;/a&amp;amp;amp;amp;gt;) on &amp;amp;amp;amp;lt;a href="http://codepen.io"&amp;amp;amp;amp;gt;CodePen&amp;amp;amp;amp;lt;/a&amp;amp;amp;amp;gt;.</iframe></p>
+<p>&nbsp;</p>
+<p>And another CodePen that demonstrates using Fetch to retrieve some JSON data which is being pulled from another CodePen -&nbsp;<a href="http://codepen.io/mad-d/pen/mErbpM.js?" class="external" target="_blank" rel="noreferrer"><span><span>http://codepen.io/mad-d/pen/mErbpM.js?</span><span class="screenreader-only">&nbsp;(Links to an external site.)</span></span><span class="ui-icon ui-icon-extlink ui-icon-inline" title="Links to an external site."></span></a>&nbsp;</p>
+<p><iframe style="width: 100%;" src="//codepen.io/mad-d/embed/qNaWoZ/?height=557&amp;theme-id=0&amp;default-tab=js,result&amp;embed-version=2" width="300" height="557" allowfullscreen="allowfullscreen">See the Pen &amp;amp;amp;amp;lt;a href="http://codepen.io/mad-d/pen/qNaWoZ/"&amp;amp;amp;amp;gt;Using JSON from Another CodePen&amp;amp;amp;amp;lt;/a&amp;amp;amp;amp;gt; by Mobile Application Design-Development (&amp;amp;amp;amp;lt;a href="http://codepen.io/mad-d"&amp;amp;amp;amp;gt;@mad-d&amp;amp;amp;amp;lt;/a&amp;amp;amp;amp;gt;) on &amp;amp;amp;amp;lt;a href="http://codepen.io"&amp;amp;amp;amp;gt;CodePen&amp;amp;amp;amp;lt;/a&amp;amp;amp;amp;gt;.</iframe></p>
+<p>&nbsp;</p>
+<p>A couple great starter tutorials on using Fetch:</p>
+<p><a href="https://davidwalsh.name/fetch" class="external" target="_blank" rel="noreferrer"><span><span>https://davidwalsh.name/fetch</span><span class="screenreader-only">&nbsp;(Links to an external site.)</span></span><span class="ui-icon ui-icon-extlink ui-icon-inline" title="Links to an external site."></span></a>&nbsp;</p>
+<p><a href="https://developers.google.com/web/updates/2015/03/introduction-to-fetch" class="external" target="_blank" rel="noreferrer"><span><span>https://developers.google.com/web/updates/2015/03/introduction-to-fetch</span><span class="screenreader-only">&nbsp;(Links to an external site.)</span></span><span class="ui-icon ui-icon-extlink ui-icon-inline" title="Links to an external site."></span></a></p>
+<p>&nbsp;</p>
+  
+</div>
+   <hr>
+   <div class="show-content user_content clearfix enhanced">
+  <h1 class="page-title">Request, Header, Body, USVString, Response Objects</h1>
+  
+    <p>The process of requesting files from a Server can seem very simple or very complex. It really comes down to how many properties and parameters you want to deal with. The fetch API can be a very compact and simple tool but it allows for a lot of complexity in dealing with any situation that is required.</p>
+<p>Every fetch( ) consists of sending a Request to the Server and waiting for a Response.</p>
+<p>Both the Request and Response contain Headers and a Body.</p>
+<p>The Headers contain all the settings and the Body contains the data or the file which is being sent either from the browser to the Server or from the Server to the browser.</p>
+<p>The Request can contain Request properties, Headers, and a Body.</p>
+<p>The Response can contain Response properties, Headers, and a Body.</p>
+<h3>Request Object</h3>
+<p>When calling the fetch( ) method we can either pass in a USVString or a Request Object.</p>
+<p>To create a Request Object we would use the new Request( ) constructor. The most basic example, using all default properties is:</p>
+<pre>let req = new Request( url );</pre>
+<p>You can also optionally add an init object with values for the various properties of the Request.</p>
+<pre>let req = new Request( url, {method:'POST', body: myFormData});</pre>
+<p>The properties of the Request can include:</p>
+<p>method: &nbsp;'GET', 'POST', or 'HEAD'</p>
+<p>headers: a Headers object</p>
+<p>mode: 'cors' or 'no-cors' &nbsp;(Cross-Origin Resource Sharing), or 'same-origin'.</p>
+<p>cache: &nbsp;'default', 'no-store', 'reload', 'no-cache', or 'force-cache' - the cache mode to use for the request.</p>
+<p>body: The data&nbsp;to be sent with a request that is using method: 'POST'. This property can be a Blob, a USVString, a FormData object, or a URLSearchParams object.</p>
+<p>MDN reference -&nbsp;<a href="https://developer.mozilla.org/en-US/docs/Web/API/Request" class="external" target="_blank" rel="noreferrer"><span><span>https://developer.mozilla.org/en-US/docs/Web/API/Request</span><span class="screenreader-only">&nbsp;(Links to an external site.)</span></span><span class="ui-icon ui-icon-extlink ui-icon-inline" title="Links to an external site."></span></a>&nbsp;</p>
+<p>URLSearchParams -&nbsp;<a href="https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams" class="external" target="_blank" rel="noreferrer"><span><span>https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams</span><span class="screenreader-only">&nbsp;(Links to an external site.)</span></span><span class="ui-icon ui-icon-extlink ui-icon-inline" title="Links to an external site."></span></a>&nbsp;</p>
+<p>FormData -&nbsp;<a href="https://developer.mozilla.org/en-US/docs/Web/API/FormData" class="external" target="_blank" rel="noreferrer"><span><span>https://developer.mozilla.org/en-US/docs/Web/API/FormData</span><span class="screenreader-only">&nbsp;(Links to an external site.)</span></span><span class="ui-icon ui-icon-extlink ui-icon-inline" title="Links to an external site."></span></a>&nbsp;</p>
+<h3>Header Object</h3>
+<p>The Header Object represents all the HTTP headers in both the Request and the Response.</p>
+<p>It can be passed as a value to the Request init property:</p>
+<pre>let myHeaders = new Header();<br>myHeaders.append('Content-Type', 'image/jpeg');<br>let url = 'someImage.jpg';<br>let req = new Request( url, {headers: myHeaders } );</pre>
+<p>It is important to keep in mind that while you can create your own headers, there is a list of headers which are read-only and the browsers will not allow you to set values for them.</p>
+<p>List of Forbidden Header names -&nbsp;<a href="https://developer.mozilla.org/en-US/docs/Glossary/Forbidden_header_name" class="external" target="_blank" rel="noreferrer"><span><span>https://developer.mozilla.org/en-US/docs/Glossary/Forbidden_header_name</span><span class="screenreader-only">&nbsp;(Links to an external site.)</span></span><span class="ui-icon ui-icon-extlink ui-icon-inline" title="Links to an external site."></span></a>&nbsp;</p>
+<p>MDN reference -&nbsp;<a href="https://developer.mozilla.org/en-US/docs/Web/API/Headers" class="external" target="_blank" rel="noreferrer"><span><span>https://developer.mozilla.org/en-US/docs/Web/API/Headers</span><span class="screenreader-only">&nbsp;(Links to an external site.)</span></span><span class="ui-icon ui-icon-extlink ui-icon-inline" title="Links to an external site."></span></a>&nbsp;</p>
+<h3>Body Object</h3>
+<p>The Body is the container for the data that is either passed to a Server-Side page or the file that gets returned to the Browser.</p>
+<p>Body.json(); &nbsp;//used to extract the JSON representation from a JSON file in the response</p>
+<p>Body.text(); //used to extract the string version of an XML, HTML, or other text file.</p>
+<p>Body.blob(); &nbsp;//used to extract the image from the response body</p>
+<p>Body.formData( ); //will return a FormData representation of the Body&nbsp;</p>
+<p>MDN reference -&nbsp;<a href="https://developer.mozilla.org/en-US/docs/Web/API/Body" class="external" target="_blank" rel="noreferrer"><span><span>https://developer.mozilla.org/en-US/docs/Web/API/Body</span><span class="screenreader-only">&nbsp;(Links to an external site.)</span></span><span class="ui-icon ui-icon-extlink ui-icon-inline" title="Links to an external site."></span></a>&nbsp;</p>
+<h3>USVString</h3>
+<p>A Unicode Scalar Value String is effectively a URL. This is one option of what you would pass to the fetch( ) method.</p>
+<p>MDN reference -&nbsp;<a href="https://developer.mozilla.org/en-US/docs/Web/API/USVString" class="external" target="_blank" rel="noreferrer"><span><span>https://developer.mozilla.org/en-US/docs/Web/API/USVString</span><span class="screenreader-only">&nbsp;(Links to an external site.)</span></span><span class="ui-icon ui-icon-extlink ui-icon-inline" title="Links to an external site."></span></a>&nbsp;</p>
+<h3>Response Object</h3>
+<p>The last part of the fetch process is handling the Response. Just like the Request, it can contain Headers as well as the Body.</p>
+<p>When you call the fetch method, the first then( ) function will receive the Request object as it's only parameter. From that function&nbsp;you can call the json( ), blob( ), or text( ) method to extract the desired data from the Response Body.</p>
+<pre>fetch( url )<br>.then( function( resp ){ <br>  //extract the JSON Object from the returned file<br>  return resp.json( );<br>}).then( function( data ){ <br>  //the variable data will contain the JSON data from the returned file.<br>}).catch( function(err){ <br>  //handle any errors<br>});</pre>
+<p>In the example, above, the variable resp is a Response object. Here are the methods that you would call in that first then( ) function.</p>
+<p>Response.json( ); //if your returned file was a .json file.</p>
+<p>Response.text( ); &nbsp;//if you were expecting HTML, XML, text, or CSV</p>
+<p>Response.blob( ); &nbsp;//if you were expecting a binary file like an image, video, or audio.</p>
+<p>Response.formData( ); //in the rare case when you get FormValue pairs back from the Server</p>
+<p>MDN reference -&nbsp;<a href="https://developer.mozilla.org/en-US/docs/Web/API/Response" class="external" target="_blank" rel="noreferrer"><span><span>https://developer.mozilla.org/en-US/docs/Web/API/Response</span><span class="screenreader-only">&nbsp;(Links to an external site.)</span></span><span class="ui-icon ui-icon-extlink ui-icon-inline" title="Links to an external site."></span></a>&nbsp;</p>
+  
+</div>
+   <hr>
+<div class="show-content user_content clearfix enhanced">
+  <h1 class="page-title">Installing MAMP</h1>
+  
+    <p>In order to run AJAX calls properly in all browsers we need to use a web server.</p>
+<p>Some browsers, most notably Chrome, have very restrictive security settings around AJAX usage. We can't be using a page over <a>file:///</a>&nbsp;and request a web page from <a href="http://%20" class="external" target="_blank" rel="noreferrer"><span><span>http:// </span><span class="screenreader-only">&nbsp;(Links to an external site.)</span></span><span class="ui-icon ui-icon-extlink ui-icon-inline" title="Links to an external site."></span></a>&nbsp;or <a href="https://%C2%A0" class="external" target="_blank" rel="noreferrer"><span><span>https://&nbsp;</span><span class="screenreader-only">&nbsp;(Links to an external site.)</span></span><span class="ui-icon ui-icon-extlink ui-icon-inline" title="Links to an external site."></span></a></p>
+<p>So, we need to have a web server running on our computer or we need to use an external web server - like our Edumedia server. The only downside to an external web server is the fact that you have to use FTP to upload files to test them and every time you make a change to a file you need to upload it again.</p>
+<p>&nbsp;</p>
+<p>The solution is to install a web server on your own computer. There are many different ones.</p>
+<h4>OSX</h4>
+<p>MAMP: &nbsp;<a href="https://www.mamp.info/en/" class="external" target="_blank" rel="noreferrer"><span><span>https://www.mamp.info/en/</span><span class="screenreader-only">&nbsp;(Links to an external site.)</span></span><span class="ui-icon ui-icon-extlink ui-icon-inline" title="Links to an external site."></span></a>&nbsp;</p>
+<p>XAMPP:&nbsp;<a href="https://www.apachefriends.org/download.html" class="external" target="_blank" rel="noreferrer"><span><span>https://www.apachefriends.org/download.html</span><span class="screenreader-only">&nbsp;(Links to an external site.)</span></span><span class="ui-icon ui-icon-extlink ui-icon-inline" title="Links to an external site."></span></a>&nbsp;</p>
+<h4>Windows</h4>
+<p>WAMP:&nbsp;<a href="http://www.wampserver.com/en/" class="external" target="_blank" rel="noreferrer"><span><span>http://www.wampserver.com/en/</span><span class="screenreader-only">&nbsp;(Links to an external site.)</span></span><span class="ui-icon ui-icon-extlink ui-icon-inline" title="Links to an external site."></span></a>&nbsp;</p>
+<p>XAMPP:&nbsp;<a href="https://www.apachefriends.org/download.html" class="external" target="_blank" rel="noreferrer"><span><span>https://www.apachefriends.org/download.html</span><span class="screenreader-only">&nbsp;(Links to an external site.)</span></span><span class="ui-icon ui-icon-extlink ui-icon-inline" title="Links to an external site."></span></a>&nbsp;</p>
+<p>MAMP:&nbsp;<a href="https://www.mamp.info/en/" class="external" target="_blank" rel="noreferrer"><span><span>https://www.mamp.info/en/</span><span class="screenreader-only">&nbsp;(Links to an external site.)</span></span><span class="ui-icon ui-icon-extlink ui-icon-inline" title="Links to an external site."></span></a>&nbsp;</p>
+<p>&nbsp;</p>
+<p>After you download and install the server you will actually have three things:</p>
+<p>1. Apache (the web server)</p>
+<p>2. MySQL (a database)</p>
+<p>3. PHP (the PHP program for server-side programming)</p>
+<p>&nbsp;</p>
+<p>Web servers all have a single root folder that is used to store all your websites. The name and location of this folder varies from one server package to the next.</p>
+<p>In MAD9111 you should have already installed MAMP. Here are the default locations of the root web server.</p>
+<p><strong>OSX</strong></p>
+<pre>/Applications/MAMP/htdocs/</pre>
+<p><strong>Windows</strong></p>
+<pre>C:\MAMP\htdocs\</pre>
+  
+</div>
+   
+   <div id="content" class="ic-Layout-contentMain" role="main">
+            
+
+
+<div id="assignment_show" class="assignment content_underline_links">
+    <!--Student View-->
+    <div class="assignment-title">
+      <div class="title-content">
+        <h1 class="title">
+          AJAX Lotto
+        </h1>
+      </div>
+      <div class="assignment-buttons">
+        <span style="display: inline-block">
+          
+        </span>
+        <a class="btn btn-primary submit_assignment_link " href="#">Re-submit Assignment</a>
+      </div>
+    </div>
+    <ul class="student-assignment-overview">
+      <li>
+        <span class="title">Due</span>
+        <span class="value">
+          <span class="date_text">
+                <span class="display_date">Oct 26</span> by 
+                <span class="display_time"> 5pm</span>
+          </span>
+        </span>
+      </li>
+      <li>
+        <span class="title">Points</span>
+        <span class="value">15</span>
+      </li>
+        <li>
+          <span class="title">Submitting</span>
+          <span class="value">a website url</span>
+        </li>
+      
+      <div class="clear"></div>
+    </ul>
+
+  <div class="clear"></div>
+
+
+  <div class="clear"></div>
+
+  <div class="description user_content student-version enhanced"><h3>Description</h3>
+<p>Build a mobile-first responsive web app that will provide the user with the ability to generate random lottery numbers.</p>
+<p>The web app will have two screens. The first screen will contain an HTML form that lets the user choose how many numbers they want to generate plus the range for each of&nbsp;the numbers (min and max). The second screen will display the numbers which are returned from the server-side api.</p>
+<p>When the user clicks the submit button on the first screen, you must take the information that the user has entered and send it via an AJAX call to the PHP link&nbsp;provided below.</p>
+<p>Here are a couple screenshots of a very basic layout of the two screens. These show only a vertical layout. Your layout should change as the screen becomes wider.</p>
+<p><img src="https://algonquin.instructure.com/courses/501988/files/42056340/preview" alt="Screen Shot 2016-10-08 at 1.30.20 PM.png" width="408" height="337" data-api-endpoint="https://algonquin.instructure.com/api/v1/courses/501988/files/42056340/download" data-api-returntype="File" style="max-width: 722px;">&nbsp;&nbsp;<img src="https://algonquin.instructure.com/courses/501988/files/42056342/preview" alt="Screen Shot 2016-10-08 at 1.30.02 PM.png" width="234" height="395" data-api-endpoint="https://algonquin.instructure.com/api/v1/courses/501988/files/42056342/download" data-api-returntype="File" style="max-width: 722px;"></p>
+<p>Here is a sample starter file for the HTML -&nbsp;<span class="instructure_file_link_holder link_holder"><a class="" title="index.html" href="https://algonquin.instructure.com/courses/501988/files/42056351/download?wrap=1" target="" data-api-endpoint="https://algonquin.instructure.com/api/v1/courses/501988/files/42056351/download" data-api-returntype="File">index.html</a><a href="https://algonquin.instructure.com/courses/501988/files/42056351/download?wrap=1" target="_blank" title="View in a new window" style="padding-left: 5px;"><img src="/images/popout.png" alt="View in a new window"></a></span>. You can use this HTML or create your own.</p>
+<p>&nbsp;</p>
+<h3>Design</h3>
+<p>For the Responsive part - just add a series of media queries that change the display size &amp; font-size of your content so it occupies a more appropriate amount of the screen. We want to fill most of the screen at any resolution.</p>
+<p>&nbsp;</p>
+<h3>Restrictions</h3>
+<p>You must use the fetch( ) method to make your AJAX call.</p>
+<p>&nbsp;</p>
+<h3>References</h3>
+<p>The PHP link for the API - <a href="https://griffis.edumedia.ca/mad9014/lotto/nums.php" class="external" target="_blank" rel="noreferrer"><span><span>https://griffis.edumedia.ca/mad9014/lotto/nums.php</span><span class="screenreader-only">&nbsp;(Links to an external site.)</span></span><span class="ui-icon ui-icon-extlink ui-icon-inline" title="Links to an external site."></span></a>&nbsp;</p>
+<p>The AJAX call should be made via POST.</p>
+<p>It requires two parameters called "digits" and "max". The parameters should be saved in a FormData object OR a URLSearchParams object OR just a String appended as the query string. to be transmitted. An example URL would be&nbsp;<a href="https://griffis.edumedia.ca/mad9014/lotto/nums.php?digits=4&amp;max=19" class="external" target="_blank" rel="noreferrer"><span><span>https://griffis.edumedia.ca/mad9014/lotto/nums.php?digits=4&amp;max=19</span><span class="screenreader-only">&nbsp;(Links to an external site.)</span></span><span class="ui-icon ui-icon-extlink ui-icon-inline" title="Links to an external site."></span></a>&nbsp;</p>
+<h3>Submission</h3>
+<p>FTP your completed HTML, CSS, images, and JS to the edumedia server.</p>
+<p>Eg: <a href="https://adcd0001.edumedia.ca/mad9014/lotto/index.html" class="external" target="_blank" rel="noreferrer"><span><span>http://adcd0001.edumedia.ca/mad9014/lotto/index.html</span><span class="screenreader-only">&nbsp;(Links to an external site.)</span></span><span class="ui-icon ui-icon-extlink ui-icon-inline" title="Links to an external site."></span></a></p>
+<p>Submit the URL of your home page.</p>
+<p>&nbsp;</p>
+<h3>Bonus Challenges</h3>
+<p>There is a&nbsp;challenge for you to attempt if you finished the assignment quickly.</p>
+<p>1.&nbsp;Sometimes the server can return duplicate numbers within the same set. Depending on your use for the numbers, this can be an undesirable effect. Once, you have your number set, check for duplicates. If there are any duplicates, then make a new fetch call which will request a new set of numbers from the server.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p></div>
+
+
+  <div style="display: none;">
+    <span class="timestamp">1477515600</span>
+    <span class="due_date_string">10/26/2016</span>
+    <span class="due_time_string">05:00pm</span>
+  </div>
+</div>
+
+
+  <div style="display: none;" id="submit_assignment" data-context_code="course_501988" data-asset_string="assignment_4783224">
+  <div class="content" id="submit_assignment_tabs">
+    <ul>
+        <li><a href="#submit_online_url_form" class="submit_online_url_option">Website URL</a></li>
+        <li><a href="#submit_from_external_tool_form_17803" class="external-tool" data-id="17803" data-name="Dropbox">Dropbox</a></li>
+        <li><a href="#submit_from_external_tool_form_50915" class="external-tool" data-id="50915" data-name="Microsoft Office 365">Office 365</a></li>
+    </ul>
+
+
+    <form id="submit_online_url_form" class="submit_assignment_form" action="/courses/501988/assignments/4783224/submissions" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="authenticity_token" value="iYcYSFUQ/Uy9S0mDCNEwbRk6oNXbdFvPEiJVpoLxgbzm1008PFG5I+lyJbQwh3tcQHvkkZMGNeAgbz6S56flxQ==">
+    <input value="online_url" type="hidden" name="submission[submission_type]" id="submission_submission_type">
+    <table class="formtable" style="width: 100%;">
+      <tbody><tr>
+        <td colspan="2">
+          Copy and paste the link to the web site you'd like to submit for this assignment.
+            
+          </td>
+      </tr><tr>
+        <td colspan="2">
+          <label for="submission_url">Website URL:</label>
+          &nbsp;&nbsp;
+          <input style="min-width: 250px;" type="text" name="submission[url]" id="submission_url">
+        </td>
+      </tr><tr>
+        <td colspan="2" style="text-align: center;">
+          <div style="text-align: left;">
+            <textarea class="submission_comment_textarea" placeholder="Comments..." title="Additional comments" name="submission[comment]" id="submission_comment"></textarea>
+          </div>
+        </td>
+      </tr>
+      
+      <tr>
+        <td colspan="2" class="button-container">
+          <button type="button" class="cancel_button btn">Cancel</button>
+          <button type="submit" class="btn btn-primary">Submit Assignment</button>
+        </td>
+      </tr>
+    </tbody></table>
+</form>
+    <style>
+    #google_docs_tree li.folder {
+      cursor: pointer;
+    }
+    #google_docs_tree li.file {
+      cursor: pointer;
+      -moz-border-radius: 3px;
+      width: 80%;
+      padding-right: 20px;
+    }
+    #google_docs_tree li.file:hover {
+      background-color: #eee;
+    }
+    ul.instTree li span.active {
+      background: none;
+    }
+    #google_docs_tree li.file.leaf.active {
+      background-color: #ddd;
+    }
+    #google_docs_tree li.file .filename {
+      float: left;
+      max-width: 98%;
+    }
+    #google_docs_tree li.file .popout {
+      float: right;
+    }
+    </style>
+
+
+      <div id="submit_from_external_tool_form_17803" style="padding: 5px 5px 0 5px;"></div>
+      <div id="submit_from_external_tool_form_50915" style="padding: 5px 5px 0 5px;"></div>
+
+  </div>
+</div>
+
+
+
+
+<div id="rubrics" style="margin-bottom: 10px;">
+    <div class="rubric_container rubric  for_grading" id="rubric_231685" style="" tabindex="0">
+  <div class="screenreader-only"><h2>Rubric</h2></div>
+  <div class="rubric_title">
+    <div style="float: right; display: none;" class="links displaying">
+      <a href="/courses/501988/rubrics/231685?rubric_association_id=493640" class="copy_edit edit_rubric_link no-print no-hover" style="display: none;" title="Edit Rubric" aria-label="Edit Rubric" role="button"><i class="icon-edit standalone-icon"></i></a>
+      <a href="https://algonquin.instructure.com/search/rubrics?q=" class="find_rubric_link no-print no-hover" style="display: none;" title="Find Another Rubric" aria-label="Find Another Rubric" role="button"><i class="icon-search standalone-icon"></i></a>
+        <a href="/courses/501988/rubric_associations/493640" class="delete_rubric_link no-print no-hover" style="display: none;" title="Delete Rubric" aria-label="Delete Rubric" role="button"><i class="icon-trash standalone-icon"></i></a>
+      <div style="display: none;">
+        <div class="use_for_grading">true</div>
+        <div class="free_form_criterion_comments">&nbsp;</div>
+        <div class="hide_score_total">&nbsp;</div>
+        <div class="rubric_association_id">493640</div>
+        <div class="user_id">&nbsp;</div>
+        <div class="assessment_type"></div>
+        <a href="/courses/501988/rubric_associations/493640/assessments/%7B%7B%20assessment_id%20%7D%7D" rel="nofollow" class="edit_assessment_link">&nbsp;</a>
+        <a href="/courses/501988/rubrics/%7B%7B%20rubric_id%20%7D%7D" class="edit_rubric_url">&nbsp;</a>
+          <a href="/courses/501988/rubric_associations/%7B%7B%20association_id%20%7D%7D" class="delete_rubric_url">&nbsp;</a>
+      </div>
+    </div>
+    <div style="float: right; font-size: 0.8em; display: none;" class="links displaying locked">
+      <span style="">Can't change a rubric once you've started using it.</span>
+        <a href="/courses/501988/rubric_associations/%7B%7B%20association_id%20%7D%7D" class="delete_rubric_url" style="display: none;">&nbsp;</a>
+    </div>
+
+    <div class="editing" style="float: right;">
+      <a href="https://algonquin.instructure.com/search/rubrics?q=" class="find_rubric_link icon-search" style="display: none;" title="Find Existing Rubric">Find a Rubric</a>
+    </div>
+    <div class="editing" style="text-align: left">
+      <label for="rubric-title">Title:</label>
+      <input id="rubric-title" type="text" class="no-margin-bottom" name="title" value="AJAX Lotto Rubric" style="width: 200px;" maxlength="255" aria-label="Title:">
+      <a href="https://algonquin.instructure.com/search/rubrics?q=" style="display: none;"><img alt="" src="https://du11hjcvx0uqb.cloudfront.net/dist/images/find-6164443e2a.png"> Find Rubric</a>
+        <div class="editing" style="font-size: 0.8em;">Keep in mind that 47 students have already been assessed using this rubric.  Changing it will affect their evaluations.</div>
+    </div>
+    <div class="displaying">
+      <span class="title" tabindex="-1">AJAX Lotto Rubric</span>
+    </div>
+    <div class="has-assessments-warning" style="display: none;">
+      You've already rated students with this rubric.  Any major changes could affect their assessment results.
+    </div>
+  </div>
+<table class="rubric_table">
+<caption>
+  <div class="screenreader-only">
+    <span class="title">AJAX Lotto Rubric</span>
+  </div>
+</caption>
+<thead>
+  <tr>
+    <th scope="col">Criteria</th>
+    <th scope="col">Ratings</th>
+    <th scope="col">Pts</th>
+    <th scope="col" class="editing">&nbsp;</th>
+  </tr>
+</thead>
+<tbody>
+      
+<tr id="criterion__5992" class="criterion   " style="">
+  <td class="criterion_description hover-container">
+    <div class="container">
+      <img class="learning_outcome_flag" alt="This criterion is linked to a Learning Outcome" src="https://du11hjcvx0uqb.cloudfront.net/dist/images/flagged_question-e2565888dd.png">
+      <span class="description criterion_description_value">Event Listeners</span>
+      <span class="learning_outcome_id" style="display: none;"></span>
+      <span class="criterion_id" style="display: none;">_5992</span>
+      <div class="long_description_holder editing empty">
+        <a href="#" class="long_description_link">view longer description</a>
+        <textarea class="long_description" aria-label="Long Description" style="display: none;"></textarea>
+      </div>
+      <div class="threshold">
+        threshold:
+        <span class="mastery_points"></span> pts
+      </div>
+        <div class="links editing">
+          <a href="#" class="edit_criterion_link"><i class="icon-edit standalone-icon"></i><span class="screenreader-only">Edit criterion description</span></a>
+        </div>
+    </div>
+  </td>
+  <td style="padding: 0;">
+      <table class="ratings" style=""><tbody><tr>
+          <td id="rating_blank" class="rating edge_rating">
+          <div class="container" style="height: 52px;">
+            <div class="description rating_description_value">Both buttons have event listeners attached correctly</div>
+            <span class="nobr"><span class="points">2.0</span> pts</span>
+            <span class="rating_id" style="display: none;">blank</span>
+              <div class="links">
+                <a href="#" class="edit_rating_link"><i class="icon-edit standalone-icon"></i><span class="screenreader-only">Edit rating</span></a>
+                <a href="#" class="delete_rating_link"><i class="icon-end standalone-icon"></i><span class="screenreader-only">Delete rating</span></a>
+                <!-- Hidden if last -->
+                <a href="#" class="add_rating_link_after"><i class="icon-add standalone-icon"></i><span class="screenreader-only">Add new rating category after current rating</span></a>
+              </div>
+          </div>
+          </td>
+          <td id="rating_228968_1368" class="rating ">
+          <div class="container" style="height: 52px;">
+            <div class="description rating_description_value">Only one button has its event listener attached correctly</div>
+            <span class="nobr"><span class="points">1.0</span> pts</span>
+            <span class="rating_id" style="display: none;">228968_1368</span>
+              <div class="links">
+                <a href="#" class="edit_rating_link"><i class="icon-edit standalone-icon"></i><span class="screenreader-only">Edit rating</span></a>
+                <a href="#" class="delete_rating_link"><i class="icon-end standalone-icon"></i><span class="screenreader-only">Delete rating</span></a>
+                <!-- Hidden if last -->
+                <a href="#" class="add_rating_link_after"><i class="icon-add standalone-icon"></i><span class="screenreader-only">Add new rating category after current rating</span></a>
+              </div>
+          </div>
+          </td>
+          <td id="rating__5230" class="rating edge_rating">
+          <div class="container" style="height: 52px;">
+            <div class="description rating_description_value">Both buttons do not have event listeners attached correctly</div>
+            <span class="nobr"><span class="points">0.0</span> pts</span>
+            <span class="rating_id" style="display: none;">_5230</span>
+              <div class="links">
+                <a href="#" class="edit_rating_link"><i class="icon-edit standalone-icon"></i><span class="screenreader-only">Edit rating</span></a>
+                <a href="#" class="delete_rating_link"><i class="icon-end standalone-icon"></i><span class="screenreader-only">Delete rating</span></a>
+                <!-- Hidden if last -->
+                <a href="#" class="add_rating_link_after"><i class="icon-add standalone-icon"></i><span class="screenreader-only">Add new rating category after current rating</span></a>
+              </div>
+          </div>
+          </td>
+      </tr></tbody></table>
+      <div style="display: none; font-style: italic; font-size: 0.8em; margin: 5px;" class="custom_ratings">
+        This area will be used by the assessor to leave
+        comments related to this criterion.
+      </div>
+  </td>
+  <td class="nobr points_form">
+    <div class="editing" style="white-space: normal">
+      <span style="white-space: nowrap; font-size: 0.8em">
+          <input type="text" aria-label="Points" value="2.0" class="criterion_points span1 no-margin-bottom"> pts
+      </span><br>
+    </div>
+    <div class="displaying">
+      <span style="white-space: nowrap;">
+        <span class="criterion_rating_points_holder" style="display: none;">
+          <span class="criterion_rating_points">&nbsp;</span> /
+        </span>
+        <span class="display_criterion_points">2.0</span> pts<br>
+      </span>
+    </div>
+    <div class="ignoring">
+      <span> -- </span>
+    </div>
+    <div class="criterion_comments">
+        <a href="#" class="no-hover criterion_comments_link" title="Additional Comments">
+          <img alt="Additional Comments" src="https://du11hjcvx0uqb.cloudfront.net/dist/images/rubric_comment-ddae8546ab.png">
+        </a>
+        <div class="custom_rating" style="display: none;"></div>
+    </div>
+  </td>
+  <td class="editing">
+    <a href="#" class="delete_criterion_link" title="Delete Criterion Row" role="button" aria-label="Delete Criterion Row"><i class="icon-end"></i></a>
+  </td>
+</tr>
+
+      
+<tr id="criterion__8329" class="criterion   " style="">
+  <td class="criterion_description hover-container">
+    <div class="container">
+      <img class="learning_outcome_flag" alt="This criterion is linked to a Learning Outcome" src="https://du11hjcvx0uqb.cloudfront.net/dist/images/flagged_question-e2565888dd.png">
+      <span class="description criterion_description_value">AJAX Call</span>
+      <span class="learning_outcome_id" style="display: none;"></span>
+      <span class="criterion_id" style="display: none;">_8329</span>
+      <div class="long_description_holder editing empty">
+        <a href="#" class="long_description_link">view longer description</a>
+        <textarea class="long_description" aria-label="Long Description" style="display: none;"></textarea>
+      </div>
+      <div class="threshold">
+        threshold:
+        <span class="mastery_points"></span> pts
+      </div>
+        <div class="links editing">
+          <a href="#" class="edit_criterion_link"><i class="icon-edit standalone-icon"></i><span class="screenreader-only">Edit criterion description</span></a>
+        </div>
+    </div>
+  </td>
+  <td style="padding: 0;">
+      <table class="ratings" style=""><tbody><tr>
+          <td id="rating__5674" class="rating edge_rating">
+          <div class="container" style="height: 36px;">
+            <div class="description rating_description_value">AJAX call made via POST</div>
+            <span class="nobr"><span class="points">1.0</span> pts</span>
+            <span class="rating_id" style="display: none;">_5674</span>
+              <div class="links">
+                <a href="#" class="edit_rating_link"><i class="icon-edit standalone-icon"></i><span class="screenreader-only">Edit rating</span></a>
+                <a href="#" class="delete_rating_link"><i class="icon-end standalone-icon"></i><span class="screenreader-only">Delete rating</span></a>
+                <!-- Hidden if last -->
+                <a href="#" class="add_rating_link_after"><i class="icon-add standalone-icon"></i><span class="screenreader-only">Add new rating category after current rating</span></a>
+              </div>
+          </div>
+          </td>
+          <td id="rating__4214" class="rating edge_rating">
+          <div class="container" style="height: 36px;">
+            <div class="description rating_description_value">AJAX call not made via POST</div>
+            <span class="nobr"><span class="points">0.0</span> pts</span>
+            <span class="rating_id" style="display: none;">_4214</span>
+              <div class="links">
+                <a href="#" class="edit_rating_link"><i class="icon-edit standalone-icon"></i><span class="screenreader-only">Edit rating</span></a>
+                <a href="#" class="delete_rating_link"><i class="icon-end standalone-icon"></i><span class="screenreader-only">Delete rating</span></a>
+                <!-- Hidden if last -->
+                <a href="#" class="add_rating_link_after"><i class="icon-add standalone-icon"></i><span class="screenreader-only">Add new rating category after current rating</span></a>
+              </div>
+          </div>
+          </td>
+      </tr></tbody></table>
+      <div style="display: none; font-style: italic; font-size: 0.8em; margin: 5px;" class="custom_ratings">
+        This area will be used by the assessor to leave
+        comments related to this criterion.
+      </div>
+  </td>
+  <td class="nobr points_form">
+    <div class="editing" style="white-space: normal">
+      <span style="white-space: nowrap; font-size: 0.8em">
+          <input type="text" aria-label="Points" value="1.0" class="criterion_points span1 no-margin-bottom"> pts
+      </span><br>
+    </div>
+    <div class="displaying">
+      <span style="white-space: nowrap;">
+        <span class="criterion_rating_points_holder" style="display: none;">
+          <span class="criterion_rating_points">&nbsp;</span> /
+        </span>
+        <span class="display_criterion_points">1.0</span> pts<br>
+      </span>
+    </div>
+    <div class="ignoring">
+      <span> -- </span>
+    </div>
+    <div class="criterion_comments">
+        <a href="#" class="no-hover criterion_comments_link" title="Additional Comments">
+          <img alt="Additional Comments" src="https://du11hjcvx0uqb.cloudfront.net/dist/images/rubric_comment-ddae8546ab.png">
+        </a>
+        <div class="custom_rating" style="display: none;"></div>
+    </div>
+  </td>
+  <td class="editing">
+    <a href="#" class="delete_criterion_link" title="Delete Criterion Row" role="button" aria-label="Delete Criterion Row"><i class="icon-end"></i></a>
+  </td>
+</tr>
+
+      
+<tr id="criterion__3908" class="criterion   " style="">
+  <td class="criterion_description hover-container">
+    <div class="container">
+      <img class="learning_outcome_flag" alt="This criterion is linked to a Learning Outcome" src="https://du11hjcvx0uqb.cloudfront.net/dist/images/flagged_question-e2565888dd.png">
+      <span class="description criterion_description_value">Fetch</span>
+      <span class="learning_outcome_id" style="display: none;"></span>
+      <span class="criterion_id" style="display: none;">_3908</span>
+      <div class="long_description_holder editing empty">
+        <a href="#" class="long_description_link">view longer description</a>
+        <textarea class="long_description" aria-label="Long Description" style="display: none;"></textarea>
+      </div>
+      <div class="threshold">
+        threshold:
+        <span class="mastery_points"></span> pts
+      </div>
+        <div class="links editing">
+          <a href="#" class="edit_criterion_link"><i class="icon-edit standalone-icon"></i><span class="screenreader-only">Edit criterion description</span></a>
+        </div>
+    </div>
+  </td>
+  <td style="padding: 0;">
+      <table class="ratings" style=""><tbody><tr>
+          <td id="rating__1235" class="rating edge_rating">
+          <div class="container" style="height: 36px;">
+            <div class="description rating_description_value">Fetch is used correctly to make the AJAX call</div>
+            <span class="nobr"><span class="points">2.0</span> pts</span>
+            <span class="rating_id" style="display: none;">_1235</span>
+              <div class="links">
+                <a href="#" class="edit_rating_link"><i class="icon-edit standalone-icon"></i><span class="screenreader-only">Edit rating</span></a>
+                <a href="#" class="delete_rating_link"><i class="icon-end standalone-icon"></i><span class="screenreader-only">Delete rating</span></a>
+                <!-- Hidden if last -->
+                <a href="#" class="add_rating_link_after"><i class="icon-add standalone-icon"></i><span class="screenreader-only">Add new rating category after current rating</span></a>
+              </div>
+          </div>
+          </td>
+          <td id="rating_227102_9173" class="rating edge_rating">
+          <div class="container" style="height: 36px;">
+            <div class="description rating_description_value">Fetch is not used correctly to make the AJAX call</div>
+            <span class="nobr"><span class="points">0.0</span> pts</span>
+            <span class="rating_id" style="display: none;">227102_9173</span>
+              <div class="links">
+                <a href="#" class="edit_rating_link"><i class="icon-edit standalone-icon"></i><span class="screenreader-only">Edit rating</span></a>
+                <a href="#" class="delete_rating_link"><i class="icon-end standalone-icon"></i><span class="screenreader-only">Delete rating</span></a>
+                <!-- Hidden if last -->
+                <a href="#" class="add_rating_link_after"><i class="icon-add standalone-icon"></i><span class="screenreader-only">Add new rating category after current rating</span></a>
+              </div>
+          </div>
+          </td>
+      </tr></tbody></table>
+      <div style="display: none; font-style: italic; font-size: 0.8em; margin: 5px;" class="custom_ratings">
+        This area will be used by the assessor to leave
+        comments related to this criterion.
+      </div>
+  </td>
+  <td class="nobr points_form">
+    <div class="editing" style="white-space: normal">
+      <span style="white-space: nowrap; font-size: 0.8em">
+          <input type="text" aria-label="Points" value="2.0" class="criterion_points span1 no-margin-bottom"> pts
+      </span><br>
+    </div>
+    <div class="displaying">
+      <span style="white-space: nowrap;">
+        <span class="criterion_rating_points_holder" style="display: none;">
+          <span class="criterion_rating_points">&nbsp;</span> /
+        </span>
+        <span class="display_criterion_points">2.0</span> pts<br>
+      </span>
+    </div>
+    <div class="ignoring">
+      <span> -- </span>
+    </div>
+    <div class="criterion_comments">
+        <a href="#" class="no-hover criterion_comments_link" title="Additional Comments">
+          <img alt="Additional Comments" src="https://du11hjcvx0uqb.cloudfront.net/dist/images/rubric_comment-ddae8546ab.png">
+        </a>
+        <div class="custom_rating" style="display: none;"></div>
+    </div>
+  </td>
+  <td class="editing">
+    <a href="#" class="delete_criterion_link" title="Delete Criterion Row" role="button" aria-label="Delete Criterion Row"><i class="icon-end"></i></a>
+  </td>
+</tr>
+
+      
+<tr id="criterion__166" class="criterion   " style="">
+  <td class="criterion_description hover-container">
+    <div class="container">
+      <img class="learning_outcome_flag" alt="This criterion is linked to a Learning Outcome" src="https://du11hjcvx0uqb.cloudfront.net/dist/images/flagged_question-e2565888dd.png">
+      <span class="description criterion_description_value">User Input</span>
+      <span class="learning_outcome_id" style="display: none;"></span>
+      <span class="criterion_id" style="display: none;">_166</span>
+      <div class="long_description_holder editing empty">
+        <a href="#" class="long_description_link">view longer description</a>
+        <textarea class="long_description" aria-label="Long Description" style="display: none;"></textarea>
+      </div>
+      <div class="threshold">
+        threshold:
+        <span class="mastery_points"></span> pts
+      </div>
+        <div class="links editing">
+          <a href="#" class="edit_criterion_link"><i class="icon-edit standalone-icon"></i><span class="screenreader-only">Edit criterion description</span></a>
+        </div>
+    </div>
+  </td>
+  <td style="padding: 0;">
+      <table class="ratings" style=""><tbody><tr>
+          <td id="rating_227102_4147" class="rating edge_rating">
+          <div class="container" style="height: 36px;">
+            <div class="description rating_description_value">The user input (digits and range) is captured correctly</div>
+            <span class="nobr"><span class="points">1.0</span> pts</span>
+            <span class="rating_id" style="display: none;">227102_4147</span>
+              <div class="links">
+                <a href="#" class="edit_rating_link"><i class="icon-edit standalone-icon"></i><span class="screenreader-only">Edit rating</span></a>
+                <a href="#" class="delete_rating_link"><i class="icon-end standalone-icon"></i><span class="screenreader-only">Delete rating</span></a>
+                <!-- Hidden if last -->
+                <a href="#" class="add_rating_link_after"><i class="icon-add standalone-icon"></i><span class="screenreader-only">Add new rating category after current rating</span></a>
+              </div>
+          </div>
+          </td>
+          <td id="rating__540" class="rating edge_rating">
+          <div class="container" style="height: 36px;">
+            <div class="description rating_description_value">The user input is not captured correctly</div>
+            <span class="nobr"><span class="points">0.0</span> pts</span>
+            <span class="rating_id" style="display: none;">_540</span>
+              <div class="links">
+                <a href="#" class="edit_rating_link"><i class="icon-edit standalone-icon"></i><span class="screenreader-only">Edit rating</span></a>
+                <a href="#" class="delete_rating_link"><i class="icon-end standalone-icon"></i><span class="screenreader-only">Delete rating</span></a>
+                <!-- Hidden if last -->
+                <a href="#" class="add_rating_link_after"><i class="icon-add standalone-icon"></i><span class="screenreader-only">Add new rating category after current rating</span></a>
+              </div>
+          </div>
+          </td>
+      </tr></tbody></table>
+      <div style="display: none; font-style: italic; font-size: 0.8em; margin: 5px;" class="custom_ratings">
+        This area will be used by the assessor to leave
+        comments related to this criterion.
+      </div>
+  </td>
+  <td class="nobr points_form">
+    <div class="editing" style="white-space: normal">
+      <span style="white-space: nowrap; font-size: 0.8em">
+          <input type="text" aria-label="Points" value="1.0" class="criterion_points span1 no-margin-bottom"> pts
+      </span><br>
+    </div>
+    <div class="displaying">
+      <span style="white-space: nowrap;">
+        <span class="criterion_rating_points_holder" style="display: none;">
+          <span class="criterion_rating_points">&nbsp;</span> /
+        </span>
+        <span class="display_criterion_points">1.0</span> pts<br>
+      </span>
+    </div>
+    <div class="ignoring">
+      <span> -- </span>
+    </div>
+    <div class="criterion_comments">
+        <a href="#" class="no-hover criterion_comments_link" title="Additional Comments">
+          <img alt="Additional Comments" src="https://du11hjcvx0uqb.cloudfront.net/dist/images/rubric_comment-ddae8546ab.png">
+        </a>
+        <div class="custom_rating" style="display: none;"></div>
+    </div>
+  </td>
+  <td class="editing">
+    <a href="#" class="delete_criterion_link" title="Delete Criterion Row" role="button" aria-label="Delete Criterion Row"><i class="icon-end"></i></a>
+  </td>
+</tr>
+
+      
+<tr id="criterion__7721" class="criterion   " style="">
+  <td class="criterion_description hover-container">
+    <div class="container">
+      <img class="learning_outcome_flag" alt="This criterion is linked to a Learning Outcome" src="https://du11hjcvx0uqb.cloudfront.net/dist/images/flagged_question-e2565888dd.png">
+      <span class="description criterion_description_value">Parameters</span>
+      <span class="learning_outcome_id" style="display: none;"></span>
+      <span class="criterion_id" style="display: none;">_7721</span>
+      <div class="long_description_holder editing empty">
+        <a href="#" class="long_description_link">view longer description</a>
+        <textarea class="long_description" aria-label="Long Description" style="display: none;"></textarea>
+      </div>
+      <div class="threshold">
+        threshold:
+        <span class="mastery_points"></span> pts
+      </div>
+        <div class="links editing">
+          <a href="#" class="edit_criterion_link"><i class="icon-edit standalone-icon"></i><span class="screenreader-only">Edit criterion description</span></a>
+        </div>
+    </div>
+  </td>
+  <td style="padding: 0;">
+      <table class="ratings" style=""><tbody><tr>
+          <td id="rating__87" class="rating edge_rating">
+          <div class="container" style="height: 52px;">
+            <div class="description rating_description_value">The Parameters (digits and range) are sent correctly using one of the required methods</div>
+            <span class="nobr"><span class="points">1.0</span> pts</span>
+            <span class="rating_id" style="display: none;">_87</span>
+              <div class="links">
+                <a href="#" class="edit_rating_link"><i class="icon-edit standalone-icon"></i><span class="screenreader-only">Edit rating</span></a>
+                <a href="#" class="delete_rating_link"><i class="icon-end standalone-icon"></i><span class="screenreader-only">Delete rating</span></a>
+                <!-- Hidden if last -->
+                <a href="#" class="add_rating_link_after"><i class="icon-add standalone-icon"></i><span class="screenreader-only">Add new rating category after current rating</span></a>
+              </div>
+          </div>
+          </td>
+          <td id="rating__7401" class="rating edge_rating">
+          <div class="container" style="height: 52px;">
+            <div class="description rating_description_value">The Parameters (digits and range) are not sent correctly using one of the required methods</div>
+            <span class="nobr"><span class="points">0.0</span> pts</span>
+            <span class="rating_id" style="display: none;">_7401</span>
+              <div class="links">
+                <a href="#" class="edit_rating_link"><i class="icon-edit standalone-icon"></i><span class="screenreader-only">Edit rating</span></a>
+                <a href="#" class="delete_rating_link"><i class="icon-end standalone-icon"></i><span class="screenreader-only">Delete rating</span></a>
+                <!-- Hidden if last -->
+                <a href="#" class="add_rating_link_after"><i class="icon-add standalone-icon"></i><span class="screenreader-only">Add new rating category after current rating</span></a>
+              </div>
+          </div>
+          </td>
+      </tr></tbody></table>
+      <div style="display: none; font-style: italic; font-size: 0.8em; margin: 5px;" class="custom_ratings">
+        This area will be used by the assessor to leave
+        comments related to this criterion.
+      </div>
+  </td>
+  <td class="nobr points_form">
+    <div class="editing" style="white-space: normal">
+      <span style="white-space: nowrap; font-size: 0.8em">
+          <input type="text" aria-label="Points" value="1.0" class="criterion_points span1 no-margin-bottom"> pts
+      </span><br>
+    </div>
+    <div class="displaying">
+      <span style="white-space: nowrap;">
+        <span class="criterion_rating_points_holder" style="display: none;">
+          <span class="criterion_rating_points">&nbsp;</span> /
+        </span>
+        <span class="display_criterion_points">1.0</span> pts<br>
+      </span>
+    </div>
+    <div class="ignoring">
+      <span> -- </span>
+    </div>
+    <div class="criterion_comments">
+        <a href="#" class="no-hover criterion_comments_link" title="Additional Comments">
+          <img alt="Additional Comments" src="https://du11hjcvx0uqb.cloudfront.net/dist/images/rubric_comment-ddae8546ab.png">
+        </a>
+        <div class="custom_rating" style="display: none;"></div>
+    </div>
+  </td>
+  <td class="editing">
+    <a href="#" class="delete_criterion_link" title="Delete Criterion Row" role="button" aria-label="Delete Criterion Row"><i class="icon-end"></i></a>
+  </td>
+</tr>
+
+      
+<tr id="criterion_227102_8509" class="criterion   " style="">
+  <td class="criterion_description hover-container">
+    <div class="container">
+      <img class="learning_outcome_flag" alt="This criterion is linked to a Learning Outcome" src="https://du11hjcvx0uqb.cloudfront.net/dist/images/flagged_question-e2565888dd.png">
+      <span class="description criterion_description_value">JSON</span>
+      <span class="learning_outcome_id" style="display: none;"></span>
+      <span class="criterion_id" style="display: none;">227102_8509</span>
+      <div class="long_description_holder editing empty">
+        <a href="#" class="long_description_link">view longer description</a>
+        <textarea class="long_description" aria-label="Long Description" style="display: none;"></textarea>
+      </div>
+      <div class="threshold">
+        threshold:
+        <span class="mastery_points"></span> pts
+      </div>
+        <div class="links editing">
+          <a href="#" class="edit_criterion_link"><i class="icon-edit standalone-icon"></i><span class="screenreader-only">Edit criterion description</span></a>
+        </div>
+    </div>
+  </td>
+  <td style="padding: 0;">
+      <table class="ratings" style=""><tbody><tr>
+          <td id="rating_227102_7225" class="rating edge_rating">
+          <div class="container" style="height: 52px;">
+            <div class="description rating_description_value">Response data is converted from a String to a JSON object</div>
+            <span class="nobr"><span class="points">1.0</span> pts</span>
+            <span class="rating_id" style="display: none;">227102_7225</span>
+              <div class="links">
+                <a href="#" class="edit_rating_link"><i class="icon-edit standalone-icon"></i><span class="screenreader-only">Edit rating</span></a>
+                <a href="#" class="delete_rating_link"><i class="icon-end standalone-icon"></i><span class="screenreader-only">Delete rating</span></a>
+                <!-- Hidden if last -->
+                <a href="#" class="add_rating_link_after"><i class="icon-add standalone-icon"></i><span class="screenreader-only">Add new rating category after current rating</span></a>
+              </div>
+          </div>
+          </td>
+          <td id="rating_blank_2" class="rating edge_rating">
+          <div class="container" style="height: 52px;">
+            <div class="description rating_description_value">Response data is not converted from JSON to a JavaScript object</div>
+            <span class="nobr"><span class="points">0.0</span> pts</span>
+            <span class="rating_id" style="display: none;">blank_2</span>
+              <div class="links">
+                <a href="#" class="edit_rating_link"><i class="icon-edit standalone-icon"></i><span class="screenreader-only">Edit rating</span></a>
+                <a href="#" class="delete_rating_link"><i class="icon-end standalone-icon"></i><span class="screenreader-only">Delete rating</span></a>
+                <!-- Hidden if last -->
+                <a href="#" class="add_rating_link_after"><i class="icon-add standalone-icon"></i><span class="screenreader-only">Add new rating category after current rating</span></a>
+              </div>
+          </div>
+          </td>
+      </tr></tbody></table>
+      <div style="display: none; font-style: italic; font-size: 0.8em; margin: 5px;" class="custom_ratings">
+        This area will be used by the assessor to leave
+        comments related to this criterion.
+      </div>
+  </td>
+  <td class="nobr points_form">
+    <div class="editing" style="white-space: normal">
+      <span style="white-space: nowrap; font-size: 0.8em">
+          <input type="text" aria-label="Points" value="1.0" class="criterion_points span1 no-margin-bottom"> pts
+      </span><br>
+    </div>
+    <div class="displaying">
+      <span style="white-space: nowrap;">
+        <span class="criterion_rating_points_holder" style="display: none;">
+          <span class="criterion_rating_points">&nbsp;</span> /
+        </span>
+        <span class="display_criterion_points">1.0</span> pts<br>
+      </span>
+    </div>
+    <div class="ignoring">
+      <span> -- </span>
+    </div>
+    <div class="criterion_comments">
+        <a href="#" class="no-hover criterion_comments_link" title="Additional Comments">
+          <img alt="Additional Comments" src="https://du11hjcvx0uqb.cloudfront.net/dist/images/rubric_comment-ddae8546ab.png">
+        </a>
+        <div class="custom_rating" style="display: none;"></div>
+    </div>
+  </td>
+  <td class="editing">
+    <a href="#" class="delete_criterion_link" title="Delete Criterion Row" role="button" aria-label="Delete Criterion Row"><i class="icon-end"></i></a>
+  </td>
+</tr>
+
+      
+<tr id="criterion_227102_5486" class="criterion   " style="">
+  <td class="criterion_description hover-container">
+    <div class="container">
+      <img class="learning_outcome_flag" alt="This criterion is linked to a Learning Outcome" src="https://du11hjcvx0uqb.cloudfront.net/dist/images/flagged_question-e2565888dd.png">
+      <span class="description criterion_description_value">List Items</span>
+      <span class="learning_outcome_id" style="display: none;"></span>
+      <span class="criterion_id" style="display: none;">227102_5486</span>
+      <div class="long_description_holder editing empty">
+        <a href="#" class="long_description_link">view longer description</a>
+        <textarea class="long_description" aria-label="Long Description" style="display: none;"></textarea>
+      </div>
+      <div class="threshold">
+        threshold:
+        <span class="mastery_points"></span> pts
+      </div>
+        <div class="links editing">
+          <a href="#" class="edit_criterion_link"><i class="icon-edit standalone-icon"></i><span class="screenreader-only">Edit criterion description</span></a>
+        </div>
+    </div>
+  </td>
+  <td style="padding: 0;">
+      <table class="ratings" style=""><tbody><tr>
+          <td id="rating_227102_5728" class="rating edge_rating">
+          <div class="container" style="height: 68px;">
+            <div class="description rating_description_value">The correct number of list items are created and appended to the existing list (ul)</div>
+            <span class="nobr"><span class="points">2.0</span> pts</span>
+            <span class="rating_id" style="display: none;">227102_5728</span>
+              <div class="links">
+                <a href="#" class="edit_rating_link"><i class="icon-edit standalone-icon"></i><span class="screenreader-only">Edit rating</span></a>
+                <a href="#" class="delete_rating_link"><i class="icon-end standalone-icon"></i><span class="screenreader-only">Delete rating</span></a>
+                <!-- Hidden if last -->
+                <a href="#" class="add_rating_link_after"><i class="icon-add standalone-icon"></i><span class="screenreader-only">Add new rating category after current rating</span></a>
+              </div>
+          </div>
+          </td>
+          <td id="rating_228968_4929" class="rating ">
+          <div class="container" style="height: 68px;">
+            <div class="description rating_description_value">The correct number of list items are not created or not  appended to the existing list (ul)</div>
+            <span class="nobr"><span class="points">1.0</span> pts</span>
+            <span class="rating_id" style="display: none;">228968_4929</span>
+              <div class="links">
+                <a href="#" class="edit_rating_link"><i class="icon-edit standalone-icon"></i><span class="screenreader-only">Edit rating</span></a>
+                <a href="#" class="delete_rating_link"><i class="icon-end standalone-icon"></i><span class="screenreader-only">Delete rating</span></a>
+                <!-- Hidden if last -->
+                <a href="#" class="add_rating_link_after"><i class="icon-add standalone-icon"></i><span class="screenreader-only">Add new rating category after current rating</span></a>
+              </div>
+          </div>
+          </td>
+          <td id="rating_227102_3985" class="rating edge_rating">
+          <div class="container" style="height: 68px;">
+            <div class="description rating_description_value">The correct number of list items are not created and not  appended to the existing list (ul)</div>
+            <span class="nobr"><span class="points">0.0</span> pts</span>
+            <span class="rating_id" style="display: none;">227102_3985</span>
+              <div class="links">
+                <a href="#" class="edit_rating_link"><i class="icon-edit standalone-icon"></i><span class="screenreader-only">Edit rating</span></a>
+                <a href="#" class="delete_rating_link"><i class="icon-end standalone-icon"></i><span class="screenreader-only">Delete rating</span></a>
+                <!-- Hidden if last -->
+                <a href="#" class="add_rating_link_after"><i class="icon-add standalone-icon"></i><span class="screenreader-only">Add new rating category after current rating</span></a>
+              </div>
+          </div>
+          </td>
+      </tr></tbody></table>
+      <div style="display: none; font-style: italic; font-size: 0.8em; margin: 5px;" class="custom_ratings">
+        This area will be used by the assessor to leave
+        comments related to this criterion.
+      </div>
+  </td>
+  <td class="nobr points_form">
+    <div class="editing" style="white-space: normal">
+      <span style="white-space: nowrap; font-size: 0.8em">
+          <input type="text" aria-label="Points" value="2.0" class="criterion_points span1 no-margin-bottom"> pts
+      </span><br>
+    </div>
+    <div class="displaying">
+      <span style="white-space: nowrap;">
+        <span class="criterion_rating_points_holder" style="display: none;">
+          <span class="criterion_rating_points">&nbsp;</span> /
+        </span>
+        <span class="display_criterion_points">2.0</span> pts<br>
+      </span>
+    </div>
+    <div class="ignoring">
+      <span> -- </span>
+    </div>
+    <div class="criterion_comments">
+        <a href="#" class="no-hover criterion_comments_link" title="Additional Comments">
+          <img alt="Additional Comments" src="https://du11hjcvx0uqb.cloudfront.net/dist/images/rubric_comment-ddae8546ab.png">
+        </a>
+        <div class="custom_rating" style="display: none;"></div>
+    </div>
+  </td>
+  <td class="editing">
+    <a href="#" class="delete_criterion_link" title="Delete Criterion Row" role="button" aria-label="Delete Criterion Row"><i class="icon-end"></i></a>
+  </td>
+</tr>
+
+      
+<tr id="criterion_228968_2660" class="criterion   " style="">
+  <td class="criterion_description hover-container">
+    <div class="container">
+      <img class="learning_outcome_flag" alt="This criterion is linked to a Learning Outcome" src="https://du11hjcvx0uqb.cloudfront.net/dist/images/flagged_question-e2565888dd.png">
+      <span class="description criterion_description_value">Navigation</span>
+      <span class="learning_outcome_id" style="display: none;"></span>
+      <span class="criterion_id" style="display: none;">228968_2660</span>
+      <div class="long_description_holder editing empty">
+        <a href="#" class="long_description_link">view longer description</a>
+        <textarea class="long_description" aria-label="Long Description" style="display: none;"></textarea>
+      </div>
+      <div class="threshold">
+        threshold:
+        <span class="mastery_points"></span> pts
+      </div>
+        <div class="links editing">
+          <a href="#" class="edit_criterion_link"><i class="icon-edit standalone-icon"></i><span class="screenreader-only">Edit criterion description</span></a>
+        </div>
+    </div>
+  </td>
+  <td style="padding: 0;">
+      <table class="ratings" style=""><tbody><tr>
+          <td id="rating_228968_931" class="rating edge_rating">
+          <div class="container" style="height: 52px;">
+            <div class="description rating_description_value">Appears to the user as a multi page (two screen) application but is actually just one HTML file.</div>
+            <span class="nobr"><span class="points">2.0</span> pts</span>
+            <span class="rating_id" style="display: none;">228968_931</span>
+              <div class="links">
+                <a href="#" class="edit_rating_link"><i class="icon-edit standalone-icon"></i><span class="screenreader-only">Edit rating</span></a>
+                <a href="#" class="delete_rating_link"><i class="icon-end standalone-icon"></i><span class="screenreader-only">Delete rating</span></a>
+                <!-- Hidden if last -->
+                <a href="#" class="add_rating_link_after"><i class="icon-add standalone-icon"></i><span class="screenreader-only">Add new rating category after current rating</span></a>
+              </div>
+          </div>
+          </td>
+          <td id="rating_228968_8225" class="rating edge_rating">
+          <div class="container" style="height: 52px;">
+            <div class="description rating_description_value">Does not navigate as a multi page (two screen) application</div>
+            <span class="nobr"><span class="points">0.0</span> pts</span>
+            <span class="rating_id" style="display: none;">228968_8225</span>
+              <div class="links">
+                <a href="#" class="edit_rating_link"><i class="icon-edit standalone-icon"></i><span class="screenreader-only">Edit rating</span></a>
+                <a href="#" class="delete_rating_link"><i class="icon-end standalone-icon"></i><span class="screenreader-only">Delete rating</span></a>
+                <!-- Hidden if last -->
+                <a href="#" class="add_rating_link_after"><i class="icon-add standalone-icon"></i><span class="screenreader-only">Add new rating category after current rating</span></a>
+              </div>
+          </div>
+          </td>
+      </tr></tbody></table>
+      <div style="display: none; font-style: italic; font-size: 0.8em; margin: 5px;" class="custom_ratings">
+        This area will be used by the assessor to leave
+        comments related to this criterion.
+      </div>
+  </td>
+  <td class="nobr points_form">
+    <div class="editing" style="white-space: normal">
+      <span style="white-space: nowrap; font-size: 0.8em">
+          <input type="text" aria-label="Points" value="2.0" class="criterion_points span1 no-margin-bottom"> pts
+      </span><br>
+    </div>
+    <div class="displaying">
+      <span style="white-space: nowrap;">
+        <span class="criterion_rating_points_holder" style="display: none;">
+          <span class="criterion_rating_points">&nbsp;</span> /
+        </span>
+        <span class="display_criterion_points">2.0</span> pts<br>
+      </span>
+    </div>
+    <div class="ignoring">
+      <span> -- </span>
+    </div>
+    <div class="criterion_comments">
+        <a href="#" class="no-hover criterion_comments_link" title="Additional Comments">
+          <img alt="Additional Comments" src="https://du11hjcvx0uqb.cloudfront.net/dist/images/rubric_comment-ddae8546ab.png">
+        </a>
+        <div class="custom_rating" style="display: none;"></div>
+    </div>
+  </td>
+  <td class="editing">
+    <a href="#" class="delete_criterion_link" title="Delete Criterion Row" role="button" aria-label="Delete Criterion Row"><i class="icon-end"></i></a>
+  </td>
+</tr>
+
+      
+<tr id="criterion_228968_8700" class="criterion   " style="">
+  <td class="criterion_description hover-container">
+    <div class="container">
+      <img class="learning_outcome_flag" alt="This criterion is linked to a Learning Outcome" src="https://du11hjcvx0uqb.cloudfront.net/dist/images/flagged_question-e2565888dd.png">
+      <span class="description criterion_description_value">Responsive number list</span>
+      <span class="learning_outcome_id" style="display: none;"></span>
+      <span class="criterion_id" style="display: none;">228968_8700</span>
+      <div class="long_description_holder editing empty">
+        <a href="#" class="long_description_link">view longer description</a>
+        <textarea class="long_description" aria-label="Long Description" style="display: none;"></textarea>
+      </div>
+      <div class="threshold">
+        threshold:
+        <span class="mastery_points"></span> pts
+      </div>
+        <div class="links editing">
+          <a href="#" class="edit_criterion_link"><i class="icon-edit standalone-icon"></i><span class="screenreader-only">Edit criterion description</span></a>
+        </div>
+    </div>
+  </td>
+  <td style="padding: 0;">
+      <table class="ratings" style=""><tbody><tr>
+          <td id="rating_228968_1305" class="rating edge_rating">
+          <div class="container" style="height: 52px;">
+            <div class="description rating_description_value">Number list is responsive as required and uses mobile first</div>
+            <span class="nobr"><span class="points">2.0</span> pts</span>
+            <span class="rating_id" style="display: none;">228968_1305</span>
+              <div class="links">
+                <a href="#" class="edit_rating_link"><i class="icon-edit standalone-icon"></i><span class="screenreader-only">Edit rating</span></a>
+                <a href="#" class="delete_rating_link"><i class="icon-end standalone-icon"></i><span class="screenreader-only">Delete rating</span></a>
+                <!-- Hidden if last -->
+                <a href="#" class="add_rating_link_after"><i class="icon-add standalone-icon"></i><span class="screenreader-only">Add new rating category after current rating</span></a>
+              </div>
+          </div>
+          </td>
+          <td id="rating_228968_8383" class="rating ">
+          <div class="container" style="height: 52px;">
+            <div class="description rating_description_value">Number list is not responsive as required or does not use mobile first</div>
+            <span class="nobr"><span class="points">1.0</span> pts</span>
+            <span class="rating_id" style="display: none;">228968_8383</span>
+              <div class="links">
+                <a href="#" class="edit_rating_link"><i class="icon-edit standalone-icon"></i><span class="screenreader-only">Edit rating</span></a>
+                <a href="#" class="delete_rating_link"><i class="icon-end standalone-icon"></i><span class="screenreader-only">Delete rating</span></a>
+                <!-- Hidden if last -->
+                <a href="#" class="add_rating_link_after"><i class="icon-add standalone-icon"></i><span class="screenreader-only">Add new rating category after current rating</span></a>
+              </div>
+          </div>
+          </td>
+          <td id="rating_228968_1853" class="rating edge_rating">
+          <div class="container" style="height: 52px;">
+            <div class="description rating_description_value">Number list is not responsive as required and does not use mobile first</div>
+            <span class="nobr"><span class="points">0.0</span> pts</span>
+            <span class="rating_id" style="display: none;">228968_1853</span>
+              <div class="links">
+                <a href="#" class="edit_rating_link"><i class="icon-edit standalone-icon"></i><span class="screenreader-only">Edit rating</span></a>
+                <a href="#" class="delete_rating_link"><i class="icon-end standalone-icon"></i><span class="screenreader-only">Delete rating</span></a>
+                <!-- Hidden if last -->
+                <a href="#" class="add_rating_link_after"><i class="icon-add standalone-icon"></i><span class="screenreader-only">Add new rating category after current rating</span></a>
+              </div>
+          </div>
+          </td>
+      </tr></tbody></table>
+      <div style="display: none; font-style: italic; font-size: 0.8em; margin: 5px;" class="custom_ratings">
+        This area will be used by the assessor to leave
+        comments related to this criterion.
+      </div>
+  </td>
+  <td class="nobr points_form">
+    <div class="editing" style="white-space: normal">
+      <span style="white-space: nowrap; font-size: 0.8em">
+          <input type="text" aria-label="Points" value="2.0" class="criterion_points span1 no-margin-bottom"> pts
+      </span><br>
+    </div>
+    <div class="displaying">
+      <span style="white-space: nowrap;">
+        <span class="criterion_rating_points_holder" style="display: none;">
+          <span class="criterion_rating_points">&nbsp;</span> /
+        </span>
+        <span class="display_criterion_points">2.0</span> pts<br>
+      </span>
+    </div>
+    <div class="ignoring">
+      <span> -- </span>
+    </div>
+    <div class="criterion_comments">
+        <a href="#" class="no-hover criterion_comments_link" title="Additional Comments">
+          <img alt="Additional Comments" src="https://du11hjcvx0uqb.cloudfront.net/dist/images/rubric_comment-ddae8546ab.png">
+        </a>
+        <div class="custom_rating" style="display: none;"></div>
+    </div>
+  </td>
+  <td class="editing">
+    <a href="#" class="delete_criterion_link" title="Delete Criterion Row" role="button" aria-label="Delete Criterion Row"><i class="icon-end"></i></a>
+  </td>
+</tr>
+
+      
+<tr id="criterion_228968_8051" class="criterion   " style="">
+  <td class="criterion_description hover-container">
+    <div class="container">
+      <img class="learning_outcome_flag" alt="This criterion is linked to a Learning Outcome" src="https://du11hjcvx0uqb.cloudfront.net/dist/images/flagged_question-e2565888dd.png">
+      <span class="description criterion_description_value">Submission</span>
+      <span class="learning_outcome_id" style="display: none;"></span>
+      <span class="criterion_id" style="display: none;">228968_8051</span>
+      <div class="long_description_holder editing empty">
+        <a href="#" class="long_description_link">view longer description</a>
+        <textarea class="long_description" aria-label="Long Description" style="display: none;"></textarea>
+      </div>
+      <div class="threshold">
+        threshold:
+        <span class="mastery_points"></span> pts
+      </div>
+        <div class="links editing">
+          <a href="#" class="edit_criterion_link"><i class="icon-edit standalone-icon"></i><span class="screenreader-only">Edit criterion description</span></a>
+        </div>
+    </div>
+  </td>
+  <td style="padding: 0;">
+      <table class="ratings" style=""><tbody><tr>
+          <td id="rating_228968_4381" class="rating edge_rating">
+          <div class="container" style="height: 52px;">
+            <div class="description rating_description_value">Your assignment is transmitted (FTP) to the Edumedia server and the correct URL (home page) is submitted through Canvas</div>
+            <span class="nobr"><span class="points">1.0</span> pts</span>
+            <span class="rating_id" style="display: none;">228968_4381</span>
+              <div class="links">
+                <a href="#" class="edit_rating_link"><i class="icon-edit standalone-icon"></i><span class="screenreader-only">Edit rating</span></a>
+                <a href="#" class="delete_rating_link"><i class="icon-end standalone-icon"></i><span class="screenreader-only">Delete rating</span></a>
+                <!-- Hidden if last -->
+                <a href="#" class="add_rating_link_after"><i class="icon-add standalone-icon"></i><span class="screenreader-only">Add new rating category after current rating</span></a>
+              </div>
+          </div>
+          </td>
+          <td id="rating_228968_1548" class="rating edge_rating">
+          <div class="container" style="height: 52px;">
+            <div class="description rating_description_value">Missing a submission requirement</div>
+            <span class="nobr"><span class="points">0.0</span> pts</span>
+            <span class="rating_id" style="display: none;">228968_1548</span>
+              <div class="links">
+                <a href="#" class="edit_rating_link"><i class="icon-edit standalone-icon"></i><span class="screenreader-only">Edit rating</span></a>
+                <a href="#" class="delete_rating_link"><i class="icon-end standalone-icon"></i><span class="screenreader-only">Delete rating</span></a>
+                <!-- Hidden if last -->
+                <a href="#" class="add_rating_link_after"><i class="icon-add standalone-icon"></i><span class="screenreader-only">Add new rating category after current rating</span></a>
+              </div>
+          </div>
+          </td>
+      </tr></tbody></table>
+      <div style="display: none; font-style: italic; font-size: 0.8em; margin: 5px;" class="custom_ratings">
+        This area will be used by the assessor to leave
+        comments related to this criterion.
+      </div>
+  </td>
+  <td class="nobr points_form">
+    <div class="editing" style="white-space: normal">
+      <span style="white-space: nowrap; font-size: 0.8em">
+          <input type="text" aria-label="Points" value="1.0" class="criterion_points span1 no-margin-bottom"> pts
+      </span><br>
+    </div>
+    <div class="displaying">
+      <span style="white-space: nowrap;">
+        <span class="criterion_rating_points_holder" style="display: none;">
+          <span class="criterion_rating_points">&nbsp;</span> /
+        </span>
+        <span class="display_criterion_points">1.0</span> pts<br>
+      </span>
+    </div>
+    <div class="ignoring">
+      <span> -- </span>
+    </div>
+    <div class="criterion_comments">
+        <a href="#" class="no-hover criterion_comments_link" title="Additional Comments">
+          <img alt="Additional Comments" src="https://du11hjcvx0uqb.cloudfront.net/dist/images/rubric_comment-ddae8546ab.png">
+        </a>
+        <div class="custom_rating" style="display: none;"></div>
+    </div>
+  </td>
+  <td class="editing">
+    <a href="#" class="delete_criterion_link" title="Delete Criterion Row" role="button" aria-label="Delete Criterion Row"><i class="icon-end"></i></a>
+  </td>
+</tr>
+
+  
+<tr id="criterion_blank" class="criterion blank  " style="display: none;">
+  <td class="criterion_description hover-container">
+    <div class="container">
+      <img class="learning_outcome_flag" alt="This criterion is linked to a Learning Outcome" src="https://du11hjcvx0uqb.cloudfront.net/dist/images/flagged_question-e2565888dd.png">
+      <span class="description criterion_description_value">Description of criterion</span>
+      <span class="learning_outcome_id" style="display: none;"></span>
+      <span class="criterion_id" style="display: none;"></span>
+      <div class="long_description_holder editing empty">
+        <a href="#" class="long_description_link">view longer description</a>
+        <textarea class="long_description" aria-label="Long Description" style="display: none;"></textarea>
+      </div>
+      <div class="threshold">
+        threshold:
+        <span class="mastery_points">5</span> pts
+      </div>
+        <div class="links editing">
+          <a href="#" class="edit_criterion_link"><i class="icon-edit standalone-icon"></i><span class="screenreader-only">Edit criterion description</span></a>
+        </div>
+    </div>
+  </td>
+  <td style="padding: 0;">
+      <table class="ratings" style=""><tbody><tr>
+          <td id="rating_blank" class="rating edge_rating">
+          <div class="container">
+            <div class="description rating_description_value">Full Marks</div>
+            <span class="nobr"><span class="points">5</span> pts</span>
+            <span class="rating_id" style="display: none;">blank</span>
+              <div class="links">
+                <a href="#" class="edit_rating_link"><i class="icon-edit standalone-icon"></i><span class="screenreader-only">Edit rating</span></a>
+                <a href="#" class="delete_rating_link"><i class="icon-end standalone-icon"></i><span class="screenreader-only">Delete rating</span></a>
+                <!-- Hidden if last -->
+                <a href="#" class="add_rating_link_after"><i class="icon-add standalone-icon"></i><span class="screenreader-only">Add new rating category after current rating</span></a>
+              </div>
+          </div>
+          </td>
+          <td id="rating_blank_2" class="rating edge_rating">
+          <div class="container">
+            <div class="description rating_description_value">No Marks</div>
+            <span class="nobr"><span class="points">0</span> pts</span>
+            <span class="rating_id" style="display: none;">blank_2</span>
+              <div class="links">
+                <a href="#" class="edit_rating_link"><i class="icon-edit standalone-icon"></i><span class="screenreader-only">Edit rating</span></a>
+                <a href="#" class="delete_rating_link"><i class="icon-end standalone-icon"></i><span class="screenreader-only">Delete rating</span></a>
+                <!-- Hidden if last -->
+                <a href="#" class="add_rating_link_after"><i class="icon-add standalone-icon"></i><span class="screenreader-only">Add new rating category after current rating</span></a>
+              </div>
+          </div>
+          </td>
+      </tr></tbody></table>
+      <div style="display: none; font-style: italic; font-size: 0.8em; margin: 5px;" class="custom_ratings">
+        This area will be used by the assessor to leave
+        comments related to this criterion.
+      </div>
+  </td>
+  <td class="nobr points_form">
+    <div class="editing" style="white-space: normal">
+      <span style="white-space: nowrap; font-size: 0.8em">
+          <input type="text" aria-label="Points" value="5" class="criterion_points span1 no-margin-bottom"> pts
+      </span><br>
+    </div>
+    <div class="displaying">
+      <span style="white-space: nowrap;">
+        <span class="criterion_rating_points_holder" style="display: none;">
+          <span class="criterion_rating_points">&nbsp;</span> /
+        </span>
+        <span class="display_criterion_points">5</span> pts<br>
+      </span>
+    </div>
+    <div class="ignoring">
+      <span> -- </span>
+    </div>
+    <div class="criterion_comments">
+        <a href="#" class="no-hover criterion_comments_link" title="Additional Comments">
+          <img alt="Additional Comments" src="https://du11hjcvx0uqb.cloudfront.net/dist/images/rubric_comment-ddae8546ab.png">
+        </a>
+        <div class="custom_rating" style="display: none;"></div>
+    </div>
+  </td>
+  <td class="editing">
+    <a href="#" class="delete_criterion_link" title="Delete Criterion Row" role="button" aria-label="Delete Criterion Row"><i class="icon-end"></i></a>
+  </td>
+</tr>
+
+  <tr class="summary" style="">
+    <td colspan="4">
+      <div style="float: right;" class="total_points_holder">
+        <span style="padding-right: 10px;">Total Points:
+            <span class="rubric_total">15.0</span> <span class="assessing">out of 15.0</span>
+        </span>
+      </div>
+      <div style="float: left;" class="editing">
+      <a href="#" aria-label="Add Criterion" class="icon-plus add_criterion_link">Criterion</a>
+      &nbsp;&nbsp;<a href="#" class="icon-search find_outcome_link outcome">Find Outcome</a>
+      </div>
+      <div class="clear"></div>
+    </td>
+  </tr>
+</tbody>
+</table>
+</div>
+<table style="display: none;">
+  <tbody><tr id="edit_rubric">
+    <td colspan="4">
+      <form id="edit_rubric_form" class="edit-rubric-form no-margin-bottom">
+        <div class="rubric_custom_ratings" style="">
+          <input type="checkbox" id="rubric_custom_rating" class="rubric_custom_rating">
+          <label for="rubric_custom_rating">I'll write free-form comments when assessing students</label>
+        </div>
+          <div class="rubric_grading" style="">
+            <input type="checkbox" id="grading_rubric" class="grading_rubric_checkbox" checked="">
+            <label for="grading_rubric">Use this rubric for assignment grading</label>
+          </div>
+        <div class="totalling_rubric" style="">
+          <input type="checkbox" id="totalling_rubric" class="totalling_rubric_checkbox">
+          <label for="totalling_rubric">Hide score total for assessment results</label>
+        </div>
+        <div class="ic-Action-header ic-Action-header--half-margin">
+          <div class="ic-Action-header__Primary">
+            <button type="button" class="Button cancel_button">Cancel</button>
+            <button type="submit" class="Button Button--primary save_button">Create Rubric</button>
+          </div>
+        </div>
+      </form>
+    </td>
+  </tr>
+</tbody></table>
+
+  <div style="display: none;" id="rubric_parameters">
+    <input type="hidden" name="rubric_association[association_type]" value="Assignment">
+    <input type="hidden" name="rubric_association[association_id]" value="4783224">
+    <input type="hidden" name="rubric_association[purpose]" value="grading">
+  </div>
+  <div id="rubric_long_description_dialog" style="display: none;">
+  <div class="description" style="border-bottom: 1px solid #ccc; padding: 5px 0; font-size: 1.2em; font-weight: bold; margin-bottom: 5px;">
+  </div>
+  <div class="editing">
+    <textarea class="long_description" aria-label="Long Description" name="long_description" style="width: 370px;"></textarea>
+    <div class="button-container">
+      <button type="button" class="btn btn button-secondary cancel_button">Cancel</button>
+      <button type="button" class="btn save_button">Update Description</button>
+    </div>
+  </div>
+  <div class="displaying">
+    <div class="long_description">
+    </div>
+  </div>
+</div>
+<div id="rubric_criterion_comments_dialog" style="display: none;">
+  <div class="criterion_description" style="border-bottom: 1px solid #ccc; padding: 5px 0; font-size: 1.2em; font-weight: bold; margin-bottom: 5px;" tabindex="-1"></div>
+  <div class="editing">
+    <label for="criterion_comments_textarea">
+      Additional Comments:
+    </label>
+    <textarea id="criterion_comments_textarea" class="criterion_comments" name="criterion_comments" style="width: 370px;"></textarea>
+    <div class="button-container">
+      <button type="button" class="btn btn button-secondary cancel_button">Cancel</button>
+      <button type="button" class="btn save_button">Update Comments</button>
+    </div>
+  </div>
+  <div class="displaying">
+    Additional Comments:
+    <div class="criterion_comments" style="margin-top: 10px;">
+    </div>
+  </div>
+</div>
+
+</div>
+<div class="rubric_container rubric  " id="default_rubric" style="display: none;" tabindex="0">
+  <div class="screenreader-only"><h2>Rubric</h2></div>
+  <div class="rubric_title">
+    <div style="float: right; display: none;" class="links displaying">
+      <a href="/courses/501988/rubrics/%7B%7B%20id%20%7D%7D" class=" edit_rubric_link no-print no-hover" style="" title="Edit Rubric" aria-label="Edit Rubric" role="button"><i class="icon-edit standalone-icon"></i></a>
+      <a href="https://algonquin.instructure.com/search/rubrics?q=" class="find_rubric_link no-print no-hover" style="" title="Find Another Rubric" aria-label="Find Another Rubric" role="button"><i class="icon-search standalone-icon"></i></a>
+        <a href="/courses/501988/rubric_associations/%7B%7B%20rubric_association_id%20%7D%7D" class="delete_rubric_link no-print no-hover" style="" title="Delete Rubric" aria-label="Delete Rubric" role="button"><i class="icon-trash standalone-icon"></i></a>
+      <div style="display: none;">
+        <div class="use_for_grading">&nbsp;</div>
+        <div class="free_form_criterion_comments">&nbsp;</div>
+        <div class="hide_score_total">&nbsp;</div>
+        <div class="rubric_association_id">&nbsp;</div>
+        <div class="user_id">&nbsp;</div>
+        <div class="assessment_type"></div>
+        <a href="/courses/501988/rubric_associations/%7B%7B%20rubric_association_id%20%7D%7D/assessments/%7B%7B%20assessment_id%20%7D%7D" rel="nofollow" class="edit_assessment_link">&nbsp;</a>
+        <a href="/courses/501988/rubrics/%7B%7B%20rubric_id%20%7D%7D" class="edit_rubric_url">&nbsp;</a>
+          <a href="/courses/501988/rubric_associations/%7B%7B%20association_id%20%7D%7D" class="delete_rubric_url">&nbsp;</a>
+      </div>
+    </div>
+    <div style="float: right; font-size: 0.8em; display: none;" class="links displaying locked">
+      <span style="">Can't change a rubric once you've started using it.</span>
+        <a href="/courses/501988/rubric_associations/%7B%7B%20association_id%20%7D%7D" class="delete_rubric_url" style="display: none;">&nbsp;</a>
+    </div>
+
+    <div class="editing" style="float: right;">
+      <a href="https://algonquin.instructure.com/search/rubrics?q=" class="find_rubric_link icon-search" style="" title="Find Existing Rubric">Find a Rubric</a>
+    </div>
+    <div class="editing" style="text-align: left">
+      <label for="rubric-title">Title:</label>
+      <input id="rubric-title" type="text" class="no-margin-bottom" name="title" value="Some Rubric" style="width: 200px;" maxlength="255" aria-label="Title:">
+      <a href="https://algonquin.instructure.com/search/rubrics?q=" style="display: none;"><img alt="" src="https://du11hjcvx0uqb.cloudfront.net/dist/images/find-6164443e2a.png"> Find Rubric</a>
+    </div>
+    <div class="displaying">
+      <span class="title" tabindex="-1">Title</span>
+    </div>
+    <div class="has-assessments-warning" style="display: none;">
+      You've already rated students with this rubric.  Any major changes could affect their assessment results.
+    </div>
+  </div>
+<table class="rubric_table">
+<caption>
+  <div class="screenreader-only">
+    <span class="title">Title</span>
+  </div>
+</caption>
+<thead>
+  <tr>
+    <th scope="col">Criteria</th>
+    <th scope="col">Ratings</th>
+    <th scope="col">Pts</th>
+    <th scope="col" class="editing">&nbsp;</th>
+  </tr>
+</thead>
+<tbody>
+  
+<tr id="criterion_blank" class="criterion blank  " style="display: none;">
+  <td class="criterion_description hover-container">
+    <div class="container">
+      <img class="learning_outcome_flag" alt="This criterion is linked to a Learning Outcome" src="https://du11hjcvx0uqb.cloudfront.net/dist/images/flagged_question-e2565888dd.png">
+      <span class="description criterion_description_value">Description of criterion</span>
+      <span class="learning_outcome_id" style="display: none;"></span>
+      <span class="criterion_id" style="display: none;"></span>
+      <div class="long_description_holder editing empty">
+        <a href="#" class="long_description_link">view longer description</a>
+        <textarea class="long_description" aria-label="Long Description" style="display: none;"></textarea>
+      </div>
+      <div class="threshold">
+        threshold:
+        <span class="mastery_points">5</span> pts
+      </div>
+        <div class="links editing">
+          <a href="#" class="edit_criterion_link"><i class="icon-edit standalone-icon"></i><span class="screenreader-only">Edit criterion description</span></a>
+        </div>
+    </div>
+  </td>
+  <td style="padding: 0;">
+      <table class="ratings" style=""><tbody><tr>
+          <td id="rating_blank" class="rating edge_rating">
+          <div class="container">
+            <div class="description rating_description_value">Full Marks</div>
+            <span class="nobr"><span class="points">5</span> pts</span>
+            <span class="rating_id" style="display: none;">blank</span>
+              <div class="links">
+                <a href="#" class="edit_rating_link"><i class="icon-edit standalone-icon"></i><span class="screenreader-only">Edit rating</span></a>
+                <a href="#" class="delete_rating_link"><i class="icon-end standalone-icon"></i><span class="screenreader-only">Delete rating</span></a>
+                <!-- Hidden if last -->
+                <a href="#" class="add_rating_link_after"><i class="icon-add standalone-icon"></i><span class="screenreader-only">Add new rating category after current rating</span></a>
+              </div>
+          </div>
+          </td>
+          <td id="rating_blank_2" class="rating edge_rating">
+          <div class="container">
+            <div class="description rating_description_value">No Marks</div>
+            <span class="nobr"><span class="points">0</span> pts</span>
+            <span class="rating_id" style="display: none;">blank_2</span>
+              <div class="links">
+                <a href="#" class="edit_rating_link"><i class="icon-edit standalone-icon"></i><span class="screenreader-only">Edit rating</span></a>
+                <a href="#" class="delete_rating_link"><i class="icon-end standalone-icon"></i><span class="screenreader-only">Delete rating</span></a>
+                <!-- Hidden if last -->
+                <a href="#" class="add_rating_link_after"><i class="icon-add standalone-icon"></i><span class="screenreader-only">Add new rating category after current rating</span></a>
+              </div>
+          </div>
+          </td>
+      </tr></tbody></table>
+      <div style="display: none; font-style: italic; font-size: 0.8em; margin: 5px;" class="custom_ratings">
+        This area will be used by the assessor to leave
+        comments related to this criterion.
+      </div>
+  </td>
+  <td class="nobr points_form">
+    <div class="editing" style="white-space: normal">
+      <span style="white-space: nowrap; font-size: 0.8em">
+          <input type="text" aria-label="Points" value="5" class="criterion_points span1 no-margin-bottom"> pts
+      </span><br>
+    </div>
+    <div class="displaying">
+      <span style="white-space: nowrap;">
+        <span class="criterion_rating_points_holder" style="display: none;">
+          <span class="criterion_rating_points">&nbsp;</span> /
+        </span>
+        <span class="display_criterion_points">5</span> pts<br>
+      </span>
+    </div>
+    <div class="ignoring">
+      <span> -- </span>
+    </div>
+    <div class="criterion_comments">
+        <a href="#" class="no-hover criterion_comments_link" title="Additional Comments">
+          <img alt="Additional Comments" src="https://du11hjcvx0uqb.cloudfront.net/dist/images/rubric_comment-ddae8546ab.png">
+        </a>
+        <div class="custom_rating" style="display: none;"></div>
+    </div>
+  </td>
+  <td class="editing">
+    <a href="#" class="delete_criterion_link" title="Delete Criterion Row" role="button" aria-label="Delete Criterion Row"><i class="icon-end"></i></a>
+  </td>
+</tr>
+
+  <tr id="criterion_1" class="criterion" style="display: table-row;">
+  <td class="criterion_description hover-container">
+    <div class="container">
+      <img class="learning_outcome_flag" alt="This criterion is linked to a Learning Outcome" src="https://du11hjcvx0uqb.cloudfront.net/dist/images/flagged_question-e2565888dd.png">
+      <span class="description criterion_description_value">Description of criterion</span>
+      <span class="learning_outcome_id" style="display: none;"></span>
+      <span class="criterion_id" style="display: none;"></span>
+      <div class="long_description_holder editing empty">
+        <a href="#" class="long_description_link">view longer description</a>
+        <textarea class="long_description" aria-label="Long Description" style="display: none;"></textarea>
+      </div>
+      <div class="threshold">
+        threshold:
+        <span class="mastery_points">5</span> pts
+      </div>
+        <div class="links editing">
+          <a href="#" class="edit_criterion_link"><i class="icon-edit standalone-icon"></i><span class="screenreader-only">Edit criterion description</span></a>
+        </div>
+    </div>
+  </td>
+  <td style="padding: 0;">
+      <table class="ratings" style=""><tbody><tr>
+          <td id="rating_blank" class="rating edge_rating">
+          <div class="container">
+            <div class="description rating_description_value">Full Marks</div>
+            <span class="nobr"><span class="points">5</span> pts</span>
+            <span class="rating_id" style="display: none;">blank</span>
+              <div class="links">
+                <a href="#" class="edit_rating_link"><i class="icon-edit standalone-icon"></i><span class="screenreader-only">Edit rating</span></a>
+                <a href="#" class="delete_rating_link"><i class="icon-end standalone-icon"></i><span class="screenreader-only">Delete rating</span></a>
+                <!-- Hidden if last -->
+                <a href="#" class="add_rating_link_after"><i class="icon-add standalone-icon"></i><span class="screenreader-only">Add new rating category after current rating</span></a>
+              </div>
+          </div>
+          </td>
+          <td id="rating_blank_2" class="rating edge_rating">
+          <div class="container">
+            <div class="description rating_description_value">No Marks</div>
+            <span class="nobr"><span class="points">0</span> pts</span>
+            <span class="rating_id" style="display: none;">blank_2</span>
+              <div class="links">
+                <a href="#" class="edit_rating_link"><i class="icon-edit standalone-icon"></i><span class="screenreader-only">Edit rating</span></a>
+                <a href="#" class="delete_rating_link"><i class="icon-end standalone-icon"></i><span class="screenreader-only">Delete rating</span></a>
+                <!-- Hidden if last -->
+                <a href="#" class="add_rating_link_after"><i class="icon-add standalone-icon"></i><span class="screenreader-only">Add new rating category after current rating</span></a>
+              </div>
+          </div>
+          </td>
+      </tr></tbody></table>
+      <div style="display: none; font-style: italic; font-size: 0.8em; margin: 5px;" class="custom_ratings">
+        This area will be used by the assessor to leave
+        comments related to this criterion.
+      </div>
+  </td>
+  <td class="nobr points_form">
+    <div class="editing" style="white-space: normal">
+      <span style="white-space: nowrap; font-size: 0.8em">
+          <input type="text" aria-label="Points" value="5" class="criterion_points span1 no-margin-bottom"> pts
+      </span><br>
+    </div>
+    <div class="displaying">
+      <span style="white-space: nowrap;">
+        <span class="criterion_rating_points_holder" style="display: none;">
+          <span class="criterion_rating_points">&nbsp;</span> /
+        </span>
+        <span class="display_criterion_points">5</span> pts<br>
+      </span>
+    </div>
+    <div class="ignoring">
+      <span> -- </span>
+    </div>
+    <div class="criterion_comments">
+        <a href="#" class="no-hover criterion_comments_link" title="Additional Comments">
+          <img alt="Additional Comments" src="https://du11hjcvx0uqb.cloudfront.net/dist/images/rubric_comment-ddae8546ab.png">
+        </a>
+        <div class="custom_rating" style="display: none;"></div>
+    </div>
+  </td>
+  <td class="editing">
+    <a href="#" class="delete_criterion_link" title="Delete Criterion Row" role="button" aria-label="Delete Criterion Row"><i class="icon-end"></i></a>
+  </td>
+</tr><tr class="summary" style="">
+    <td colspan="4">
+      <div style="float: right;" class="total_points_holder">
+        <span style="padding-right: 10px;">Total Points:
+            <span class="rubric_total">5</span> <span class="assessing">out of 5</span>
+        </span>
+      </div>
+      <div style="float: left;" class="editing">
+      <a href="#" aria-label="Add Criterion" class="icon-plus add_criterion_link">Criterion</a>
+      &nbsp;&nbsp;<a href="#" class="icon-search find_outcome_link outcome">Find Outcome</a>
+      </div>
+      <div class="clear"></div>
+    </td>
+  </tr>
+</tbody>
+</table>
+</div>
+<table style="display: none;">
+  <tbody><tr id="edit_rubric">
+    <td colspan="4">
+      <form id="edit_rubric_form" class="edit-rubric-form no-margin-bottom">
+        <div class="rubric_custom_ratings" style="">
+          <input type="checkbox" id="rubric_custom_rating" class="rubric_custom_rating">
+          <label for="rubric_custom_rating">I'll write free-form comments when assessing students</label>
+        </div>
+          <div class="rubric_grading" style="">
+            <input type="checkbox" id="grading_rubric" class="grading_rubric_checkbox">
+            <label for="grading_rubric">Use this rubric for assignment grading</label>
+          </div>
+        <div class="totalling_rubric" style="">
+          <input type="checkbox" id="totalling_rubric" class="totalling_rubric_checkbox">
+          <label for="totalling_rubric">Hide score total for assessment results</label>
+        </div>
+        <div class="ic-Action-header ic-Action-header--half-margin">
+          <div class="ic-Action-header__Primary">
+            <button type="button" class="Button cancel_button">Cancel</button>
+            <button type="submit" class="Button Button--primary save_button">Create Rubric</button>
+          </div>
+        </div>
+      </form>
+    </td>
+  </tr>
+</tbody></table>
+
+  <div id="sequence_footer" data-course-id="501988" data-asset-id="4783224" data-asset-type="Assignment"><div class="module-sequence-padding"></div>
+<div class="module-sequence-footer" role="navigation" aria-label="Module Navigation">
+  <div class="module-sequence-footer-content">
+    
+      <a href="https://algonquin.instructure.com/courses/501988/modules/items/9822437" role="button" class="Button module-sequence-footer-button--previous" data-tooltip="right" data-html-tooltip-title="<i class='icon-document'></i> Installing MAMP" aria-describedby="msf1-previous-desc">
+        <i class="icon-mini-arrow-left"></i>Previous
+        <span id="msf1-previous-desc" class="hidden" hidden="">Previous: Installing MAMP</span>
+      </a>
+    
+
+    
+      <a href="https://algonquin.instructure.com/courses/501988/modules/items/9423468" role="button" class="Button module-sequence-footer-button--next" data-tooltip="left" data-html-tooltip-title="<strong style='float:left'>Next Module:</strong> <br> Week 8" aria-describedby="msf1-next-desc">
+        Next<i class="icon-mini-arrow-right"></i>
+        <span id="msf1-next-desc" class="hidden" hidden="">Next Module: Week 8</span>
+      </a>
+    
+  </div>
+</div>
+</div>
+
+
+          </div>
+   
+   
     <hr> </body>
 
 </html>
