@@ -53,7 +53,7 @@ a,a:visited {
 	margin: -22px 0 0 -170px;
 	top: 5%;
     left: 25%;
-  width:339px;
+  width:423px;
   box-shadow:0 4px 9px rgba(0,0,0,.37);
   -moz-box-shadow:0 4px 9px rgba(0,0,0,.37);
   -webkit-box-shadow:0 4px 9px rgba(0,0,0,.37);
@@ -71,7 +71,7 @@ a,a:visited {
 	font:12px/12px 'HelveticaNeue', Helvetica, Arial, sans-serif;
 	margin-right: 5px;
 	padding: 10px;
-	width: 216px;
+	width: 300px;
 	box-shadow: 0 0 4px rgba(0,0,0,.4) inset, 1px 1px 1px rgba(255,255,255,.75);
 	-moz-box-shadow: 0 0 4px rgba(0,0,0,.4) inset, 1px 1px 1px rgba(255,255,255,.75);
 	-webkit-box-shadow: 0 0 4px rgba(0,0,0,.4) inset, 1px 1px 1px rgba(255,255,255,.75);
@@ -103,14 +103,16 @@ a,a:visited {
 	background: -o-linear-gradient(top, rgba(52,173,236,1) 0%,rgba(38,145,220,1) 100%);
 	background: -ms-linear-gradient(top, rgba(52,173,236,1) 0%,rgba(38,145,220,1) 100%);
 	background: linear-gradient(to bottom, rgba(52,173,236,1) 0%,rgba(38,145,220,1) 100%);
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#34adec', endColorstr='#2691dc',GradientType=0 );
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='green', endColorstr='green',GradientType=0 );
 	border: none;
 	color:#fff;
 	cursor: pointer;
 	font: 13px/13px 'HelveticaNeue', Helvetica, Arial, sans-serif;
 	padding: 2px;
 	width:106px;
-    height: 100%;
+    height: 35px;
+    vertical-align: middle
+  
 	box-shadow: 0 0 2px #2692dd inset;
 	-moz-box-shadow: 0 0 2px #2692dd inset;
 	-webkit-box-shadow: 0 0 2px #2692dd inset;
@@ -123,6 +125,12 @@ a,a:visited {
 	}
 
 /*If you change Replace the gray background with something that matches your colors.  You can use .pngs with alpha transparency. If you don't use an image, you need to remove ours*/
+
+
+.mainTitle{
+    font-size: 40px !important;
+    
+}
 
 #header {
 
@@ -280,7 +288,7 @@ items in the nav bar
 
 .list-view>nav>ul>li>a{
 
- border-bottom: 1px solid #e5e5e5;
+/* border-bottom: 1px solid #e5e5e5;*/
 
 }
 
@@ -489,6 +497,10 @@ h6, .h6 {
 
   line-height: 1.5;
 
+}
+
+q{
+color:orange;
 }
 
 
