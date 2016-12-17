@@ -1,519 +1,385 @@
-*,*:after,*:before {
-  box-sizing:border-box;
-  -moz-box-sizing:border-box;
-  -webkit-box-sizing:border-box;
+@import url('https://fonts.googleapis.com/css?family=Merriweather|Open+Sans+Condensed:300');
+
+*, *:before, *:after {
+  box-sizing: border-box;
 }
 
-.cf:before,
-.cf:after {
-    content:"";
-    display:table;
-}
-.cf:after {
-    clear:both;
+.template {
+    
+    display: none;
 }
 
-body {
-  background: #000000;
-  color: #fff;
-  font:12px/18px 'HelveticaNeue', Helvetica, Arial, sans-serif;
-    width: 80%;
-    margin-left: 10%;
-    margin-right: 10%;
+
+#mWeek1, #mWeek2, #mWeek3, #mWeek4, #mWeek5, #mWeek6, #mWeek7, #mWeek8, #mWeek9, #mWeek10, #mWeek11, #mWeek12, #mWeek13, #mWeek14{
+    display: none;
+    
     
 }
 
-.week1{
-    border: 1px black;
-    
-}
-a,a:visited {
-  color:#fff
-}
 
-
-.videos1 {
-    display: inline-block;
-    float: left;
-    padding-right: 20px;
-    align-content: center;
-    
-}
-
-/*--------------------------------------------------------------
-2.0 - SEARCH FORM
---------------------------------------------------------------*/
-.searchform {
-  background:#f4f4f4;
-  background:rgba(244,244,244,.79);
-  border: 1px solid #d3d3d3;
-	
-  padding: 2px 5px;
-  position: absolute;
-	margin: -22px 0 0 -170px;
-	top: 5%;
-    left: 25%;
-  width:423px;
-  box-shadow:0 4px 9px rgba(0,0,0,.37);
-  -moz-box-shadow:0 4px 9px rgba(0,0,0,.37);
-  -webkit-box-shadow:0 4px 9px rgba(0,0,0,.37);
-  border-radius: 10px;
-  -moz-border-radius: 10px;
-  -webkit-border-radius: 10px
-}
-
-.searchform input, .searchform button {
-	float: left
-}
-.searchform input {
-	background:#fefefe;
-	border: none;
-	font:12px/12px 'HelveticaNeue', Helvetica, Arial, sans-serif;
-	margin-right: 5px;
-	padding: 10px;
-	width: 300px;
-	box-shadow: 0 0 4px rgba(0,0,0,.4) inset, 1px 1px 1px rgba(255,255,255,.75);
-	-moz-box-shadow: 0 0 4px rgba(0,0,0,.4) inset, 1px 1px 1px rgba(255,255,255,.75);
-	-webkit-box-shadow: 0 0 4px rgba(0,0,0,.4) inset, 1px 1px 1px rgba(255,255,255,.75);
-  border-radius: 9px;
-  -moz-border-radius: 9px;
-  -webkit-border-radius: 9px
-}
-	.searchform input:focus {
-		outline: none;
-		box-shadow:0 0 4px #0d76be inset;
-		-moz-box-shadow:0 0 4px #0d76be inset;
-		-webkit-box-shadow:0 0 4px #0d76be inset;
-	}
-	.searchform input::-webkit-input-placeholder {
-  	font-style: italic;
-  	line-height: 15px
-	}
-
-	.searchform input:-moz-placeholder {
-	  font-style: italic;
-  	line-height: 15px
-	}
-
-.searchform button {
-	background: rgb(52,173,236);
-	background: -moz-linear-gradient(top, rgba(52,173,236,1) 0%, rgba(38,145,220,1) 100%);
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(52,173,236,1)), color-stop(100%,rgba(38,145,220,1)));
-	background: -webkit-linear-gradient(top, rgba(52,173,236,1) 0%,rgba(38,145,220,1) 100%);
-	background: -o-linear-gradient(top, rgba(52,173,236,1) 0%,rgba(38,145,220,1) 100%);
-	background: -ms-linear-gradient(top, rgba(52,173,236,1) 0%,rgba(38,145,220,1) 100%);
-	background: linear-gradient(to bottom, rgba(52,173,236,1) 0%,rgba(38,145,220,1) 100%);
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='green', endColorstr='green',GradientType=0 );
-	border: none;
-	color:#fff;
-	cursor: pointer;
-	font: 13px/13px 'HelveticaNeue', Helvetica, Arial, sans-serif;
-	padding: 2px;
-	width:106px;
-    height: 35px;
-    vertical-align: middle
-  
-	box-shadow: 0 0 2px #2692dd inset;
-	-moz-box-shadow: 0 0 2px #2692dd inset;
-	-webkit-box-shadow: 0 0 2px #2692dd inset;
-  border-radius: 9px;
-  -moz-border-radius: 9px;
-  -webkit-border-radius: 9px;
-}
-	.searchform button:hover {
-		opacity:.9;
-	}
-
-/*If you change Replace the gray background with something that matches your colors.  You can use .pngs with alpha transparency. If you don't use an image, you need to remove ours*/
-
-
-.mainTitle{
-    font-size: 40px !important;
-    
-}
-
-#header {
-
-   background:#505f68 url("https://lyceum.algonquincollege.com/forms/canvas/grey-gradient.png?v1") repeat-x scroll left top;
-
-/*
-
-  background-image: none !important;
-
-  background-color: #505f68 !important;
-
-
-
- NEW COLOURS
-
-    Algonquin Green #00673E
-
-    New Growth Green #94C947
-
-*/
-
-}
-
-
-
-
-
-/*replace the canvas logo with your logo*/
-
-#header-logo, #header.no-user #header-logo {
-
-  bottom: 10px;
-
-  left: 10px;
-
-  width: 160px;
-
-  height: 41px;
-
-  background:transparent url("https://lyceum.algonquincollege.com/forms/canvas/ac-white-wordmark.png?v2") no-repeat 0 0;
-
-  padding:0 20px 0 0;
-
-}
-
-
-
-
-
-/*if you replace the left canvas logo, move a smaller one to the right side of the header--I made the image gray first*/
-
-#header-logo-secondary {
-
-  background: url("https://lyceum.algonquincollege.com/forms/canvas/header_canvas_logo.png?v1") no-repeat scroll 0 0 transparent;
-
-  bottom: 11px;
-
-  height: 26px;
-
-  position: absolute;
-
-  right: 26px;
-
-  width: 135px;
-
-  display: block;
-
-}
-
-
-
-/*if your logo is bigger, you can make room like this*/
-
-#menu { margin-left; 240px; }
-
-
-
-body.modal #modal-box.login-box h1 h1{
-
-	/*position:relative;	*/
-
-}
-
-
-
-/*this will remove the extra canvas logo*/
-
-body.modal #modal-box.login-box #modal-box-inner  {
-
-	/*position:absolute;
-
-	outline:1px solid white;
-
-	z-index:20;
-
-	top: 30px;
-
-    left: 423px;
-
-    width: 180px !important;
-
-    height: 47px !important;*/
-
-    background:transparent url("https://lyceum.algonquincollege.com/forms/canvas/ac-white-wordmark.png?v2") no-repeat 382px 45px !important;
-
-}
-
-
-
-
-
-/* *****************************
-
-Quiz Grading Comment box resize
-
-SG - Oct 2, 2014
-
-***************************** */
-
-
-
-#wrapper .quiz_comment{
-
-   min-width: 200px;
-
-   width: 90%;
-
-}
-
-#wrapper .quiz_comment.empty{
-
+#icons svg #week1, #week2, #week3, #week4, #week5, #week6, #week7, #week8, #week9, #week10, #week11, #week12, #week13, #week14, #weekx {
     display:none;
-
-}
-
-
-
-#wrapper .quiz_comment textarea{
-
-    min-width: 98% !important;
-
-}
-
-
-
-/*********************************
-
-Put back the bottom borders on the list
-
-items in the nav bar
-
-*********************************/
-
-.list-view>ul>li>a,
-
-.list-view>nav>ul>li>a{
-
-/* border-bottom: 1px solid #e5e5e5;*/
-
-}
-
-
-
-/******************************
-
-        New CSS for GREEN
-
-        Login Modal dialog
-
-        January 2015
-
-******************************/
-
-body {
-
-    min-width: 510px;
     
+}
 
-/******************************
 
-Change to font format made by Alain Paradis Nov 17, 2015
+#icons .weekx #weekx,
+#icons .week1 #week1,
+#icons .week2 #week2,
+#icons .week3 #week3,
+#icons .week3 #week4,
+#icons .week4 #week5,
+#icons .week5 #week6,
+#icons .week6 #week7,
+#icons .week7 #week8,
+#icons .week8 #week9,
+#icons .week9 #week10,
+#icons .week10 #week11,
+#icons .week11 #week12,
+#icons .week12 #week13,
+#icons .week13 #week14,
+#icons .week14 #week15
+{
+/*    display:none;*/
+    display: block;
+    
+    
+}
 
-Increased weight of font throughout Canvas.
 
-******************************/
-
-	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-
-	font-style: normal;
-
-	font-variant: normal;
-
-	font-weight: 400;
-
+#icons.week1 svg #weekx {
+    display:block;
 }
 
 
 
-body.modal #modal-box.login-box #modal-box-inner {
 
-    background: transparent url("https://lyceum.algonquincollege.com/forms/canvas/ac-green-wordmark.png?v2") no-repeat 362px 45px !important;
 
+#icons {
+    margin: 0 auto;
+    padding: auto auto;
+/*
+    padding-top: -30px;
+     padding-bottom: 5%;
+*/
+/*
+    padding-left: 5%;
+        padding-right: 5%;
+*/
+/*    margin-top: 10%;*/
+    
+}
+
+#icons svg{
+  width: 100%;
+  padding-right: 1%;
+padding-left:1%;
+   
+  height: auto;
+    margin: 0 auto;
+}
+
+
+#icons div {
+  width: 20%;
+    height: 24%;
+    display: inline-block;
+    
 }
 
 
 
-body.modal #modal-box.login-box h1, body.modal #modal-box.login-box .h1 {
-
-    background-image: url(https://lyceum.algonquincollege.com/forms/canvas/header_canvas_logo.png?v1);
-
-    /* background-size: 163.2px 39.6px; */
-
-}
-
-body.modal #modal-box.login-box {
-
-    background-color: #bada55;
-
-    background: url(https://lyceum.algonquincollege.com/forms/canvas//images/Money_Noise_tm.png?1418414624), linear-gradient(to bottom, #94C947, #94C947);
-
-    height: 331px;
-
-    width: 623px;
-
-    padding: 20px;
-
-    color: #00673E;
-
-    border: none;
-
-}
-
-body.modal #modal-box.login-box a {
-
-    color: #00673E !important;
-
-}
-
-body.modal #modal-box .btn-primary, body.modal #modal-box .Button--primary {
-
-    /****
-
-    Have to be careful here... there are other primary buttons in the system. The hover still has blue...
-
-    ****/
-
-    background: #00673E;
-
-    color: #ffffff;
-
-    border: 1px solid #006594;
-
-}
-
-body.modal #modal-box .btn-primary:hover, body.modal #modal-box .Button--primary:hover {
-
-    background: #00673E;
-
-    color: #ffffff;
-
-    border: 1px solid #e4e4e4;
-
+#icons svg:first-child {
+/*  display: none;*/
+/*    fill: #99cc00;*/
 }
 
 
+
+.btnClose {
+    clear: right;
+    top: 5px;
+    left: 5px;
+    float: right;
+    
+    
+}
 
 /*
+#icons.week1 svg#week1,
+#icons.week2 #week2,
+#icons.week3 #week3,
+#icons.week4 #week4,
+#icons.week5 #week5,
+#icons.week1 #week6,
+#icons.week7 #week7,
+#icons.week8 #week8,
+#icons.week9 #week9,
+#icons.week10 #week10,
+#icons.week11 #week11,
+#icons.week12 #week12,
+#icons.week13 #week13,
+#icons.week14 #week14
 
- ===================================================
+{
+    display: block;
+}
+*/
 
- Fix inconsistent heading sizes in pages
 
- ===================================================
+.tg  {border-collapse:collapse;border-spacing:0;border:none;}
+.tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:0px;overflow:hidden;word-break:normal;}
+.tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:0px;overflow:hidden;word-break:normal;}
+.tg .tg-yw4l{vertical-align:top}
 
+
+
+html {
+    font-family: 'Open Sans Condensed', Helvetica, Arial, sans-serif;
+    
+}
+
+h1, h2, h3, h4 {
+    font-family: 'Merriweather', Baskerville, Cooper,serif;
+    
+}
+
+.content {
+    width: 80%;
+
+}
+
+h1 {
+    text-align: left;
+    text-decoration: underline;
+    padding-bottom: 20px;
+    padding-top: 20px;
+    
+}
+
+html,body{
+            background-color: #E8E4C7;
+        }
+
+
+body {
+    
+    width: 80%;
+    margin: 0 auto;
+    background-color: cornsilk;
+    padding-left:10px; 
+    padding-right:10px;
+    
+}
+
+.overlay{
+  display:none;
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: hsla(0, 0%, 0%, 0.8);
+}
+
+.modal{
+  display: none;
+  position: fixed; /* so it doesn't matter about scrolling */
+  z-index: 200;  /* some number higher than the overlay */
+  top: 1vh;
+  left: 10vw;
+  right: 10vw;
+  bottom: 10vh;
+  background-color: #e4e4e4;
+    margin:0 auto;
+}
+
+header {
+
+  width:100%;
+/*  background-color:burlywood;*/
+  margin: 0 auto;
+  text-align: center;
+/*  padding: 60px;*/
+    padding: 5px 15px 5px 5px;
+  font-family: 'Open Sans', sans-serif;
+  color: #fff;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 32px;
+    display: inline-block;
+    color: #000000;
+}
+
+.jumbotron, .mainThings {
+    background-color: #EFFFE7;
+    
+}
+
+.title {
+/* float: left;*/
+/*    font: bold; 3.68rem*/
+}
+
+h4.mainTitle {
+/*    top: 11em;*/
+/*    font-size: 10px;*/
+    float: right;
+    color: black;
+    vertical-align: text-top;
+  
+/*    text-align: center;*/
+/*    clear:left;*/
+    
+}
+
+/*
+.hamburger {
+    display: none;
+    
+}
 */
 
 
 
-.pages.show .page-title {
 
-  font-size: 2.5em;
-
-  font-weight: 400;
-
-  line-height: 1.5em;
-
+.hamburger {
+    position: relative;
+    display: inline-block;
+    width: 1.25em;
+    height: 0.8em;
+    margin-right: 0.3em;
+    border-top: 0.2em solid #000000;
+    border-bottom: 0.2em solid #000000;
+    color: #000000;
 }
 
 
+.hamburger:before {
+    content: "";
+    position: absolute;
+    top: 0.11em;
+    left: 0px;
+    width: 100%;
+    border-top: 0.2em solid #000000;
+    color: #000000;
+}
 
-h1, .h1 {
 
-  font-size: 2.3em;
-
-  font-weight: normal;
-
-  line-height: 1.5;
+/*******************************
+          MOBILE FIRST
+*******************************/
+@media (max-width: 575px) and (min-width: 1px){
+     
+.nav-item{
+        display:block;
+           
+    }
     
-color: green;
-
-}
-
-
-
-h2, .h2 {
-
-  font-size: 2.1em;
-
-  font-weight: normal;
-
-  line-height: 1.5;
+       
     
-  color: crimson;
-
-}
-
-
-
-h3, .h3 {
-
-  font-size: 1.9em;
-
-  font-weight: 500;
-
-  line-height: 1.5;
+    .navbar-toggle {
+/*        float: right;*/
+        
+    }
     
-    color: crimson;
-
 }
 
-
-
-h4, .h4 {
-
-  font-size: 1.6em;
-
-  font-weight: 500;
-
-  line-height: 1.5;
+@media (min-width: 578px){
     
-    color: crimson;
+    .navbar-brand {
+        display:block;
+    }    
+    
+    .boo {
+        
+        display:block;
+    }
+    
+    .mainTitle {
+        display: block;
+        
+    }
+   
 
+    
+}
+
+/*******************************
+              FORM
+*******************************/
+
+.contact {
+    padding-top: 15px;
+    
+}
+
+form {
+    display: center;
+    
+}
+
+form .name {
+    margin-bottom: 5px;
+    
+}
+
+form .email {
+    margin-bottom: 5px;
+    
+}
+
+.location {
+    margin-left: 10px;
+    
+}
+
+/*******************************
+              NAV
+*******************************/
+/*
+.navbar navbar-default, a {
+    list-style: none;
+    font: black;
+   
+    
+    
+}
+
+nav navbar-nav {
+    font: bold 1.618rem #000000;
+  
 }
 
 
 
-h5, .h5 {
+nav a,
+nav a:link,
+nav a:visited {
 
-  font-size: 1.3em;
-
-  font-weight: bold;
-
-  line-height: 1.5;
-
+    font: regular 1.618rem black;
+    
 }
 
-
-
-h6, .h6 {
-
-  font-size: 1em;
-
-  font-weight: bold;
-
-  line-height: 1.5;
-
+nav a:active,
+nav a:focus,
+nav a:hover {
+    color: #000000;
+    
 }
+*/
 
-q{
-color:orange;
-}
-
-/*NAVIGATION*/
 
 [data-role="nav"] {
     position: fixed;
-    z-index: 30;
-/*    bottom: 0;*/
-    top:0;
-    left: 0;
+/*    z-index: 30;*/
+/*
+    bottom: 0;
     width: 100%;
     height: 4rem;
-    background-color: #ccc;
+*/
+/*    background-color: #ccc;*/
 }
 
 .tabs {
@@ -522,14 +388,11 @@ color:orange;
 
 .tabs li {
     float: left;
-    width: 4%;
-/*    background-color: red;*/
-/*    border: 1px;*/
+    width: 50%;
 }
 
 .tabs a {
-    float: left;
-    display: inline-block;
+    display: block;
     line-height: 2rem;
     font-size: 2rem;
     text-align: center;
@@ -537,13 +400,8 @@ color:orange;
     color: black;
 }
 
-a {
-    
-/*  background-color: green;*/
-}
-
 .tabs a:first-child {
-/*    border-right: 1px solid #333;*/
+    border-right: 1px solid #333;
 }
 
 /*END NAVIGATION*/
@@ -570,26 +428,53 @@ a {
     z-index: 20;
 }
 
-/* End 2 page display */
 
-#teamStandings {
-    border-collapse: collapse;
-    border: 1px solid #666;
-    width: 90%;
-    margin: 2rem auto;
+
+
+
+
+/*******************************
+              FOOTER
+*******************************/
+footer {
+    
+    background-color: #3BE8A2;
 }
 
-#teamStandings th,
-#teamStandings td {
-    border: 1px solid #999;
-    text-align: center;
-    padding: 0.5rem 0.5rem;
-    line-height: 2rem;
-}
+footer h4 {
+  font-size: 1.414rem;
+  padding: 0.5rem 2rem;
+  color: #7C593C; }
+footer p {
+  font-size: 1rem;
+  padding: 0.5rem 2rem;
+  color: #222; }
+
+footer .fa-circle {
+  color: #222; }
+
+ 	.st0{display:inline;}
+	.st1{display:inline;fill:#BF910C;stroke:#000000;stroke-width:6;stroke-miterlimit:10;}
+	.st2{display:inline;fill:none;}
+	.st3{display:inline;}
+	.st4{font-family:'Phosphate-Inline';}
+	.st5{font-size:300px;}
+	.st6{display:inline;fill:#BF910C;stroke:#000000;stroke-width:6;stroke-miterlimit:10;}
+	.st7{display:inline;fill:#BF910C;stroke:#000000;stroke-width:6;stroke-miterlimit:10;}
+	.st8{display:inline;fill:#BF910C;stroke:#000000;stroke-width:6;stroke-miterlimit:10;}
+	.st9{display:inline;fill:#BF910C;stroke:#000000;stroke-width:6;stroke-miterlimit:10;}
+	.st10{display:inline;fill:#BF910C;stroke:#000000;stroke-width:6;stroke-miterlimit:10;}
+	.st11{display:inline;fill:#BF910C;stroke:#000000;stroke-width:6;stroke-miterlimit:10;}
+	.st12{display:inline;fill:#BF910C;stroke:#000000;stroke-width:6;stroke-miterlimit:10;}
+	.st13{display:inline;fill:#BF910C;stroke:#000000;stroke-width:6;stroke-miterlimit:10;}
+	.st14{display:inline;fill:#BF910C;stroke:#000000;stroke-width:6;stroke-miterlimit:10;}
+	.st15{display:inline;fill:#BF910C;stroke:#000000;stroke-width:6;stroke-miterlimit:10;}
+    
+    
+    
 
 
 
-
-
+    
 
 
