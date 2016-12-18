@@ -1,0 +1,1824 @@
+<!DOCTYPE html>
+<html class="scripts-not-loaded" lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>LocalStorage Contacts</title>
+  <!--[if lte IE 9]> <meta http-equiv=refresh content="0; URL=/ie-9-is-not-supported.html" /> <![endif]-->
+  <link rel="shortcut icon" type="image/x-icon" href="https://du11hjcvx0uqb.cloudfront.net/dist/images/favicon-e10d657a73.ico" />
+  <link rel="apple-touch-icon" href="https://du11hjcvx0uqb.cloudfront.net/dist/images/apple-touch-icon-585e5d997d.png" />
+  
+  <link rel="stylesheet" media="all" href="https://du11hjcvx0uqb.cloudfront.net/dist/brandable_css/dbe1b38b484d902711ae881c73dba738/new_styles_normal_contrast/bundles/common-63fa977220.css" />
+  <script>
+//<![CDATA[
+
+!function(){
+  var o,s,v;
+  if (!(window.Promise && Object.assign && [].find && [].includes && (o={},s=Symbol(),v={},o[s]=v,o[s]===v) && (function f(){}).bind().name==='bound f')) {
+    s = 's', document.write('<'+s+'cr'+'ipt src="https://du11hjcvx0uqb.cloudfront.net/dist/javascripts/vendor/ie11-polyfill-d81c33fc47.js"></'+s+'c'+'ript>');
+  }
+}();
+      
+//]]>
+</script>
+  <script src="https://du11hjcvx0uqb.cloudfront.net/dist/optimized/vendor/lato-fontfaceobserver-b479c9e3e2.js" async="async"></script>
+  
+  <meta name="apple-itunes-app" content="app-id=480883488" />
+<link rel="manifest" href="/web-app-manifest/manifest.json" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#008EE2">
+  <link rel="stylesheet" media="all" href="https://du11hjcvx0uqb.cloudfront.net/dist/brandable_css/dbe1b38b484d902711ae881c73dba738/new_styles_normal_contrast/bundles/assignments-4831798140.css" />
+<link rel="stylesheet" media="all" href="https://du11hjcvx0uqb.cloudfront.net/dist/brandable_css/dbe1b38b484d902711ae881c73dba738/new_styles_normal_contrast/bundles/tinymce-b1933becff.css" />
+<link rel="stylesheet" media="all" href="https://du11hjcvx0uqb.cloudfront.net/dist/brandable_css/dbe1b38b484d902711ae881c73dba738/new_styles_normal_contrast/bundles/learning_outcomes-474ee87a13.css" />
+  
+  <link rel="stylesheet" media="all" href="https://instructure-uploads.s3.amazonaws.com/account_30000000000113/attachments/36190966/canvas.css?AWSAccessKeyId=AKIAJFNFXH2V2O7RPCAA&amp;Expires=1927463283&amp;Signature=vJ1Z18EwKBVHKjtkdP2emOjQ8x8%3D&amp;response-cache-control=Cache-Control%3Amax-age%3D473364000%2C%20public&amp;response-expires=473364000" />
+  <script>
+    // listen for any clicks on links that have href="#" and queue them to be fired on dom ready.
+      function _earlyClick(e){
+        var cur = e.target || e.srcElement;
+        while ( cur && cur.ownerDocument ) {
+          if ( cur.getAttribute('href') == '#' ) {
+            e.preventDefault();
+            _earlyClick.clicks = _earlyClick.clicks || [];
+            _earlyClick.clicks.push(cur);
+            break;
+          }
+          cur = cur.parentNode;
+        }
+      }
+      document.addEventListener('click', _earlyClick);
+  </script>
+</head>
+
+<body class="with-left-side course-menu-expanded with-right-side assignments primary-nav-expanded context-course_501988">
+<noscript>
+  <div role="alert" class="ic-flash-static ic-flash-error">
+    <div class="ic-flash__icon" aria-hidden="true">
+      <i class="icon-warning"></i>
+    </div>
+    <h1>You need to have JavaScript enabled in order to access this site.</h1>
+  </div>
+</noscript>
+
+
+
+
+<ul id="flash_message_holder"></ul>
+<div id="flash_screenreader_holder"></div>
+
+<div id="application" class="ic-app">
+    <header id="header" class="ic-app-header no-print ">
+    <a href="#content" id="skip_navigation_link">Skip To Content</a>
+      <div role="region" class="ic-app-header__main-navigation" aria-label="Main Navigation">
+        <div class="ic-app-header__logomark-container">
+          <a href="https://algonquin.instructure.com/" class="ic-app-header__logomark">
+            <span class="screenreader-only">Dashboard</span>
+          </a>
+        </div>
+        <ul id="menu" class="ic-app-header__menu-list">
+            <li class="menu-item ic-app-header__menu-list-item ">
+              <a id="global_nav_profile_link" href="/profile" class="ic-app-header__menu-list-link">
+                <div class="menu-item-icon-container" aria-hidden="true">
+                  <div class="ic-avatar ">
+                    <img src="https://algonquin.instructure.com/images/thumbnails/40969175/8whEGSv5IngXHnTQvL06CZQpuz7F4oMvof5Wdv48" alt="Christian Jurt" />
+                  </div>
+                </div>
+                <div class="menu-item__text">
+                  Account
+                </div>
+              </a>
+            </li>
+          <li class="ic-app-header__menu-list-item ">
+            <a id="global_nav_dashboard_link" href="https://algonquin.instructure.com/" class="ic-app-header__menu-list-link">
+              <div class="menu-item-icon-container" aria-hidden="true">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="ic-icon-svg ic-icon-svg--dashboard" version="1.1" x="0" y="0" viewBox="0 0 280 200" enable-background="new 0 0 280 200" xml:space="preserve"><path d="M231.6 94.2c-2.5-4.9-8.5-6.9-13.4-4.5l-57.3 28.6c-5.4-5.2-12.7-8.4-20.8-8.4 -16.6 0-30 13.5-30 30 0 16.6 13.5 30 30 30 16.6 0 30-13.5 30-30 0-1.3-0.1-2.5-0.2-3.8l57.3-28.6C232 105.2 234 99.2 231.6 94.2zM140 150c-5.5 0-10-4.5-10-10s4.5-10 10-10c5.5 0 10 4.5 10 10S145.6 150 140 150zM70 150H50c-5.5 0-10-4.5-10-10s4.5-10 10-10h20c5.5 0 10 4.5 10 10S75.5 150 70 150zM140 80c-5.5 0-10-4.5-10-10V50c0-5.5 4.5-10 10-10 5.5 0 10 4.5 10 10v20C150 75.5 145.5 80 140 80zM105 89.6c-3.5 0-6.8-1.8-8.7-5l-10-17.3c-2.8-4.8-1.1-10.9 3.7-13.7 4.8-2.8 10.9-1.1 13.7 3.7l10 17.3c2.8 4.8 1.1 10.9-3.7 13.7C108.4 89.1 106.7 89.6 105 89.6zM79.4 115.4c-1.7 0-3.4-0.4-5-1.3l-17.3-10c-4.8-2.8-6.4-8.9-3.7-13.7 2.8-4.8 8.9-6.4 13.7-3.7l17.3 10c4.8 2.8 6.4 8.9 3.7 13.7C86.2 113.6 82.8 115.4 79.4 115.4zM173.6 89.6c-1.7 0-3.4-0.4-5-1.3 -4.8-2.8-6.4-8.9-3.7-13.7l10-17.3c2.8-4.8 8.9-6.4 13.7-3.7 4.8 2.8 6.4 8.9 3.7 13.7l-10 17.3C180.4 87.8 177.1 89.6 173.6 89.6zM140 0C62.8 0 0 63 0 140.5V190c0 5.5 4.5 10 10 10h260c5.5 0 10-4.5 10-10v-49.5C280 63 217.2 0 140 0zM260 180H20v-39.5C20 74.1 73.8 20 140 20c66.2 0 120 54.1 120 120.5V180zM230 150h-20c-5.5 0-10-4.5-10-10s4.5-10 10-10h20c5.5 0 10 4.5 10 10S235.5 150 230 150z"/></svg>
+              </div>
+              <div class="menu-item__text">Dashboard</div>
+            </a>
+          </li>
+          <li class="menu-item ic-app-header__menu-list-item ic-app-header__menu-list-item--active">
+            <a id="global_nav_courses_link" href="/courses" class="ic-app-header__menu-list-link">
+              <div class="menu-item-icon-container" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" class="ic-icon-svg ic-icon-svg--courses" version="1.1" x="0" y="0" viewBox="0 0 280 259" enable-background="new 0 0 280 259" xml:space="preserve"><path d="M226.2 259H32.3c-5.9 0-10.8-4.8-10.8-10.8v-43.5H10.8C4.8 204.8 0 199.9 0 194c0-6 4.8-10.8 10.8-10.8h10.8v-21.6H10.8c-5.9 0-10.8-4.8-10.8-10.8s4.8-10.8 10.8-10.8h10.8v-21.6H10.8c-5.9 0-10.8-4.8-10.8-10.8 0-6 4.8-10.8 10.8-10.8h10.8V75.4H10.8C4.8 75.4 0 70.6 0 64.7s4.8-10.8 10.8-10.8h10.8V10.8c0-6 4.8-10.8 10.8-10.8h193.9c5.9 0 10.8 4.8 10.8 10.8v21.6h32.3c5.9 0 10.8 4.8 10.8 10.8v172.4c0 6-4.8 10.8-10.8 10.8H237v21.9C237 254.2 232.2 259 226.2 259zM43.1 237.4h172.4V21.6H43.1v32.3h10.7c5.9 0 10.8 4.8 10.8 10.8s-4.8 10.8-10.8 10.8H43.1V97h10.7c5.9 0 10.8 4.8 10.8 10.8 0 6-4.8 10.8-10.8 10.8H43.1v21.6h10.7c5.9 0 10.8 4.8 10.8 10.8s-4.8 10.8-10.8 10.8H43.1v21.6h10.7c5.9 0 10.8 4.8 10.8 10.8 0 6-4.8 10.8-10.8 10.8H43.1V237.4zM237 204.8h21.5v-21.6H237V204.8zM237 161.7h21.5v-21.6H237V161.7zM237 118.5h21.5V97H237V118.5zM237 75.4h21.5V53.9H237V75.4zM172.2 129.3H96.9c-5.9 0-10.8-4.8-10.8-10.8V64.7c0-6 4.8-10.8 10.8-10.8h75.3c5.9 0 10.8 4.8 10.8 10.8v53.9C183 124.5 178.2 129.3 172.2 129.3zM107.7 107.8h53.8V75.4h-53.8V107.8z"/></svg>
+              </div>
+              <div class="menu-item__text">
+                Courses
+              </div>
+            </a>
+          </li>
+          <li class="menu-item ic-app-header__menu-list-item ">
+            <a id="global_nav_calendar_link" href="/calendar" class="ic-app-header__menu-list-link">
+              <div class="menu-item-icon-container" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" class="ic-icon-svg ic-icon-svg--calendar" version="1.1" x="0" y="0" viewBox="0 0 280 280" enable-background="new 0 0 280 280" xml:space="preserve"><path d="M268.3 280H11.7C5.2 280 0 274.8 0 268.3V35c0-6.4 5.2-11.7 11.7-11.7h35V11.7C46.7 5.2 51.9 0 58.3 0h35C99.8 0 105 5.2 105 11.7v11.7h70V11.7C175 5.2 180.2 0 186.7 0h35c6.4 0 11.7 5.2 11.7 11.7v11.7h35c6.4 0 11.7 5.2 11.7 11.7v233.3C280 274.8 274.8 280 268.3 280zM23.3 256.7h233.3v-210h-23.3v11.7c0 6.4-5.2 11.7-11.7 11.7h-35c-6.4 0-11.7-5.2-11.7-11.7V46.7h-70v11.7c0 6.4-5.2 11.7-11.7 11.7h-35c-6.4 0-11.7-5.2-11.7-11.7V46.7H23.3V256.7zM198.3 46.7H210V23.3h-11.7V46.7zM70 46.7h11.7V23.3H70V46.7zM198.3 245c-6.4 0-11.7-5.2-11.7-11.7v-11.7h-35v11.7c0 6.4-5.2 11.7-11.7 11.7 -6.4 0-11.7-5.2-11.7-11.7v-11.7h-35v11.7c0 6.4-5.2 11.7-11.7 11.7S70 239.8 70 233.3v-11.7H46.7c-6.4 0-11.7-5.2-11.7-11.7s5.2-11.7 11.7-11.7H70V175H46.7c-6.4 0-11.7-5.2-11.7-11.7 0-6.4 5.2-11.7 11.7-11.7H70v-23.3H46.7c-6.4 0-11.7-5.2-11.7-11.7S40.2 105 46.7 105H70V93.3c0-6.4 5.2-11.7 11.7-11.7s11.7 5.2 11.7 11.7V105h35V93.3c0-6.4 5.2-11.7 11.7-11.7 6.4 0 11.7 5.2 11.7 11.7V105h35V93.3c0-6.4 5.2-11.7 11.7-11.7 6.4 0 11.7 5.2 11.7 11.7V105h23.3c6.4 0 11.7 5.2 11.7 11.7s-5.2 11.7-11.7 11.7H210v23.3h23.3c6.4 0 11.7 5.2 11.7 11.7 0 6.4-5.2 11.7-11.7 11.7H210v23.3h23.3c6.4 0 11.7 5.2 11.7 11.7s-5.2 11.7-11.7 11.7H210v11.7C210 239.8 204.8 245 198.3 245zM151.7 198.3h35V175h-35V198.3zM93.3 198.3h35V175h-35V198.3zM151.7 151.7h35v-23.3h-35V151.7zM93.3 151.7h35v-23.3h-35V151.7z"/></svg>
+              </div>
+              <div class="menu-item__text">
+                Calendar
+              </div>
+            </a>
+          </li>
+          <li class="menu-item ic-app-header__menu-list-item ">
+            <a id="global_nav_conversations_link" href="/conversations" class="ic-app-header__menu-list-link">
+              <div class="menu-item-icon-container" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" class="ic-icon-svg ic-icon-svg--inbox" version="1.1" x="0" y="0" viewBox="0 0 280 280" enable-background="new 0 0 280 280" xml:space="preserve"><path d="M93.3 105c0-6.4 5.2-11.7 11.7-11.7h70c6.4 0 11.7 5.2 11.7 11.7s-5.2 11.7-11.7 11.7h-70C98.6 116.7 93.3 111.4 93.3 105zM105 70h23.3c6.4 0 11.7-5.2 11.7-11.7s-5.2-11.7-11.7-11.7H105c-6.4 0-11.7 5.2-11.7 11.7S98.6 70 105 70zM280 198.3v70c0 6.4-5.2 11.7-11.7 11.7H11.7C5.2 280 0 274.8 0 268.3v-69.8c0-1.1 0.1-2.2 0.4-3.3 0.3-1.1 0.8-2.1 1.3-3L36.7 134c2.1-3.5 5.9-5.7 10-5.7h11.7V11.7C58.3 5.2 63.6 0 70 0h140c6.4 0 11.7 5.2 11.7 11.7v116.7h11.7c4.1 0 7.9 2.1 10 5.7l35 58.3c0.1 0.2 0.1 0.5 0.3 0.7 0.4 0.7 0.6 1.4 0.8 2.2 0.2 0.8 0.4 1.5 0.5 2.3C279.9 197.8 280 198.1 280 198.3zM32.3 186.7h67.9c6.4 0 11.7 5.2 11.7 11.7V210c0 7.8 3.5 7.8 6 7.8h48.7c5.7 0 10.5-3.6 10.5-7.8v-11.7c0-6.4 5.2-11.7 11.7-11.7h59l-21-35h-5.1v11.7c0 6.4-5.2 11.7-11.7 11.7s-11.7-5.2-11.7-11.7v-140H81.7v140c0 6.4-5.2 11.7-11.7 11.7s-11.7-5.2-11.7-11.7v-11.7h-5.1L32.3 186.7zM256.7 210h-56.3c0 17.2-15.2 31.1-33.8 31.1h-48.7c-17.6 0-29.4-12.5-29.4-31.1H23.3v46.7h233.3V210zM175 163.3c6.4 0 11.7-5.2 11.7-11.7 0-6.4-5.2-11.7-11.7-11.7h-70c-6.4 0-11.7 5.2-11.7 11.7 0 6.4 5.2 11.7 11.7 11.7H175z"/></svg>
+                <span class="menu-item__badge" style="display: none">0</span>
+              </div>
+              <div class="menu-item__text">
+                Inbox
+              </div>
+            </a>
+          </li>
+            
+
+          <li class="ic-app-header__menu-list-item">
+           <a id="global_nav_help_link" class="ic-app-header__menu-list-link" data-track-category="help system" data-track-label="help button" href="http://help.instructure.com/">
+              <div class="menu-item-icon-container" role="presentation">
+                <svg xmlns="http://www.w3.org/2000/svg" class="ic-icon-svg menu-item__icon svg-icon-help" version="1.1" x="0" y="0" viewBox="0 0 200 200" enable-background="new 0 0 200 200" xml:space="preserve" fill="currentColor"><path d="M100 200C44.9 200 0 155.1 0 100 0 44.9 44.9 0 100 0s100 44.9 100 100C200 155.1 155.1 200 100 200zM100 20c-44.1 0-80 35.9-80 80s35.9 80 80 80 80-35.9 80-80S144.1 20 100 20z"/><path d="M110 130H90v-30h10c11 0 20-9 20-20 0-11-9-20-20-20s-20 9-20 20H60c0-22.1 17.9-40 40-40s40 17.9 40 40c0 18.6-12.8 34.3-30 38.7V130z"/><circle cx="100" cy="150" r="12.5"/></svg>
+
+              </div>
+              <div class="menu-item__text">
+                Help
+              </div>
+</a>          </li>
+        </ul>
+      </div>
+      <div role="region" aria-label="Secondary Navigation" class="ic-app-header__secondary-navigation">
+        <ul class="ic-app-header__menu-list">
+          <li class="menu-item ic-app-header__menu-list-item">
+            <span aria-live="polite">
+              <button
+                id="primaryNavToggle"
+                class="ic-app-header__menu-list-link ic-app-header__menu-list-link--nav-toggle"
+                aria-label="
+                  Minimize global navigation"
+                title="
+                  Minimize global navigation"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" class="ic-icon-svg ic-icon-svg--navtoggle" version="1.1" x="0" y="0" width="40" height="32" viewBox="0 0 40 32" xml:space="preserve">
+  <polygon points="20.6 9.4 23.4 6.6 32.8 16 23.4 25.4 20.6 22.6 25.2 18 0 18 0 14 25.2 14 "/><rect x="36" width="4" height="32"/>
+</svg>
+
+              </button>
+            </span>
+          </li>
+        </ul>
+      </div>
+    <div id="global_nav_tray_container"></div>
+  </header>
+
+
+  <div id="instructure_ajax_error_box">
+    <div style="text-align: right; background-color: #fff;"><a href="#" class="close_instructure_ajax_error_box_link">Close</a></div>
+    <iframe id="instructure_ajax_error_result" src="about:blank" style="border: 0;" title="Error"></iframe>
+  </div>
+
+  
+
+  <div id="wrapper" class="ic-Layout-wrapper">
+      <div class="ic-app-nav-toggle-and-crumbs no-print">
+          <button type="button" id="courseMenuToggle" class="Button Button--link Button--small ic-app-course-nav-toggle" aria-live="polite" aria-label="Hide courses menu" title="Hide courses menu">
+            <i class="icon-hamburger" aria-hidden="true"></i>
+          </button>
+          <div class="ic-app-crumbs">
+        <nav id="breadcrumbs" role="navigation" aria-label="breadcrumbs"><ul><li class="home"><a href="/"><span class="ellipsible">      <i class="icon-home"
+         title="My Dashboard">
+        <span class="screenreader-only">My Dashboard</span>
+      </i>
+</span></a></li><li><a href="/courses/501988"><span class="ellipsible">16F_MAD9014</span></a></li><li><a href="/courses/501988/assignments"><span class="ellipsible">Assignments</span></a></li><li><a href="https://algonquin.instructure.com/courses/501988/assignments/4783234"><span class="ellipsible">LocalStorage Contacts</span></a></li></ul></nav>
+        </div>
+      </div>
+    <div id="main" class="ic-Layout-columns">
+        <div id="left-side" class="ic-app-course-menu list-view">
+              <span id="section-tabs-header-subtitle" class="ellipsis">Fall 2016</span>
+            <nav role="navigation" aria-label="context"><ul id="section-tabs"><li class="section"><a href="/courses/501988" class="home">Home</a></li><li class="section"><a href="/courses/501988/announcements" class="announcements" aria-label="Course Announcements">Announcements</a></li><li class="section"><a href="/courses/501988/modules" class="modules">Modules</a></li><li class="section"><a href="/courses/501988/assignments" class="assignments active" aria-label="Course Assignments">Assignments</a></li><li class="section"><a href="/courses/501988/discussion_topics" class="discussions" aria-label="Course Discussions">Discussions</a></li><li class="section"><a href="/courses/501988/grades" class="grades" aria-label="Course Grades">Grades</a></li><li class="section"><a href="/courses/501988/quizzes" class="quizzes">Quizzes</a></li><li class="section"><a href="/courses/501988/users" class="people">People</a></li><li class="section"><a href="/courses/501988/assignments/syllabus" class="syllabus">Syllabus</a></li><li class="section"><a href="/courses/501988/conferences" class="conferences">Conferences</a></li><li class="section"><a href="/courses/501988/collaborations" class="collaborations">Collaborations</a></li><li class="section"><a href="/courses/501988/external_tools/50915" class="context_external_tool_50915">Office 365</a></li></ul></nav>
+        </div>
+      <div id="not_right_side" class="ic-app-main-content">
+        <div id="content-wrapper" class="ic-Layout-contentWrapper">
+            
+          <div id="content" class="ic-Layout-contentMain" role="main">
+            
+
+
+<div id="assignment_show" class="assignment content_underline_links">
+    <!--Student View-->
+    <div class='assignment-title'>
+      <div class='title-content'>
+        <h1 class="title">
+          LocalStorage Contacts
+        </h1>
+      </div>
+      <div class='assignment-buttons'>
+        <span style="display: inline-block">
+          
+        </span>
+        <a class="btn btn-primary submit_assignment_link " href="#">Re-submit Assignment</a>
+      </div>
+    </div>
+    <ul class='student-assignment-overview'>
+      <li>
+        <span class='title'>Due</span>
+        <span class='value'>
+          <span class="date_text">
+                <span class="display_date">Nov 22</span> by 
+                <span class="display_time">11:59pm</span>
+          </span>
+        </span>
+      </li>
+      <li>
+        <span class='title'>Points</span>
+        <span class='value'>15</span>
+      </li>
+        <li>
+          <span class='title'>Submitting</span>
+          <span class='value'>a website url</span>
+        </li>
+      
+      <div class="clear"></div>
+    </ul>
+
+  <div class="clear"></div>
+
+
+  <div class="clear"></div>
+
+  <div class="description user_content student-version"><h3>Description</h3>
+<p>You will build an HTML page that displays a list of contact information saved in localStorage and a pop-up form for adding and editing contacts. Each item in the list should have a button to delete the contact. Adding a contact will save the information in localStorage. Editing an item will update the information in localStorage.</p>
+<p>Everytime localStorage is updated, the interface should be updated to reflect the change in localStorage.</p>
+<h3>Layout</h3>
+<p><iframe style="width: 100%;" src="//codepen.io/mad-d/embed/6c79314f69908752d233b29e5ace6ece/?height=536&amp;theme-id=0&amp;default-tab=result&amp;embed-version=2" width="300" height="536" allowfullscreen="allowfullscreen">See the Pen &amp;amp;lt;a href="http://codepen.io/mad-d/pen/6c79314f69908752d233b29e5ace6ece/"&amp;amp;gt;Contact Manager&amp;amp;lt;/a&amp;amp;gt; by Mobile Application Design-Development (&amp;amp;lt;a href="http://codepen.io/mad-d"&amp;amp;gt;@mad-d&amp;amp;lt;/a&amp;amp;gt;) on &amp;amp;lt;a href="http://codepen.io"&amp;amp;gt;CodePen&amp;amp;lt;/a&amp;amp;gt;.</iframe></p>
+<h3>Restrictions</h3>
+<p>All your contact information must be saved as a single key in localstorage.</p>
+<p>You must use your Algonquin username as the key to store your information. Eg: abcd0001 </p>
+<p>When you app starts, check to see if the key exists, if not then create it and add yourself as the first contact.</p>
+<h3>References</h3>
+<p>Sample JSON data. This is just an example of the type of data that could be stored. Use these fields, but your own values.</p>
+<pre>[{"fullname":"Han Solo","phone":"613-727-4723","email":"han.solo@falcon.com"},<br>{"fullname":"Luke Skywalker","phone":"613-321-8765","email":"luke.skywalker@jedi.org"},<br>{"fullname":"Kylo Ren","phone":"613-876-9400","email":"kylo.ren@firstorder.io"}] </pre>
+<p>You need to have a full name, phone number, and email address field for each person that you save. </p>
+<p> </p>
+<h3>Submission</h3>
+<p>Upload your finished HTML, CSS, and JS to the edumedia server.</p>
+<p>Save your web app inside a folder /mad9014/contacts/index.html</p>
+<p>Eg: <a href="https://abcd0001.edumedia.ca/mad9014/contacts/index.html">https://abcd0001.edumedia.ca/mad9014/contacts/index.html</a></p>
+<p> </p>
+<h3>Challenges</h3>
+<p>1. Add automatic sorting to the list of names. See the <a id="" class="" title="Numeric or Multi-dimensional Sorting" href="/courses/501988/pages/numeric-or-multi-dimensional-sorting" target="" data-api-endpoint="https://algonquin.instructure.com/api/v1/courses/501988/pages/numeric-or-multi-dimensional-sorting" data-api-returntype="Page">Numeric or Multi-dimensional Sorting</a> page.</p>
+<p>2. Add CSS transitions to the modal window that appears when you add or edit a contact so it animates on and off the screen.</p>
+<p> </p></div>
+
+
+  <div style="display: none;">
+    <span class="timestamp">1479877140</span>
+    <span class="due_date_string">11/22/2016</span>
+    <span class="due_time_string">11:59pm</span>
+  </div>
+</div>
+
+
+  <div style="display: none;" id="submit_assignment" data-context_code="course_501988" data-asset_string="assignment_4783234">
+  <div class="content" id="submit_assignment_tabs">
+    <ul>
+        <li><a href="#submit_online_url_form" class="submit_online_url_option">Website URL</a></li>
+        <li><a href="#submit_from_external_tool_form_17803"
+          class="external-tool"
+          data-id="17803"
+          data-name="Dropbox">Dropbox</a></li>
+        <li><a href="#submit_from_external_tool_form_50915"
+          class="external-tool"
+          data-id="50915"
+          data-name="Microsoft Office 365">Office 365</a></li>
+    </ul>
+
+
+    <form id="submit_online_url_form" class="submit_assignment_form" action="/courses/501988/assignments/4783234/submissions" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="DpuoMCMW2WLpdtvejo0t5QIl7ACFev4FVV9fsT0rTDR3w+Zha0L2KoMUqYrguRnTdVSZYv8okXY7MjjVCnEGBw==" />
+    <input value="online_url" type="hidden" name="submission[submission_type]" id="submission_submission_type" />
+    <table class="formtable" style="width: 100%;">
+      <tr>
+        <td colspan="2">
+          Copy and paste the link to the web site you&#39;d like to submit for this assignment.
+            
+          </td>
+      </tr><tr>
+        <td colspan="2">
+          <label for="submission_url">Website URL:</label>
+          &nbsp;&nbsp;
+          <input style="min-width: 250px;" type="text" name="submission[url]" id="submission_url" />
+        </td>
+      </tr><tr>
+        <td colspan="2" style="text-align: center;">
+          <div style="text-align: left;">
+            <textarea class="submission_comment_textarea" placeholder="Comments..." title="Additional comments" name="submission[comment]" id="submission_comment">
+</textarea>
+          </div>
+        </td>
+      </tr>
+      
+      <tr>
+        <td colspan="2" class='button-container'>
+          <button type="button" class='cancel_button btn'>Cancel</button>
+          <button type="submit" class="btn btn-primary">Submit Assignment</button>
+        </td>
+      </tr>
+    </table>
+</form>
+    <style>
+    #google_docs_tree li.folder {
+      cursor: pointer;
+    }
+    #google_docs_tree li.file {
+      cursor: pointer;
+      -moz-border-radius: 3px;
+      width: 80%;
+      padding-right: 20px;
+    }
+    #google_docs_tree li.file:hover {
+      background-color: #eee;
+    }
+    ul.instTree li span.active {
+      background: none;
+    }
+    #google_docs_tree li.file.leaf.active {
+      background-color: #ddd;
+    }
+    #google_docs_tree li.file .filename {
+      float: left;
+      max-width: 98%;
+    }
+    #google_docs_tree li.file .popout {
+      float: right;
+    }
+    </style>
+
+
+      <div id="submit_from_external_tool_form_17803" style="padding: 5px 5px 0 5px;"></div>
+      <div id="submit_from_external_tool_form_50915" style="padding: 5px 5px 0 5px;"></div>
+
+  </div>
+</div>
+
+
+
+
+<div id="rubrics" style="margin-bottom: 10px;">
+    <div
+  class="rubric_container rubric  for_grading"
+  id="rubric_234264"
+  style=""
+  tabindex="0"
+>
+  <div class="screenreader-only"><h2>Rubric</h2></div>
+  <div class="rubric_title">
+    <div style="float: right; display: none;" class="links displaying">
+      <a
+        href="/courses/501988/rubrics/234264?rubric_association_id=499013"
+        class="copy_edit edit_rubric_link no-print no-hover"
+        style="display: none;"
+        title="Edit Rubric"
+        aria-label="Edit Rubric"
+        role="button"
+      ><i class="icon-edit standalone-icon"></i></a>
+      <a
+        href="https://algonquin.instructure.com/search/rubrics?q="
+        class="find_rubric_link no-print no-hover"
+        style="display: none;"
+        title="Find Another Rubric"
+        aria-label="Find Another Rubric"
+        role="button"
+      ><i class="icon-search standalone-icon"></i></a>
+        <a
+          href="/courses/501988/rubric_associations/499013"
+          class="delete_rubric_link no-print no-hover"
+          style="display: none;"
+          title="Delete Rubric"
+          aria-label="Delete Rubric"
+          role="button"
+        ><i class="icon-trash standalone-icon"></i></a>
+      <div style="display: none;">
+        <div class="use_for_grading">true</div>
+        <div class="free_form_criterion_comments">&nbsp;</div>
+        <div class="hide_score_total">&nbsp;</div>
+        <div class="rubric_association_id">499013</div>
+        <div class="user_id">&nbsp;</div>
+        <div class="assessment_type"></div>
+        <a href="/courses/501988/rubric_associations/499013/assessments/%7B%7B%20assessment_id%20%7D%7D" rel="nofollow" class="edit_assessment_link">&nbsp;</a>
+        <a href="/courses/501988/rubrics/%7B%7B%20rubric_id%20%7D%7D" class="edit_rubric_url">&nbsp;</a>
+          <a href="/courses/501988/rubric_associations/%7B%7B%20association_id%20%7D%7D" class="delete_rubric_url">&nbsp;</a>
+      </div>
+    </div>
+    <div style="float: right; font-size: 0.8em; display: none;" class="links displaying locked">
+      <span style="">Can&#39;t change a rubric once you&#39;ve started using it.</span>
+        <a href="/courses/501988/rubric_associations/%7B%7B%20association_id%20%7D%7D" class="delete_rubric_url" style="display: none;">&nbsp;</a>
+    </div>
+
+    <div class="editing" style="float: right;">
+      <a href="https://algonquin.instructure.com/search/rubrics?q=" class="find_rubric_link icon-search" style="display: none;" title="Find Existing Rubric">Find a Rubric</a>
+    </div>
+    <div class="editing" style="text-align: left">
+      <label for="rubric-title">Title:</label>
+      <input id="rubric-title" type="text" class="no-margin-bottom" name="title" value="LocalStorage Contacts Rubric" style="width: 200px;" maxlength="255" aria-label="Title:"/>
+      <a href="https://algonquin.instructure.com/search/rubrics?q=" style="display: none;"><img alt="" src="https://du11hjcvx0uqb.cloudfront.net/dist/images/find-6164443e2a.png" /> Find Rubric</a>
+        <div class="editing" style="font-size: 0.8em;">Keep in mind that 36 students have already been assessed using this rubric.  Changing it will affect their evaluations.</div>
+    </div>
+    <div class="displaying">
+      <span class="title" tabindex="-1">LocalStorage Contacts Rubric</span>
+    </div>
+    <div class="has-assessments-warning" style="display: none;">
+      You&#39;ve already rated students with this rubric.  Any major changes could affect their assessment results.
+    </div>
+  </div>
+<table class="rubric_table">
+<caption>
+  <div class="screenreader-only">
+    <span class="title">LocalStorage Contacts Rubric</span>
+  </div>
+</caption>
+<thead>
+  <tr>
+    <th scope="col">Criteria</th>
+    <th scope="col">Ratings</th>
+    <th scope="col">Pts</th>
+    <th scope="col" class="editing">&nbsp;</th>
+  </tr>
+</thead>
+<tbody>
+      
+<tr id="criterion__5992" class="criterion   " style="">
+  <td class="criterion_description hover-container">
+    <div class="container">
+      <img class="learning_outcome_flag" alt="This criterion is linked to a Learning Outcome" src="https://du11hjcvx0uqb.cloudfront.net/dist/images/flagged_question-e2565888dd.png" />
+      <span class="description criterion_description_value">Username</span>
+      <span class="learning_outcome_id" style="display: none;"></span>
+      <span class="criterion_id" style="display: none;">_5992</span>
+      <div class="long_description_holder editing empty">
+        <a href="#" class="long_description_link">view longer description</a>
+        <textarea class="long_description" aria-label="Long Description" style="display: none;"></textarea>
+      </div>
+      <div class="threshold">
+        threshold:
+        <span class="mastery_points"></span> pts
+      </div>
+        <div class="links editing">
+          <a href="#" class="edit_criterion_link"><i class="icon-edit standalone-icon"></i><span class="screenreader-only">Edit criterion description</span></a>
+        </div>
+    </div>
+  </td>
+  <td style="padding: 0;">
+      <table class="ratings" style=""><tr>
+          <td id="rating_blank" class="rating edge_rating">
+          <div class="container">
+            <div class="description rating_description_value">Your Algonquin username is used as the key to store your contact information in LocalStorage</div>
+            <span class="nobr"><span class="points">1.0</span> pts</span>
+            <span class="rating_id" style="display: none;">blank</span>
+              <div class="links">
+                <a href="#" class="edit_rating_link"><i class="icon-edit standalone-icon"></i><span class="screenreader-only">Edit rating</span></a>
+                <a href="#" class="delete_rating_link"><i class="icon-end standalone-icon"></i><span class="screenreader-only">Delete rating</span></a>
+                <!-- Hidden if last -->
+                <a href="#" class="add_rating_link_after"><i class="icon-add standalone-icon"></i><span class="screenreader-only">Add new rating category after current rating</span></a>
+              </div>
+          </div>
+          </td>
+          <td id="rating__5230" class="rating edge_rating">
+          <div class="container">
+            <div class="description rating_description_value">Algonquin username is not used</div>
+            <span class="nobr"><span class="points">0.0</span> pts</span>
+            <span class="rating_id" style="display: none;">_5230</span>
+              <div class="links">
+                <a href="#" class="edit_rating_link"><i class="icon-edit standalone-icon"></i><span class="screenreader-only">Edit rating</span></a>
+                <a href="#" class="delete_rating_link"><i class="icon-end standalone-icon"></i><span class="screenreader-only">Delete rating</span></a>
+                <!-- Hidden if last -->
+                <a href="#" class="add_rating_link_after"><i class="icon-add standalone-icon"></i><span class="screenreader-only">Add new rating category after current rating</span></a>
+              </div>
+          </div>
+          </td>
+      </tr></table>
+      <div style="display: none; font-style: italic; font-size: 0.8em; margin: 5px;" class="custom_ratings">
+        This area will be used by the assessor to leave
+        comments related to this criterion.
+      </div>
+  </td>
+  <td class="nobr points_form">
+    <div class="editing" style="white-space: normal">
+      <span style="white-space: nowrap; font-size: 0.8em">
+          <input type="text" aria-label="Points" value="1.0" class="criterion_points span1 no-margin-bottom" /> pts
+      </span><br />
+    </div>
+    <div class="displaying">
+      <span style="white-space: nowrap;">
+        <span class="criterion_rating_points_holder" style="display: none;">
+          <span class="criterion_rating_points">&nbsp;</span> /
+        </span>
+        <span class="display_criterion_points">1.0</span> pts<br />
+      </span>
+    </div>
+    <div class="ignoring">
+      <span> -- </span>
+    </div>
+    <div class="criterion_comments">
+        <a href="#" class="no-hover criterion_comments_link" title="Additional Comments">
+          <img alt="Additional Comments" src="https://du11hjcvx0uqb.cloudfront.net/dist/images/rubric_comment-ddae8546ab.png" />
+        </a>
+        <div class="custom_rating" style="display: none;"></div>
+    </div>
+  </td>
+  <td class="editing">
+    <a
+      href="#"
+      class="delete_criterion_link"
+      title="Delete Criterion Row"
+      role="button"
+      aria-label="Delete Criterion Row"
+    ><i class="icon-end"></i></a>
+  </td>
+</tr>
+
+      
+<tr id="criterion__8329" class="criterion   " style="">
+  <td class="criterion_description hover-container">
+    <div class="container">
+      <img class="learning_outcome_flag" alt="This criterion is linked to a Learning Outcome" src="https://du11hjcvx0uqb.cloudfront.net/dist/images/flagged_question-e2565888dd.png" />
+      <span class="description criterion_description_value">Startup</span>
+      <span class="learning_outcome_id" style="display: none;"></span>
+      <span class="criterion_id" style="display: none;">_8329</span>
+      <div class="long_description_holder editing empty">
+        <a href="#" class="long_description_link">view longer description</a>
+        <textarea class="long_description" aria-label="Long Description" style="display: none;"></textarea>
+      </div>
+      <div class="threshold">
+        threshold:
+        <span class="mastery_points"></span> pts
+      </div>
+        <div class="links editing">
+          <a href="#" class="edit_criterion_link"><i class="icon-edit standalone-icon"></i><span class="screenreader-only">Edit criterion description</span></a>
+        </div>
+    </div>
+  </td>
+  <td style="padding: 0;">
+      <table class="ratings" style=""><tr>
+          <td id="rating__5674" class="rating edge_rating">
+          <div class="container">
+            <div class="description rating_description_value">When app starts it checks to see if the LocalStorage key exists, if not it creates it and adds your contact  information as the first contact.</div>
+            <span class="nobr"><span class="points">2.0</span> pts</span>
+            <span class="rating_id" style="display: none;">_5674</span>
+              <div class="links">
+                <a href="#" class="edit_rating_link"><i class="icon-edit standalone-icon"></i><span class="screenreader-only">Edit rating</span></a>
+                <a href="#" class="delete_rating_link"><i class="icon-end standalone-icon"></i><span class="screenreader-only">Delete rating</span></a>
+                <!-- Hidden if last -->
+                <a href="#" class="add_rating_link_after"><i class="icon-add standalone-icon"></i><span class="screenreader-only">Add new rating category after current rating</span></a>
+              </div>
+          </div>
+          </td>
+          <td id="rating_228968_9054" class="rating ">
+          <div class="container">
+            <div class="description rating_description_value">Checks to see if the LocalStorage key exists and if not it creates it however, it does not add your contact  information as the first contact.</div>
+            <span class="nobr"><span class="points">1.0</span> pts</span>
+            <span class="rating_id" style="display: none;">228968_9054</span>
+              <div class="links">
+                <a href="#" class="edit_rating_link"><i class="icon-edit standalone-icon"></i><span class="screenreader-only">Edit rating</span></a>
+                <a href="#" class="delete_rating_link"><i class="icon-end standalone-icon"></i><span class="screenreader-only">Delete rating</span></a>
+                <!-- Hidden if last -->
+                <a href="#" class="add_rating_link_after"><i class="icon-add standalone-icon"></i><span class="screenreader-only">Add new rating category after current rating</span></a>
+              </div>
+          </div>
+          </td>
+          <td id="rating__4214" class="rating edge_rating">
+          <div class="container">
+            <div class="description rating_description_value">Missing both startup requirements</div>
+            <span class="nobr"><span class="points">0.0</span> pts</span>
+            <span class="rating_id" style="display: none;">_4214</span>
+              <div class="links">
+                <a href="#" class="edit_rating_link"><i class="icon-edit standalone-icon"></i><span class="screenreader-only">Edit rating</span></a>
+                <a href="#" class="delete_rating_link"><i class="icon-end standalone-icon"></i><span class="screenreader-only">Delete rating</span></a>
+                <!-- Hidden if last -->
+                <a href="#" class="add_rating_link_after"><i class="icon-add standalone-icon"></i><span class="screenreader-only">Add new rating category after current rating</span></a>
+              </div>
+          </div>
+          </td>
+      </tr></table>
+      <div style="display: none; font-style: italic; font-size: 0.8em; margin: 5px;" class="custom_ratings">
+        This area will be used by the assessor to leave
+        comments related to this criterion.
+      </div>
+  </td>
+  <td class="nobr points_form">
+    <div class="editing" style="white-space: normal">
+      <span style="white-space: nowrap; font-size: 0.8em">
+          <input type="text" aria-label="Points" value="2.0" class="criterion_points span1 no-margin-bottom" /> pts
+      </span><br />
+    </div>
+    <div class="displaying">
+      <span style="white-space: nowrap;">
+        <span class="criterion_rating_points_holder" style="display: none;">
+          <span class="criterion_rating_points">&nbsp;</span> /
+        </span>
+        <span class="display_criterion_points">2.0</span> pts<br />
+      </span>
+    </div>
+    <div class="ignoring">
+      <span> -- </span>
+    </div>
+    <div class="criterion_comments">
+        <a href="#" class="no-hover criterion_comments_link" title="Additional Comments">
+          <img alt="Additional Comments" src="https://du11hjcvx0uqb.cloudfront.net/dist/images/rubric_comment-ddae8546ab.png" />
+        </a>
+        <div class="custom_rating" style="display: none;"></div>
+    </div>
+  </td>
+  <td class="editing">
+    <a
+      href="#"
+      class="delete_criterion_link"
+      title="Delete Criterion Row"
+      role="button"
+      aria-label="Delete Criterion Row"
+    ><i class="icon-end"></i></a>
+  </td>
+</tr>
+
+      
+<tr id="criterion__3908" class="criterion   " style="">
+  <td class="criterion_description hover-container">
+    <div class="container">
+      <img class="learning_outcome_flag" alt="This criterion is linked to a Learning Outcome" src="https://du11hjcvx0uqb.cloudfront.net/dist/images/flagged_question-e2565888dd.png" />
+      <span class="description criterion_description_value">Single Key</span>
+      <span class="learning_outcome_id" style="display: none;"></span>
+      <span class="criterion_id" style="display: none;">_3908</span>
+      <div class="long_description_holder editing empty">
+        <a href="#" class="long_description_link">view longer description</a>
+        <textarea class="long_description" aria-label="Long Description" style="display: none;"></textarea>
+      </div>
+      <div class="threshold">
+        threshold:
+        <span class="mastery_points"></span> pts
+      </div>
+        <div class="links editing">
+          <a href="#" class="edit_criterion_link"><i class="icon-edit standalone-icon"></i><span class="screenreader-only">Edit criterion description</span></a>
+        </div>
+    </div>
+  </td>
+  <td style="padding: 0;">
+      <table class="ratings" style=""><tr>
+          <td id="rating__1235" class="rating edge_rating">
+          <div class="container">
+            <div class="description rating_description_value">All contact information is saved as a single key in localstorage.</div>
+            <span class="nobr"><span class="points">2.0</span> pts</span>
+            <span class="rating_id" style="display: none;">_1235</span>
+              <div class="links">
+                <a href="#" class="edit_rating_link"><i class="icon-edit standalone-icon"></i><span class="screenreader-only">Edit rating</span></a>
+                <a href="#" class="delete_rating_link"><i class="icon-end standalone-icon"></i><span class="screenreader-only">Delete rating</span></a>
+                <!-- Hidden if last -->
+                <a href="#" class="add_rating_link_after"><i class="icon-add standalone-icon"></i><span class="screenreader-only">Add new rating category after current rating</span></a>
+              </div>
+          </div>
+          </td>
+          <td id="rating_227102_9173" class="rating edge_rating">
+          <div class="container">
+            <div class="description rating_description_value">All contact information is NOT saved as a single key in localstorage.</div>
+            <span class="nobr"><span class="points">0.0</span> pts</span>
+            <span class="rating_id" style="display: none;">227102_9173</span>
+              <div class="links">
+                <a href="#" class="edit_rating_link"><i class="icon-edit standalone-icon"></i><span class="screenreader-only">Edit rating</span></a>
+                <a href="#" class="delete_rating_link"><i class="icon-end standalone-icon"></i><span class="screenreader-only">Delete rating</span></a>
+                <!-- Hidden if last -->
+                <a href="#" class="add_rating_link_after"><i class="icon-add standalone-icon"></i><span class="screenreader-only">Add new rating category after current rating</span></a>
+              </div>
+          </div>
+          </td>
+      </tr></table>
+      <div style="display: none; font-style: italic; font-size: 0.8em; margin: 5px;" class="custom_ratings">
+        This area will be used by the assessor to leave
+        comments related to this criterion.
+      </div>
+  </td>
+  <td class="nobr points_form">
+    <div class="editing" style="white-space: normal">
+      <span style="white-space: nowrap; font-size: 0.8em">
+          <input type="text" aria-label="Points" value="2.0" class="criterion_points span1 no-margin-bottom" /> pts
+      </span><br />
+    </div>
+    <div class="displaying">
+      <span style="white-space: nowrap;">
+        <span class="criterion_rating_points_holder" style="display: none;">
+          <span class="criterion_rating_points">&nbsp;</span> /
+        </span>
+        <span class="display_criterion_points">2.0</span> pts<br />
+      </span>
+    </div>
+    <div class="ignoring">
+      <span> -- </span>
+    </div>
+    <div class="criterion_comments">
+        <a href="#" class="no-hover criterion_comments_link" title="Additional Comments">
+          <img alt="Additional Comments" src="https://du11hjcvx0uqb.cloudfront.net/dist/images/rubric_comment-ddae8546ab.png" />
+        </a>
+        <div class="custom_rating" style="display: none;"></div>
+    </div>
+  </td>
+  <td class="editing">
+    <a
+      href="#"
+      class="delete_criterion_link"
+      title="Delete Criterion Row"
+      role="button"
+      aria-label="Delete Criterion Row"
+    ><i class="icon-end"></i></a>
+  </td>
+</tr>
+
+      
+<tr id="criterion__166" class="criterion   " style="">
+  <td class="criterion_description hover-container">
+    <div class="container">
+      <img class="learning_outcome_flag" alt="This criterion is linked to a Learning Outcome" src="https://du11hjcvx0uqb.cloudfront.net/dist/images/flagged_question-e2565888dd.png" />
+      <span class="description criterion_description_value">Delete event listeners</span>
+      <span class="learning_outcome_id" style="display: none;"></span>
+      <span class="criterion_id" style="display: none;">_166</span>
+      <div class="long_description_holder editing empty">
+        <a href="#" class="long_description_link">view longer description</a>
+        <textarea class="long_description" aria-label="Long Description" style="display: none;"></textarea>
+      </div>
+      <div class="threshold">
+        threshold:
+        <span class="mastery_points"></span> pts
+      </div>
+        <div class="links editing">
+          <a href="#" class="edit_criterion_link"><i class="icon-edit standalone-icon"></i><span class="screenreader-only">Edit criterion description</span></a>
+        </div>
+    </div>
+  </td>
+  <td style="padding: 0;">
+      <table class="ratings" style=""><tr>
+          <td id="rating__9919" class="rating edge_rating">
+          <div class="container">
+            <div class="description rating_description_value">Every contact in the list has it&#39;s own delete button with a click event listener which is used to remove the contact.</div>
+            <span class="nobr"><span class="points">1.0</span> pts</span>
+            <span class="rating_id" style="display: none;">_9919</span>
+              <div class="links">
+                <a href="#" class="edit_rating_link"><i class="icon-edit standalone-icon"></i><span class="screenreader-only">Edit rating</span></a>
+                <a href="#" class="delete_rating_link"><i class="icon-end standalone-icon"></i><span class="screenreader-only">Delete rating</span></a>
+                <!-- Hidden if last -->
+                <a href="#" class="add_rating_link_after"><i class="icon-add standalone-icon"></i><span class="screenreader-only">Add new rating category after current rating</span></a>
+              </div>
+          </div>
+          </td>
+          <td id="rating__540" class="rating edge_rating">
+          <div class="container">
+            <div class="description rating_description_value">Missing this requirement</div>
+            <span class="nobr"><span class="points">0.0</span> pts</span>
+            <span class="rating_id" style="display: none;">_540</span>
+              <div class="links">
+                <a href="#" class="edit_rating_link"><i class="icon-edit standalone-icon"></i><span class="screenreader-only">Edit rating</span></a>
+                <a href="#" class="delete_rating_link"><i class="icon-end standalone-icon"></i><span class="screenreader-only">Delete rating</span></a>
+                <!-- Hidden if last -->
+                <a href="#" class="add_rating_link_after"><i class="icon-add standalone-icon"></i><span class="screenreader-only">Add new rating category after current rating</span></a>
+              </div>
+          </div>
+          </td>
+      </tr></table>
+      <div style="display: none; font-style: italic; font-size: 0.8em; margin: 5px;" class="custom_ratings">
+        This area will be used by the assessor to leave
+        comments related to this criterion.
+      </div>
+  </td>
+  <td class="nobr points_form">
+    <div class="editing" style="white-space: normal">
+      <span style="white-space: nowrap; font-size: 0.8em">
+          <input type="text" aria-label="Points" value="1.0" class="criterion_points span1 no-margin-bottom" /> pts
+      </span><br />
+    </div>
+    <div class="displaying">
+      <span style="white-space: nowrap;">
+        <span class="criterion_rating_points_holder" style="display: none;">
+          <span class="criterion_rating_points">&nbsp;</span> /
+        </span>
+        <span class="display_criterion_points">1.0</span> pts<br />
+      </span>
+    </div>
+    <div class="ignoring">
+      <span> -- </span>
+    </div>
+    <div class="criterion_comments">
+        <a href="#" class="no-hover criterion_comments_link" title="Additional Comments">
+          <img alt="Additional Comments" src="https://du11hjcvx0uqb.cloudfront.net/dist/images/rubric_comment-ddae8546ab.png" />
+        </a>
+        <div class="custom_rating" style="display: none;"></div>
+    </div>
+  </td>
+  <td class="editing">
+    <a
+      href="#"
+      class="delete_criterion_link"
+      title="Delete Criterion Row"
+      role="button"
+      aria-label="Delete Criterion Row"
+    ><i class="icon-end"></i></a>
+  </td>
+</tr>
+
+      
+<tr id="criterion_227102_8509" class="criterion   " style="">
+  <td class="criterion_description hover-container">
+    <div class="container">
+      <img class="learning_outcome_flag" alt="This criterion is linked to a Learning Outcome" src="https://du11hjcvx0uqb.cloudfront.net/dist/images/flagged_question-e2565888dd.png" />
+      <span class="description criterion_description_value">Add event listener</span>
+      <span class="learning_outcome_id" style="display: none;"></span>
+      <span class="criterion_id" style="display: none;">227102_8509</span>
+      <div class="long_description_holder editing empty">
+        <a href="#" class="long_description_link">view longer description</a>
+        <textarea class="long_description" aria-label="Long Description" style="display: none;"></textarea>
+      </div>
+      <div class="threshold">
+        threshold:
+        <span class="mastery_points"></span> pts
+      </div>
+        <div class="links editing">
+          <a href="#" class="edit_criterion_link"><i class="icon-edit standalone-icon"></i><span class="screenreader-only">Edit criterion description</span></a>
+        </div>
+    </div>
+  </td>
+  <td style="padding: 0;">
+      <table class="ratings" style=""><tr>
+          <td id="rating_227102_7225" class="rating edge_rating">
+          <div class="container">
+            <div class="description rating_description_value">An add contact button with a click event listener is created and used to add new contacts.</div>
+            <span class="nobr"><span class="points">1.0</span> pts</span>
+            <span class="rating_id" style="display: none;">227102_7225</span>
+              <div class="links">
+                <a href="#" class="edit_rating_link"><i class="icon-edit standalone-icon"></i><span class="screenreader-only">Edit rating</span></a>
+                <a href="#" class="delete_rating_link"><i class="icon-end standalone-icon"></i><span class="screenreader-only">Delete rating</span></a>
+                <!-- Hidden if last -->
+                <a href="#" class="add_rating_link_after"><i class="icon-add standalone-icon"></i><span class="screenreader-only">Add new rating category after current rating</span></a>
+              </div>
+          </div>
+          </td>
+          <td id="rating_blank_2" class="rating edge_rating">
+          <div class="container">
+            <div class="description rating_description_value">Missing this requirement</div>
+            <span class="nobr"><span class="points">0.0</span> pts</span>
+            <span class="rating_id" style="display: none;">blank_2</span>
+              <div class="links">
+                <a href="#" class="edit_rating_link"><i class="icon-edit standalone-icon"></i><span class="screenreader-only">Edit rating</span></a>
+                <a href="#" class="delete_rating_link"><i class="icon-end standalone-icon"></i><span class="screenreader-only">Delete rating</span></a>
+                <!-- Hidden if last -->
+                <a href="#" class="add_rating_link_after"><i class="icon-add standalone-icon"></i><span class="screenreader-only">Add new rating category after current rating</span></a>
+              </div>
+          </div>
+          </td>
+      </tr></table>
+      <div style="display: none; font-style: italic; font-size: 0.8em; margin: 5px;" class="custom_ratings">
+        This area will be used by the assessor to leave
+        comments related to this criterion.
+      </div>
+  </td>
+  <td class="nobr points_form">
+    <div class="editing" style="white-space: normal">
+      <span style="white-space: nowrap; font-size: 0.8em">
+          <input type="text" aria-label="Points" value="1.0" class="criterion_points span1 no-margin-bottom" /> pts
+      </span><br />
+    </div>
+    <div class="displaying">
+      <span style="white-space: nowrap;">
+        <span class="criterion_rating_points_holder" style="display: none;">
+          <span class="criterion_rating_points">&nbsp;</span> /
+        </span>
+        <span class="display_criterion_points">1.0</span> pts<br />
+      </span>
+    </div>
+    <div class="ignoring">
+      <span> -- </span>
+    </div>
+    <div class="criterion_comments">
+        <a href="#" class="no-hover criterion_comments_link" title="Additional Comments">
+          <img alt="Additional Comments" src="https://du11hjcvx0uqb.cloudfront.net/dist/images/rubric_comment-ddae8546ab.png" />
+        </a>
+        <div class="custom_rating" style="display: none;"></div>
+    </div>
+  </td>
+  <td class="editing">
+    <a
+      href="#"
+      class="delete_criterion_link"
+      title="Delete Criterion Row"
+      role="button"
+      aria-label="Delete Criterion Row"
+    ><i class="icon-end"></i></a>
+  </td>
+</tr>
+
+      
+<tr id="criterion_227102_5486" class="criterion   " style="">
+  <td class="criterion_description hover-container">
+    <div class="container">
+      <img class="learning_outcome_flag" alt="This criterion is linked to a Learning Outcome" src="https://du11hjcvx0uqb.cloudfront.net/dist/images/flagged_question-e2565888dd.png" />
+      <span class="description criterion_description_value">Edit event listener</span>
+      <span class="learning_outcome_id" style="display: none;"></span>
+      <span class="criterion_id" style="display: none;">227102_5486</span>
+      <div class="long_description_holder editing empty">
+        <a href="#" class="long_description_link">view longer description</a>
+        <textarea class="long_description" aria-label="Long Description" style="display: none;"></textarea>
+      </div>
+      <div class="threshold">
+        threshold:
+        <span class="mastery_points"></span> pts
+      </div>
+        <div class="links editing">
+          <a href="#" class="edit_criterion_link"><i class="icon-edit standalone-icon"></i><span class="screenreader-only">Edit criterion description</span></a>
+        </div>
+    </div>
+  </td>
+  <td style="padding: 0;">
+      <table class="ratings" style=""><tr>
+          <td id="rating_227102_5728" class="rating edge_rating">
+          <div class="container">
+            <div class="description rating_description_value">The ability to edit contacts is added to the application with a click event listener used to edit contacts.</div>
+            <span class="nobr"><span class="points">1.0</span> pts</span>
+            <span class="rating_id" style="display: none;">227102_5728</span>
+              <div class="links">
+                <a href="#" class="edit_rating_link"><i class="icon-edit standalone-icon"></i><span class="screenreader-only">Edit rating</span></a>
+                <a href="#" class="delete_rating_link"><i class="icon-end standalone-icon"></i><span class="screenreader-only">Delete rating</span></a>
+                <!-- Hidden if last -->
+                <a href="#" class="add_rating_link_after"><i class="icon-add standalone-icon"></i><span class="screenreader-only">Add new rating category after current rating</span></a>
+              </div>
+          </div>
+          </td>
+          <td id="rating_227102_3985" class="rating edge_rating">
+          <div class="container">
+            <div class="description rating_description_value">Missing this requirement</div>
+            <span class="nobr"><span class="points">0.0</span> pts</span>
+            <span class="rating_id" style="display: none;">227102_3985</span>
+              <div class="links">
+                <a href="#" class="edit_rating_link"><i class="icon-edit standalone-icon"></i><span class="screenreader-only">Edit rating</span></a>
+                <a href="#" class="delete_rating_link"><i class="icon-end standalone-icon"></i><span class="screenreader-only">Delete rating</span></a>
+                <!-- Hidden if last -->
+                <a href="#" class="add_rating_link_after"><i class="icon-add standalone-icon"></i><span class="screenreader-only">Add new rating category after current rating</span></a>
+              </div>
+          </div>
+          </td>
+      </tr></table>
+      <div style="display: none; font-style: italic; font-size: 0.8em; margin: 5px;" class="custom_ratings">
+        This area will be used by the assessor to leave
+        comments related to this criterion.
+      </div>
+  </td>
+  <td class="nobr points_form">
+    <div class="editing" style="white-space: normal">
+      <span style="white-space: nowrap; font-size: 0.8em">
+          <input type="text" aria-label="Points" value="1.0" class="criterion_points span1 no-margin-bottom" /> pts
+      </span><br />
+    </div>
+    <div class="displaying">
+      <span style="white-space: nowrap;">
+        <span class="criterion_rating_points_holder" style="display: none;">
+          <span class="criterion_rating_points">&nbsp;</span> /
+        </span>
+        <span class="display_criterion_points">1.0</span> pts<br />
+      </span>
+    </div>
+    <div class="ignoring">
+      <span> -- </span>
+    </div>
+    <div class="criterion_comments">
+        <a href="#" class="no-hover criterion_comments_link" title="Additional Comments">
+          <img alt="Additional Comments" src="https://du11hjcvx0uqb.cloudfront.net/dist/images/rubric_comment-ddae8546ab.png" />
+        </a>
+        <div class="custom_rating" style="display: none;"></div>
+    </div>
+  </td>
+  <td class="editing">
+    <a
+      href="#"
+      class="delete_criterion_link"
+      title="Delete Criterion Row"
+      role="button"
+      aria-label="Delete Criterion Row"
+    ><i class="icon-end"></i></a>
+  </td>
+</tr>
+
+      
+<tr id="criterion_228968_3183" class="criterion   " style="">
+  <td class="criterion_description hover-container">
+    <div class="container">
+      <img class="learning_outcome_flag" alt="This criterion is linked to a Learning Outcome" src="https://du11hjcvx0uqb.cloudfront.net/dist/images/flagged_question-e2565888dd.png" />
+      <span class="description criterion_description_value">Modal Form</span>
+      <span class="learning_outcome_id" style="display: none;"></span>
+      <span class="criterion_id" style="display: none;">228968_3183</span>
+      <div class="long_description_holder editing empty">
+        <a href="#" class="long_description_link">view longer description</a>
+        <textarea class="long_description" aria-label="Long Description" style="display: none;"></textarea>
+      </div>
+      <div class="threshold">
+        threshold:
+        <span class="mastery_points"></span> pts
+      </div>
+        <div class="links editing">
+          <a href="#" class="edit_criterion_link"><i class="icon-edit standalone-icon"></i><span class="screenreader-only">Edit criterion description</span></a>
+        </div>
+    </div>
+  </td>
+  <td style="padding: 0;">
+      <table class="ratings" style=""><tr>
+          <td id="rating_228968_5306" class="rating edge_rating">
+          <div class="container">
+            <div class="description rating_description_value">A modal form is created and used correctly and used for adding and editing contacts.</div>
+            <span class="nobr"><span class="points">2.0</span> pts</span>
+            <span class="rating_id" style="display: none;">228968_5306</span>
+              <div class="links">
+                <a href="#" class="edit_rating_link"><i class="icon-edit standalone-icon"></i><span class="screenreader-only">Edit rating</span></a>
+                <a href="#" class="delete_rating_link"><i class="icon-end standalone-icon"></i><span class="screenreader-only">Delete rating</span></a>
+                <!-- Hidden if last -->
+                <a href="#" class="add_rating_link_after"><i class="icon-add standalone-icon"></i><span class="screenreader-only">Add new rating category after current rating</span></a>
+              </div>
+          </div>
+          </td>
+          <td id="rating_228968_3418" class="rating ">
+          <div class="container">
+            <div class="description rating_description_value">Modal form is only used for adding OR editing contacts or is not functioning correctly.</div>
+            <span class="nobr"><span class="points">1.0</span> pts</span>
+            <span class="rating_id" style="display: none;">228968_3418</span>
+              <div class="links">
+                <a href="#" class="edit_rating_link"><i class="icon-edit standalone-icon"></i><span class="screenreader-only">Edit rating</span></a>
+                <a href="#" class="delete_rating_link"><i class="icon-end standalone-icon"></i><span class="screenreader-only">Delete rating</span></a>
+                <!-- Hidden if last -->
+                <a href="#" class="add_rating_link_after"><i class="icon-add standalone-icon"></i><span class="screenreader-only">Add new rating category after current rating</span></a>
+              </div>
+          </div>
+          </td>
+          <td id="rating_228968_7240" class="rating edge_rating">
+          <div class="container">
+            <div class="description rating_description_value">A modal form is not created and unot sed correctly or not used for adding and editing contacts.</div>
+            <span class="nobr"><span class="points">0.0</span> pts</span>
+            <span class="rating_id" style="display: none;">228968_7240</span>
+              <div class="links">
+                <a href="#" class="edit_rating_link"><i class="icon-edit standalone-icon"></i><span class="screenreader-only">Edit rating</span></a>
+                <a href="#" class="delete_rating_link"><i class="icon-end standalone-icon"></i><span class="screenreader-only">Delete rating</span></a>
+                <!-- Hidden if last -->
+                <a href="#" class="add_rating_link_after"><i class="icon-add standalone-icon"></i><span class="screenreader-only">Add new rating category after current rating</span></a>
+              </div>
+          </div>
+          </td>
+      </tr></table>
+      <div style="display: none; font-style: italic; font-size: 0.8em; margin: 5px;" class="custom_ratings">
+        This area will be used by the assessor to leave
+        comments related to this criterion.
+      </div>
+  </td>
+  <td class="nobr points_form">
+    <div class="editing" style="white-space: normal">
+      <span style="white-space: nowrap; font-size: 0.8em">
+          <input type="text" aria-label="Points" value="2.0" class="criterion_points span1 no-margin-bottom" /> pts
+      </span><br />
+    </div>
+    <div class="displaying">
+      <span style="white-space: nowrap;">
+        <span class="criterion_rating_points_holder" style="display: none;">
+          <span class="criterion_rating_points">&nbsp;</span> /
+        </span>
+        <span class="display_criterion_points">2.0</span> pts<br />
+      </span>
+    </div>
+    <div class="ignoring">
+      <span> -- </span>
+    </div>
+    <div class="criterion_comments">
+        <a href="#" class="no-hover criterion_comments_link" title="Additional Comments">
+          <img alt="Additional Comments" src="https://du11hjcvx0uqb.cloudfront.net/dist/images/rubric_comment-ddae8546ab.png" />
+        </a>
+        <div class="custom_rating" style="display: none;"></div>
+    </div>
+  </td>
+  <td class="editing">
+    <a
+      href="#"
+      class="delete_criterion_link"
+      title="Delete Criterion Row"
+      role="button"
+      aria-label="Delete Criterion Row"
+    ><i class="icon-end"></i></a>
+  </td>
+</tr>
+
+      
+<tr id="criterion_228968_49" class="criterion   " style="">
+  <td class="criterion_description hover-container">
+    <div class="container">
+      <img class="learning_outcome_flag" alt="This criterion is linked to a Learning Outcome" src="https://du11hjcvx0uqb.cloudfront.net/dist/images/flagged_question-e2565888dd.png" />
+      <span class="description criterion_description_value">Functionality</span>
+      <span class="learning_outcome_id" style="display: none;"></span>
+      <span class="criterion_id" style="display: none;">228968_49</span>
+      <div class="long_description_holder editing empty">
+        <a href="#" class="long_description_link">view longer description</a>
+        <textarea class="long_description" aria-label="Long Description" style="display: none;"></textarea>
+      </div>
+      <div class="threshold">
+        threshold:
+        <span class="mastery_points"></span> pts
+      </div>
+        <div class="links editing">
+          <a href="#" class="edit_criterion_link"><i class="icon-edit standalone-icon"></i><span class="screenreader-only">Edit criterion description</span></a>
+        </div>
+    </div>
+  </td>
+  <td style="padding: 0;">
+      <table class="ratings" style=""><tr>
+          <td id="rating_228968_5993" class="rating edge_rating">
+          <div class="container">
+            <div class="description rating_description_value">Application creates, deletes, edits, stores and displays contacts correctly and as required.</div>
+            <span class="nobr"><span class="points">5.0</span> pts</span>
+            <span class="rating_id" style="display: none;">228968_5993</span>
+              <div class="links">
+                <a href="#" class="edit_rating_link"><i class="icon-edit standalone-icon"></i><span class="screenreader-only">Edit rating</span></a>
+                <a href="#" class="delete_rating_link"><i class="icon-end standalone-icon"></i><span class="screenreader-only">Delete rating</span></a>
+                <!-- Hidden if last -->
+                <a href="#" class="add_rating_link_after"><i class="icon-add standalone-icon"></i><span class="screenreader-only">Add new rating category after current rating</span></a>
+              </div>
+          </div>
+          </td>
+          <td id="rating_228968_7040" class="rating ">
+          <div class="container">
+            <div class="description rating_description_value">Missing one requirement</div>
+            <span class="nobr"><span class="points">3.0</span> pts</span>
+            <span class="rating_id" style="display: none;">228968_7040</span>
+              <div class="links">
+                <a href="#" class="edit_rating_link"><i class="icon-edit standalone-icon"></i><span class="screenreader-only">Edit rating</span></a>
+                <a href="#" class="delete_rating_link"><i class="icon-end standalone-icon"></i><span class="screenreader-only">Delete rating</span></a>
+                <!-- Hidden if last -->
+                <a href="#" class="add_rating_link_after"><i class="icon-add standalone-icon"></i><span class="screenreader-only">Add new rating category after current rating</span></a>
+              </div>
+          </div>
+          </td>
+          <td id="rating_228968_2663" class="rating ">
+          <div class="container">
+            <div class="description rating_description_value">Missing two requirements</div>
+            <span class="nobr"><span class="points">2.0</span> pts</span>
+            <span class="rating_id" style="display: none;">228968_2663</span>
+              <div class="links">
+                <a href="#" class="edit_rating_link"><i class="icon-edit standalone-icon"></i><span class="screenreader-only">Edit rating</span></a>
+                <a href="#" class="delete_rating_link"><i class="icon-end standalone-icon"></i><span class="screenreader-only">Delete rating</span></a>
+                <!-- Hidden if last -->
+                <a href="#" class="add_rating_link_after"><i class="icon-add standalone-icon"></i><span class="screenreader-only">Add new rating category after current rating</span></a>
+              </div>
+          </div>
+          </td>
+          <td id="rating_228968_8302" class="rating edge_rating">
+          <div class="container">
+            <div class="description rating_description_value">Missing three or more requirements</div>
+            <span class="nobr"><span class="points">0.0</span> pts</span>
+            <span class="rating_id" style="display: none;">228968_8302</span>
+              <div class="links">
+                <a href="#" class="edit_rating_link"><i class="icon-edit standalone-icon"></i><span class="screenreader-only">Edit rating</span></a>
+                <a href="#" class="delete_rating_link"><i class="icon-end standalone-icon"></i><span class="screenreader-only">Delete rating</span></a>
+                <!-- Hidden if last -->
+                <a href="#" class="add_rating_link_after"><i class="icon-add standalone-icon"></i><span class="screenreader-only">Add new rating category after current rating</span></a>
+              </div>
+          </div>
+          </td>
+      </tr></table>
+      <div style="display: none; font-style: italic; font-size: 0.8em; margin: 5px;" class="custom_ratings">
+        This area will be used by the assessor to leave
+        comments related to this criterion.
+      </div>
+  </td>
+  <td class="nobr points_form">
+    <div class="editing" style="white-space: normal">
+      <span style="white-space: nowrap; font-size: 0.8em">
+          <input type="text" aria-label="Points" value="5.0" class="criterion_points span1 no-margin-bottom" /> pts
+      </span><br />
+    </div>
+    <div class="displaying">
+      <span style="white-space: nowrap;">
+        <span class="criterion_rating_points_holder" style="display: none;">
+          <span class="criterion_rating_points">&nbsp;</span> /
+        </span>
+        <span class="display_criterion_points">5.0</span> pts<br />
+      </span>
+    </div>
+    <div class="ignoring">
+      <span> -- </span>
+    </div>
+    <div class="criterion_comments">
+        <a href="#" class="no-hover criterion_comments_link" title="Additional Comments">
+          <img alt="Additional Comments" src="https://du11hjcvx0uqb.cloudfront.net/dist/images/rubric_comment-ddae8546ab.png" />
+        </a>
+        <div class="custom_rating" style="display: none;"></div>
+    </div>
+  </td>
+  <td class="editing">
+    <a
+      href="#"
+      class="delete_criterion_link"
+      title="Delete Criterion Row"
+      role="button"
+      aria-label="Delete Criterion Row"
+    ><i class="icon-end"></i></a>
+  </td>
+</tr>
+
+  
+<tr id="criterion_blank" class="criterion blank  " style="display: none;">
+  <td class="criterion_description hover-container">
+    <div class="container">
+      <img class="learning_outcome_flag" alt="This criterion is linked to a Learning Outcome" src="https://du11hjcvx0uqb.cloudfront.net/dist/images/flagged_question-e2565888dd.png" />
+      <span class="description criterion_description_value">Description of criterion</span>
+      <span class="learning_outcome_id" style="display: none;"></span>
+      <span class="criterion_id" style="display: none;"></span>
+      <div class="long_description_holder editing empty">
+        <a href="#" class="long_description_link">view longer description</a>
+        <textarea class="long_description" aria-label="Long Description" style="display: none;"></textarea>
+      </div>
+      <div class="threshold">
+        threshold:
+        <span class="mastery_points">5</span> pts
+      </div>
+        <div class="links editing">
+          <a href="#" class="edit_criterion_link"><i class="icon-edit standalone-icon"></i><span class="screenreader-only">Edit criterion description</span></a>
+        </div>
+    </div>
+  </td>
+  <td style="padding: 0;">
+      <table class="ratings" style=""><tr>
+          <td id="rating_blank" class="rating edge_rating">
+          <div class="container">
+            <div class="description rating_description_value">Full Marks</div>
+            <span class="nobr"><span class="points">5</span> pts</span>
+            <span class="rating_id" style="display: none;">blank</span>
+              <div class="links">
+                <a href="#" class="edit_rating_link"><i class="icon-edit standalone-icon"></i><span class="screenreader-only">Edit rating</span></a>
+                <a href="#" class="delete_rating_link"><i class="icon-end standalone-icon"></i><span class="screenreader-only">Delete rating</span></a>
+                <!-- Hidden if last -->
+                <a href="#" class="add_rating_link_after"><i class="icon-add standalone-icon"></i><span class="screenreader-only">Add new rating category after current rating</span></a>
+              </div>
+          </div>
+          </td>
+          <td id="rating_blank_2" class="rating edge_rating">
+          <div class="container">
+            <div class="description rating_description_value">No Marks</div>
+            <span class="nobr"><span class="points">0</span> pts</span>
+            <span class="rating_id" style="display: none;">blank_2</span>
+              <div class="links">
+                <a href="#" class="edit_rating_link"><i class="icon-edit standalone-icon"></i><span class="screenreader-only">Edit rating</span></a>
+                <a href="#" class="delete_rating_link"><i class="icon-end standalone-icon"></i><span class="screenreader-only">Delete rating</span></a>
+                <!-- Hidden if last -->
+                <a href="#" class="add_rating_link_after"><i class="icon-add standalone-icon"></i><span class="screenreader-only">Add new rating category after current rating</span></a>
+              </div>
+          </div>
+          </td>
+      </tr></table>
+      <div style="display: none; font-style: italic; font-size: 0.8em; margin: 5px;" class="custom_ratings">
+        This area will be used by the assessor to leave
+        comments related to this criterion.
+      </div>
+  </td>
+  <td class="nobr points_form">
+    <div class="editing" style="white-space: normal">
+      <span style="white-space: nowrap; font-size: 0.8em">
+          <input type="text" aria-label="Points" value="5" class="criterion_points span1 no-margin-bottom" /> pts
+      </span><br />
+    </div>
+    <div class="displaying">
+      <span style="white-space: nowrap;">
+        <span class="criterion_rating_points_holder" style="display: none;">
+          <span class="criterion_rating_points">&nbsp;</span> /
+        </span>
+        <span class="display_criterion_points">5</span> pts<br />
+      </span>
+    </div>
+    <div class="ignoring">
+      <span> -- </span>
+    </div>
+    <div class="criterion_comments">
+        <a href="#" class="no-hover criterion_comments_link" title="Additional Comments">
+          <img alt="Additional Comments" src="https://du11hjcvx0uqb.cloudfront.net/dist/images/rubric_comment-ddae8546ab.png" />
+        </a>
+        <div class="custom_rating" style="display: none;"></div>
+    </div>
+  </td>
+  <td class="editing">
+    <a
+      href="#"
+      class="delete_criterion_link"
+      title="Delete Criterion Row"
+      role="button"
+      aria-label="Delete Criterion Row"
+    ><i class="icon-end"></i></a>
+  </td>
+</tr>
+
+  <tr class="summary" style="">
+    <td colspan="4">
+      <div style="float: right;" class="total_points_holder">
+        <span style="padding-right: 10px;">Total Points:
+            <span class="rubric_total">15.0</span> <span class="assessing">out of 15.0</span>
+        </span>
+      </div>
+      <div style="float: left;" class="editing">
+      <a href="#" aria-label='Add Criterion' class="icon-plus add_criterion_link">Criterion</a>
+      &nbsp;&nbsp;<a href="#" class="icon-search find_outcome_link outcome">Find Outcome</a>
+      </div>
+      <div class="clear"></div>
+    </td>
+  </tr>
+</tbody>
+</table>
+</div>
+<table style="display: none;">
+  <tr id="edit_rubric">
+    <td colspan="4">
+      <form id="edit_rubric_form" class="edit-rubric-form no-margin-bottom">
+        <div class="rubric_custom_ratings" style="">
+          <input type="checkbox" id="rubric_custom_rating" class="rubric_custom_rating" />
+          <label for="rubric_custom_rating">I&#39;ll write free-form comments when assessing students</label>
+        </div>
+          <div class="rubric_grading" style="">
+            <input type="checkbox" id="grading_rubric" class="grading_rubric_checkbox" checked/>
+            <label for="grading_rubric">Use this rubric for assignment grading</label>
+          </div>
+        <div class="totalling_rubric" style="">
+          <input type="checkbox" id="totalling_rubric" class="totalling_rubric_checkbox" />
+          <label for="totalling_rubric">Hide score total for assessment results</label>
+        </div>
+        <div class="ic-Action-header ic-Action-header--half-margin">
+          <div class="ic-Action-header__Primary">
+            <button type="button" class="Button cancel_button">Cancel</button>
+            <button type="submit" class="Button Button--primary save_button">Create Rubric</button>
+          </div>
+        </div>
+      </form>
+    </td>
+  </tr>
+</table>
+
+  <div style="display: none;" id="rubric_parameters">
+    <input type="hidden" name="rubric_association[association_type]" value="Assignment"/>
+    <input type="hidden" name="rubric_association[association_id]" value="4783234"/>
+    <input type="hidden" name="rubric_association[purpose]" value="grading"/>
+  </div>
+  <div id="rubric_long_description_dialog" style="display: none;">
+  <div class="description" style="border-bottom: 1px solid #ccc; padding: 5px 0; font-size: 1.2em; font-weight: bold; margin-bottom: 5px;">
+  </div>
+  <div class="editing">
+    <textarea class="long_description" aria-label="Long Description" name="long_description" style="width: 370px;"></textarea>
+    <div class="button-container">
+      <button type="button" class="btn btn button-secondary cancel_button">Cancel</button>
+      <button type="button" class="btn save_button">Update Description</button>
+    </div>
+  </div>
+  <div class="displaying">
+    <div class="long_description">
+    </div>
+  </div>
+</div>
+<div id="rubric_criterion_comments_dialog" style="display: none;">
+  <div
+    class="criterion_description"
+    style="border-bottom: 1px solid #ccc; padding: 5px 0; font-size: 1.2em; font-weight: bold; margin-bottom: 5px;"
+    tabindex="-1"
+  ></div>
+  <div class="editing">
+    <label for="criterion_comments_textarea">
+      Additional Comments:
+    </label>
+    <textarea
+      id="criterion_comments_textarea"
+      class="criterion_comments"
+      name="criterion_comments"
+      style="width: 370px;"></textarea>
+    <div class="button-container">
+      <button type="button" class="btn btn button-secondary cancel_button">Cancel</button>
+      <button type="button" class="btn save_button">Update Comments</button>
+    </div>
+  </div>
+  <div class="displaying">
+    Additional Comments:
+    <div class="criterion_comments" style="margin-top: 10px;">
+    </div>
+  </div>
+</div>
+
+</div>
+<div
+  class="rubric_container rubric  "
+  id="default_rubric"
+  style="display: none;"
+  tabindex="0"
+>
+  <div class="screenreader-only"><h2>Rubric</h2></div>
+  <div class="rubric_title">
+    <div style="float: right; display: none;" class="links displaying">
+      <a
+        href="/courses/501988/rubrics/%7B%7B%20id%20%7D%7D"
+        class=" edit_rubric_link no-print no-hover"
+        style=""
+        title="Edit Rubric"
+        aria-label="Edit Rubric"
+        role="button"
+      ><i class="icon-edit standalone-icon"></i></a>
+      <a
+        href="https://algonquin.instructure.com/search/rubrics?q="
+        class="find_rubric_link no-print no-hover"
+        style=""
+        title="Find Another Rubric"
+        aria-label="Find Another Rubric"
+        role="button"
+      ><i class="icon-search standalone-icon"></i></a>
+        <a
+          href="/courses/501988/rubric_associations/%7B%7B%20rubric_association_id%20%7D%7D"
+          class="delete_rubric_link no-print no-hover"
+          style=""
+          title="Delete Rubric"
+          aria-label="Delete Rubric"
+          role="button"
+        ><i class="icon-trash standalone-icon"></i></a>
+      <div style="display: none;">
+        <div class="use_for_grading">&nbsp;</div>
+        <div class="free_form_criterion_comments">&nbsp;</div>
+        <div class="hide_score_total">&nbsp;</div>
+        <div class="rubric_association_id">&nbsp;</div>
+        <div class="user_id">&nbsp;</div>
+        <div class="assessment_type"></div>
+        <a href="/courses/501988/rubric_associations/%7B%7B%20rubric_association_id%20%7D%7D/assessments/%7B%7B%20assessment_id%20%7D%7D" rel="nofollow" class="edit_assessment_link">&nbsp;</a>
+        <a href="/courses/501988/rubrics/%7B%7B%20rubric_id%20%7D%7D" class="edit_rubric_url">&nbsp;</a>
+          <a href="/courses/501988/rubric_associations/%7B%7B%20association_id%20%7D%7D" class="delete_rubric_url">&nbsp;</a>
+      </div>
+    </div>
+    <div style="float: right; font-size: 0.8em; display: none;" class="links displaying locked">
+      <span style="">Can&#39;t change a rubric once you&#39;ve started using it.</span>
+        <a href="/courses/501988/rubric_associations/%7B%7B%20association_id%20%7D%7D" class="delete_rubric_url" style="display: none;">&nbsp;</a>
+    </div>
+
+    <div class="editing" style="float: right;">
+      <a href="https://algonquin.instructure.com/search/rubrics?q=" class="find_rubric_link icon-search" style="" title="Find Existing Rubric">Find a Rubric</a>
+    </div>
+    <div class="editing" style="text-align: left">
+      <label for="rubric-title">Title:</label>
+      <input id="rubric-title" type="text" class="no-margin-bottom" name="title" value="Some Rubric" style="width: 200px;" maxlength="255" aria-label="Title:"/>
+      <a href="https://algonquin.instructure.com/search/rubrics?q=" style="display: none;"><img alt="" src="https://du11hjcvx0uqb.cloudfront.net/dist/images/find-6164443e2a.png" /> Find Rubric</a>
+    </div>
+    <div class="displaying">
+      <span class="title" tabindex="-1">Title</span>
+    </div>
+    <div class="has-assessments-warning" style="display: none;">
+      You&#39;ve already rated students with this rubric.  Any major changes could affect their assessment results.
+    </div>
+  </div>
+<table class="rubric_table">
+<caption>
+  <div class="screenreader-only">
+    <span class="title">Title</span>
+  </div>
+</caption>
+<thead>
+  <tr>
+    <th scope="col">Criteria</th>
+    <th scope="col">Ratings</th>
+    <th scope="col">Pts</th>
+    <th scope="col" class="editing">&nbsp;</th>
+  </tr>
+</thead>
+<tbody>
+  
+<tr id="criterion_blank" class="criterion blank  " style="display: none;">
+  <td class="criterion_description hover-container">
+    <div class="container">
+      <img class="learning_outcome_flag" alt="This criterion is linked to a Learning Outcome" src="https://du11hjcvx0uqb.cloudfront.net/dist/images/flagged_question-e2565888dd.png" />
+      <span class="description criterion_description_value">Description of criterion</span>
+      <span class="learning_outcome_id" style="display: none;"></span>
+      <span class="criterion_id" style="display: none;"></span>
+      <div class="long_description_holder editing empty">
+        <a href="#" class="long_description_link">view longer description</a>
+        <textarea class="long_description" aria-label="Long Description" style="display: none;"></textarea>
+      </div>
+      <div class="threshold">
+        threshold:
+        <span class="mastery_points">5</span> pts
+      </div>
+        <div class="links editing">
+          <a href="#" class="edit_criterion_link"><i class="icon-edit standalone-icon"></i><span class="screenreader-only">Edit criterion description</span></a>
+        </div>
+    </div>
+  </td>
+  <td style="padding: 0;">
+      <table class="ratings" style=""><tr>
+          <td id="rating_blank" class="rating edge_rating">
+          <div class="container">
+            <div class="description rating_description_value">Full Marks</div>
+            <span class="nobr"><span class="points">5</span> pts</span>
+            <span class="rating_id" style="display: none;">blank</span>
+              <div class="links">
+                <a href="#" class="edit_rating_link"><i class="icon-edit standalone-icon"></i><span class="screenreader-only">Edit rating</span></a>
+                <a href="#" class="delete_rating_link"><i class="icon-end standalone-icon"></i><span class="screenreader-only">Delete rating</span></a>
+                <!-- Hidden if last -->
+                <a href="#" class="add_rating_link_after"><i class="icon-add standalone-icon"></i><span class="screenreader-only">Add new rating category after current rating</span></a>
+              </div>
+          </div>
+          </td>
+          <td id="rating_blank_2" class="rating edge_rating">
+          <div class="container">
+            <div class="description rating_description_value">No Marks</div>
+            <span class="nobr"><span class="points">0</span> pts</span>
+            <span class="rating_id" style="display: none;">blank_2</span>
+              <div class="links">
+                <a href="#" class="edit_rating_link"><i class="icon-edit standalone-icon"></i><span class="screenreader-only">Edit rating</span></a>
+                <a href="#" class="delete_rating_link"><i class="icon-end standalone-icon"></i><span class="screenreader-only">Delete rating</span></a>
+                <!-- Hidden if last -->
+                <a href="#" class="add_rating_link_after"><i class="icon-add standalone-icon"></i><span class="screenreader-only">Add new rating category after current rating</span></a>
+              </div>
+          </div>
+          </td>
+      </tr></table>
+      <div style="display: none; font-style: italic; font-size: 0.8em; margin: 5px;" class="custom_ratings">
+        This area will be used by the assessor to leave
+        comments related to this criterion.
+      </div>
+  </td>
+  <td class="nobr points_form">
+    <div class="editing" style="white-space: normal">
+      <span style="white-space: nowrap; font-size: 0.8em">
+          <input type="text" aria-label="Points" value="5" class="criterion_points span1 no-margin-bottom" /> pts
+      </span><br />
+    </div>
+    <div class="displaying">
+      <span style="white-space: nowrap;">
+        <span class="criterion_rating_points_holder" style="display: none;">
+          <span class="criterion_rating_points">&nbsp;</span> /
+        </span>
+        <span class="display_criterion_points">5</span> pts<br />
+      </span>
+    </div>
+    <div class="ignoring">
+      <span> -- </span>
+    </div>
+    <div class="criterion_comments">
+        <a href="#" class="no-hover criterion_comments_link" title="Additional Comments">
+          <img alt="Additional Comments" src="https://du11hjcvx0uqb.cloudfront.net/dist/images/rubric_comment-ddae8546ab.png" />
+        </a>
+        <div class="custom_rating" style="display: none;"></div>
+    </div>
+  </td>
+  <td class="editing">
+    <a
+      href="#"
+      class="delete_criterion_link"
+      title="Delete Criterion Row"
+      role="button"
+      aria-label="Delete Criterion Row"
+    ><i class="icon-end"></i></a>
+  </td>
+</tr>
+
+  <tr class="summary" style="">
+    <td colspan="4">
+      <div style="float: right;" class="total_points_holder">
+        <span style="padding-right: 10px;">Total Points:
+            <span class="rubric_total">5</span> <span class="assessing">out of 5</span>
+        </span>
+      </div>
+      <div style="float: left;" class="editing">
+      <a href="#" aria-label='Add Criterion' class="icon-plus add_criterion_link">Criterion</a>
+      &nbsp;&nbsp;<a href="#" class="icon-search find_outcome_link outcome">Find Outcome</a>
+      </div>
+      <div class="clear"></div>
+    </td>
+  </tr>
+</tbody>
+</table>
+</div>
+<table style="display: none;">
+  <tr id="edit_rubric">
+    <td colspan="4">
+      <form id="edit_rubric_form" class="edit-rubric-form no-margin-bottom">
+        <div class="rubric_custom_ratings" style="">
+          <input type="checkbox" id="rubric_custom_rating" class="rubric_custom_rating" />
+          <label for="rubric_custom_rating">I&#39;ll write free-form comments when assessing students</label>
+        </div>
+          <div class="rubric_grading" style="">
+            <input type="checkbox" id="grading_rubric" class="grading_rubric_checkbox" />
+            <label for="grading_rubric">Use this rubric for assignment grading</label>
+          </div>
+        <div class="totalling_rubric" style="">
+          <input type="checkbox" id="totalling_rubric" class="totalling_rubric_checkbox" />
+          <label for="totalling_rubric">Hide score total for assessment results</label>
+        </div>
+        <div class="ic-Action-header ic-Action-header--half-margin">
+          <div class="ic-Action-header__Primary">
+            <button type="button" class="Button cancel_button">Cancel</button>
+            <button type="submit" class="Button Button--primary save_button">Create Rubric</button>
+          </div>
+        </div>
+      </form>
+    </td>
+  </tr>
+</table>
+
+  <div id="sequence_footer" data-course-id="501988" data-asset-id="4783234" data-asset-type="Assignment"></div>
+
+
+          </div>
+        </div>
+        <div id="right-side-wrapper" class="ic-app-main-content__secondary">
+          <aside id="right-side" role="complementary">
+            <div id="sidebar_content">
+
+    <div class="details">
+  <h3>Submission</h3>
+    <div class="header">
+        <img alt="" src="https://du11hjcvx0uqb.cloudfront.net/dist/images/graded-e649ddc42a.png" /> Turned In!
+    </div>
+  <div class="content">
+    <span class="">
+        Nov 22 at  5:28pm
+    </span>
+
+    <a href="/courses/501988/assignments/4783234/submissions/2183517" class="forward">
+      Submission Details
+    </a>
+
+      <a href="http://jurt0001.www.edumedia.ca//mad9014/contacts/" target="_new" class='link'>
+        View the Original Page
+      </a>
+
+    <div class="module">
+          <div>Grade: 12 <span style="font-size: 0.8em;">(15 pts possible)</span></div>
+          <div>Graded Anonymously: no</div>
+
+        <a href="/courses/501988/assignments/4783234/submissions/2183517#rubric" class='rubric'>
+          View Rubric Evaluation
+        </a>
+    </div>
+
+
+    <div class="comments module">
+        <h4>Comments: </h4>
+
+        
+          <div id="comment-7555311" class="comment">
+            If you click on a contact to edit it, then click the cancel button on the modal, the next time you click the add button, it displays the edit contact information in the modal. The modal is missing the save button too. It only shows the close. From that point on the user can&#39;t add new contacts.
+
+When you click the delete button you don&#39;t need the highlighting or the delay before removing it. That was just part of the demo code to show how to do something like that. In something like this we don&#39;t want a delay because that will just encourage the user to click a delete button multiple times.
+            <div class="comment_attachments">
+            </div>
+            <div class="signature" style="font-size: 0.8em; text-align: right; color: #888;">
+              STEVE GRIFFITH, Dec 1 at  7:20pm
+            </div>
+          </div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+
+          </aside>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+    <div style="display:none;"><!-- Everything inside of this should always stay hidden -->
+        <div id="page_view_id">9b237217-6837-4f74-bc83-c70b1c6da77c</div>
+    </div>
+    <div id="cant_record_dialog" style="display: none;">
+  <div>
+    In order to create video or audio recordings your computer needs to be 
+    webcam-enabled.  If you don&#39;t have a webcam on your computer, you can still
+    record audio-only messages by first installing the Google Video Chat
+    plugin.
+  </div>
+  <div style="text-align: center; font-size: 1.5em; margin: 10px;">
+    <a href="http://www.google.com/chat/video" target="_blank" class="btn">Install the Video Plugin</a>
+  </div>
+  <div class="links" style="text-align: right; font-size: 0.8em; display: none;">
+    <a href="#" class="cant_record_link">Don&#39;t have a webcam?</a>
+  </div>
+</div>
+  <div id='aria_alerts' class='hide-text affix' role="alert" aria-live="assertive"></div>
+  <script>
+  INST = {"environment":"production","allowMediaComments":true,"kalturaSettings":{"domain":"nv.instructuremedia.com","resource_domain":"nv.instructuremedia.com","rtmp_domain":"fms-prod.instructuremedia.com","partner_id":"9","subpartner_id":"0","player_ui_conf":"0","kcw_ui_conf":"0","upload_ui_conf":"0","max_file_size_bytes":534773760,"do_analytics":false,"hide_rte_button":false,"js_uploader":true},"googleAnalyticsAccount":"UA-9138420-1","disableScribdPreviews":true,"logPageViews":true,"maxVisibleEditorButtons":3,"editorButtons":[{"name":"YouTube Video","id":29,"url":"https:\/\/lti-examples.heroku.com\/tool_redirect?url=%2Fyoutube.html","icon_url":"https:\/\/lti-examples.heroku.com\/icons\/youtube.png","canvas_icon_class":null,"width":590,"height":450},{"name":"Find Khan Academy Video","id":30,"url":"https:\/\/lti-examples.heroku.com\/tool_redirect?url=%2Fkhan.html","icon_url":"https:\/\/lti-examples.heroku.com\/icons\/khan.png","canvas_icon_class":null,"width":590,"height":450},{"name":"Twitter List","id":31,"url":"https:\/\/lti-examples.heroku.com\/tool_redirect?url=%2Ftwitter.html","icon_url":"https:\/\/lti-examples.heroku.com\/icons\/twitter.png","canvas_icon_class":null,"width":690,"height":530},{"name":"TED Ed Video","id":32,"url":"https:\/\/lti-examples.heroku.com\/tool_redirect?url=%2Fted_ed.html","icon_url":"https:\/\/lti-examples.heroku.com\/icons\/ted_ed.png","canvas_icon_class":null,"width":590,"height":450},{"name":"Slideshare CC","id":33,"url":"https:\/\/lti-examples.heroku.com\/tool_redirect?url=%2Fslideshare.html","icon_url":"https:\/\/lti-examples.heroku.com\/icons\/slideshare.png","canvas_icon_class":null,"width":690,"height":530},{"name":"Wikipedia Articles","id":34,"url":"https:\/\/lti-examples.heroku.com\/tool_redirect?url=%2Fwikipedia.html","icon_url":"https:\/\/lti-examples.heroku.com\/icons\/wikipedia.png","canvas_icon_class":null,"width":590,"height":450},{"name":"Codecademy","id":181,"url":"https:\/\/lti-examples.heroku.com\/tool_redirect?url=%2Ftools.html%3Ftool%3Dcodecademy","icon_url":"https:\/\/lti-examples.heroku.com\/icons\/codecademy.png","canvas_icon_class":null,"width":740,"height":450},{"name":"flickr","id":6686,"url":"https:\/\/lti-tool.appspot.com\/index.jsp?tool=flickr","icon_url":"https:\/\/lti-tool.appspot.com\/images\/flickr.ico","canvas_icon_class":null,"width":800,"height":600},{"name":"GitHub","id":6687,"url":"https:\/\/www.edu-apps.org\/tool_redirect?id=github","icon_url":"https:\/\/www.edu-apps.org\/tools\/github\/icon.png","canvas_icon_class":null,"width":600,"height":320},{"name":"Programr","id":6688,"url":"https:\/\/www.edu-apps.org\/tool_redirect?id=programr","icon_url":"https:\/\/www.edu-apps.org\/tools\/programr\/icon.png","canvas_icon_class":null,"width":690,"height":530},{"name":"Google Charts","id":6689,"url":"https:\/\/www.edu-apps.org\/tool_redirect?id=google_chart","icon_url":"https:\/\/www.edu-apps.org\/tools\/google_chart\/icon.png","canvas_icon_class":null,"width":930,"height":360},{"name":"Storify","id":6690,"url":"https:\/\/www.edu-apps.org\/tool_redirect?id=storify","icon_url":"https:\/\/www.edu-apps.org\/tools\/storify\/icon.png","canvas_icon_class":null,"width":690,"height":530},{"name":"Trello","id":6691,"url":"https:\/\/www.edu-apps.org\/tool_redirect?id=trello","icon_url":"https:\/\/www.edu-apps.org\/tools\/trello\/icon.png","canvas_icon_class":null,"width":550,"height":330},{"name":"Vimeo","id":6692,"url":"http:\/\/vimeo-lti.herokuapp.com\/lti\/launch","icon_url":"http:\/\/vimeo-lti.herokuapp.com\/images\/vimeo_icon.png","canvas_icon_class":null,"width":500,"height":500},{"name":"Dropbox","id":17803,"url":"https:\/\/www.edu-apps.org\/tool_redirect?id=dropbox","icon_url":"http:\/\/www.edu-apps.org\/tools\/dropbox\/icon.png","canvas_icon_class":null,"width":400,"height":200},{"name":"Microsoft Office 365","id":50915,"url":"https:\/\/office365-iad-prod.instructure.com\/lti\/rce-content-item","icon_url":"https:\/\/office365-iad-prod.instructure.com\/images\/office365_icon.png","canvas_icon_class":null,"width":900,"height":600}]};
+  ENV = {"ASSET_HOST":"https:\/\/du11hjcvx0uqb.cloudfront.net","active_brand_config":"dbe1b38b484d902711ae881c73dba738","active_brand_config_json_url":"https:\/\/du11hjcvx0uqb.cloudfront.net\/dist\/brandable_css\/dbe1b38b484d902711ae881c73dba738\/variables-8cf919bc8524fb9c9655c94ea1375cc7.json","url_to_what_gets_loaded_inside_the_tinymce_editor_css":"https:\/\/du11hjcvx0uqb.cloudfront.net\/dist\/brandable_css\/dbe1b38b484d902711ae881c73dba738\/new_styles_normal_contrast\/bundles\/what_gets_loaded_inside_the_tinymce_editor-da765ef8c0.css","current_user_id":"2183517","current_user":{"id":"2183517","display_name":"Christian Jurt","avatar_image_url":"https:\/\/algonquin.instructure.com\/images\/thumbnails\/40969175\/8whEGSv5IngXHnTQvL06CZQpuz7F4oMvof5Wdv48","html_url":"https:\/\/algonquin.instructure.com\/about\/2183517"},"current_user_roles":["user","student"],"current_user_disabled_inbox":false,"files_domain":"cluster22-files.instructure.com","DOMAIN_ROOT_ACCOUNT_ID":30000000000113,"k12":false,"help_link_name":"Help","help_link_icon":"help","use_high_contrast":false,"SETTINGS":{"open_registration":false,"eportfolios_enabled":true,"collapse_global_nav":false,"show_feedback_link":true},"page_view_update_url":"\/page_views\/9b237217-6837-4f74-bc83-c70b1c6da77c?page_view_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpIjoiOWIyMzcyMTctNjgzNy00Zjc0LWJjODMtYzcwYjFjNmRhNzdjIiwidSI6MzAwMDAwMDIxODM1MTcsImMiOiIyMDE2LTEyLTE4VDAwOjA3OjQ1LjU0WiJ9.-6WX5MgJAQvimrt3OUdofLaxg2RVADNzjNEr4TLqMcM","context_asset_string":"course_501988","ping_url":"https:\/\/algonquin.instructure.com\/api\/v1\/courses\/501988\/ping","TIMEZONE":"America\/New_York","CONTEXT_TIMEZONE":"America\/New_York","LOCALE":"en","BIGEASY_LOCALE":"en_US","FULLCALENDAR_LOCALE":"en","MOMENT_LOCALE":"en","RICH_CONTENT_SERVICE_ENABLED":false,"ROOT_OUTCOME_GROUP":{"id":"475905","title":"Cross-Platform Application Dev I","vendor_guid":null,"url":"\/api\/v1\/courses\/501988\/outcome_groups\/475905","subgroups_url":"\/api\/v1\/courses\/501988\/outcome_groups\/475905\/subgroups","outcomes_url":"\/api\/v1\/courses\/501988\/outcome_groups\/475905\/outcomes","can_edit":false,"import_url":"\/api\/v1\/courses\/501988\/outcome_groups\/475905\/import","context_id":"501988","context_type":"Course","description":null},"COURSE_ID":501988,"ASSIGNMENT_ID":4783234,"EXTERNAL_TOOLS":[{"id":"17803","domain":null,"url":"https:\/\/www.edu-apps.org\/tool_redirect?id=dropbox","consumer_key":"N\/A","name":"Dropbox","description":"This lightweight integration lets Dropbox users select and link to files within course content or in conjunction with homework submissions.\n\nDropbox is a file hosting service offering cloud storage, file synchronization, and client software. Files placed in a Dropbox folder also are accessible through a website and mobile phone applications.\n\n[ ![Dropbox insert video demonstration image.](https:\/\/googledrive.com\/host\/0B5ghu5Vrh0j7X3FCOERVQ1dLSms\/dropbox.png) ](https:\/\/googledrive.com\/host\/0B5ghu5Vrh0j7X3FCOERVQ1dLSms\/dropbox.png)\n\nThe current integration does require that users login to Dropbox each time.","created_at":"2014-12-01T15:59:28Z","updated_at":"2014-12-01T15:59:28Z","privacy_level":"anonymous","custom_fields":{},"workflow_state":"anonymous","vendor_help_link":null,"account_navigation":null,"assignment_configuration":null,"assignment_menu":null,"assignment_selection":null,"collaboration":null,"course_home_sub_navigation":null,"course_navigation":null,"course_settings_sub_navigation":null,"discussion_topic_menu":null,"editor_button":{"enabled":"true","label":"Dropbox","selection_width":400,"selection_height":200,"icon_url":"http:\/\/www.edu-apps.org\/tools\/dropbox\/icon.png"},"file_menu":null,"global_navigation":null,"homework_submission":{"enabled":"true","label":"Dropbox","selection_width":400,"selection_height":200,"icon_url":"http:\/\/www.edu-apps.org\/tools\/dropbox\/icon.png"},"link_selection":null,"migration_selection":null,"module_menu":null,"post_grades":null,"quiz_menu":null,"resource_selection":null,"tool_configuration":null,"user_navigation":null,"wiki_page_menu":null,"selection_width":400,"selection_height":200,"icon_url":"http:\/\/www.edu-apps.org\/tools\/dropbox\/icon.png","not_selectable":false},{"id":"50915","domain":"office365-iad-prod.instructure.com","url":"https:\/\/office365-iad-prod.instructure.com\/lti\/course-navigation","consumer_key":"9147a18b-2368-4902-8f78-925ea5a149fd","name":"Microsoft Office 365","description":"Allows you to pull in documents from Office 365 to Canvas","created_at":"2016-12-13T15:56:13Z","updated_at":"2016-12-13T15:56:13Z","privacy_level":"name_only","custom_fields":{"account_id":"$Canvas.account.id","assignment_title":"$Canvas.assignment.title","base_url":"$Canvas.api.baseUrl","collaboration_members_url":"$Canvas.api.collaborationMembers.url","course_id":"$Canvas.course.id","domain":"$Canvas.api.domain","group_context_ids":"$Canvas.group.contextIds","masquerading_user_id":"$Canvas.masqueradingUser.userId","membership_service_url":"$ToolProxyBinding.memberships.url","time_zone":"$Person.address.timezone","user_id":"$Canvas.user.id"},"workflow_state":"name_only","vendor_help_link":null,"account_navigation":null,"assignment_configuration":null,"assignment_menu":null,"assignment_selection":{"message_type":"ContentItemSelectionRequest","text":"Office 365 Cloud Assignment","url":"https:\/\/office365-iad-prod.instructure.com\/lti\/cloud-assignment-template","label":"Office 365 Cloud Assignment","selection_width":800,"selection_height":400,"icon_url":"https:\/\/office365-iad-prod.instructure.com\/images\/office365_icon.png"},"collaboration":{"canvas_icon_class":"icon-lti","icon_url":"https:\/\/office365-iad-prod.instructure.com\/images\/office365_icon.png","message_type":"ContentItemSelectionRequest","text":"Office 365","url":"https:\/\/office365-iad-prod.instructure.com\/lti\/collaboration-content-item","label":"Office 365","selection_width":800,"selection_height":400},"course_home_sub_navigation":null,"course_navigation":{"text":"Office 365","url":"https:\/\/office365-iad-prod.instructure.com\/lti\/course-navigation","label":"Office 365","selection_width":800,"selection_height":400,"icon_url":"https:\/\/office365-iad-prod.instructure.com\/images\/office365_icon.png"},"course_settings_sub_navigation":null,"discussion_topic_menu":null,"editor_button":{"icon_url":"https:\/\/office365-iad-prod.instructure.com\/images\/office365_icon.png","message_type":"ContentItemSelectionRequest","selection_height":600,"selection_width":900,"url":"https:\/\/office365-iad-prod.instructure.com\/lti\/rce-content-item","label":"Microsoft Office 365"},"file_menu":null,"global_navigation":null,"homework_submission":{"canvas_icon_class":"icon-lti","icon_url":"https:\/\/office365-iad-prod.instructure.com\/images\/office365_icon.png","message_type":"ContentItemSelectionRequest","text":"Office 365","url":"https:\/\/office365-iad-prod.instructure.com\/lti\/homework-submission-content-item","label":"Office 365","selection_width":800,"selection_height":400},"link_selection":{"enabled":"true","message_type":"ContentItemSelectionRequest","selection_height":600,"selection_width":900,"text":"Office 365","url":"https:\/\/office365-iad-prod.instructure.com\/lti\/module-content-item","label":"Office 365","icon_url":"https:\/\/office365-iad-prod.instructure.com\/images\/office365_icon.png"},"migration_selection":null,"module_menu":null,"post_grades":null,"quiz_menu":null,"resource_selection":null,"tool_configuration":null,"user_navigation":null,"wiki_page_menu":null,"icon_url":"https:\/\/office365-iad-prod.instructure.com\/images\/office365_icon.png","not_selectable":false}],"SUBMIT_ASSIGNMENT":{"ALLOWED_EXTENSIONS":[],"ID":4783234},"badge_counts":{"submissions":0},"notices":[]};
+
+    // TODO: move this out when we have a single require call
+    require = {
+      translate: true,
+      baseUrl: '/optimized',
+      paths: {
+    "ember":"bower\/ember\/ember",
+    "common":"compiled\/bundles\/common",
+    "jqueryui":"vendor\/jqueryui",
+    "handlebars":"symlink_to_node_modules\/handlebars\/dist\/handlebars.runtime",
+    "..\/..\/node_modules\/axios":"symlink_to_node_modules\/axios\/dist\/axios",
+    "node_modules-version-of-backbone":"symlink_to_node_modules\/backbone\/backbone",
+    "node_modules-version-of-moment":"symlink_to_node_modules\/moment\/min\/moment-with-locales",
+    "node_modules-version-of-react-modal":"symlink_to_node_modules\/react-modal\/dist\/react-modal",
+    "moment":"custom_moment_locales\/mi_nz",
+    "react-addons-css-transition-group":"react-addons-css-transition-group_requireJS",
+    "react-addons-pure-render-mixin":"react-addons-pure-render-mixin_requireJS",
+    "react-addons-test-utils":"react-addons-test-utils_requireJS",
+    "react-addons-update":"react-addons-update_requireJS",
+    "compiled\/tinymce":"compiled\/tinymce.js?v2",
+    "demo_site":"plugins\/demo_site",
+    "migration_tool":"plugins\/migration_tool",
+    "catalog_provisioner":"plugins\/catalog_provisioner",
+    "instructure_misc_plugin":"plugins\/instructure_misc_plugin",
+    "analytics":"plugins\/analytics",
+    "multiple_root_accounts":"plugins\/multiple_root_accounts",
+    "canvasnet_registration":"plugins\/canvasnet_registration",
+    "compiled\/bundles\/modules\/content_migration_setup_without_extensions":"compiled\/bundles\/modules\/content_migration_setup",
+    "compiled\/bundles\/modules\/content_migration_setup":"compiled\/bundles\/modules\/content_migration_setup_with_extensions",
+    "compiled\/registration\/main_without_extensions":"compiled\/registration\/main",
+    "compiled\/registration\/main":"compiled\/registration\/main_with_extensions",
+    "compiled\/registration\/signupDialog_without_extensions":"compiled\/registration\/signupDialog",
+    "compiled\/registration\/signupDialog":"compiled\/registration\/signupDialog_with_extensions",
+    "compiled\/bundles\/modules\/account_quota_settings_without_extensions":"compiled\/bundles\/modules\/account_quota_settings",
+    "compiled\/bundles\/modules\/account_quota_settings":"compiled\/bundles\/modules\/account_quota_settings_with_extensions",
+    "canvas_quizzes":"client_apps\/canvas_quizzes",
+    "app\/config\/environments\/production":"empty:"},
+      packages : [{"name":"ember-qunit","location":"bower\/ember-qunit\/dist\/amd"},{"name":"classnames","location":"symlink_to_node_modules\/classnames","main":"index"},{"name":"color-slicer","location":"symlink_to_node_modules\/color-slicer","main":"dist\/color-slicer"},{"name":"d3","location":"symlink_to_node_modules\/d3","main":"d3"},{"name":"fullcalendar","location":"symlink_to_node_modules\/fullcalendar","main":"dist\/fullcalendar"},{"name":"ic-ajax","location":"symlink_to_node_modules\/ic-ajax\/dist\/amd"},{"name":"ic-tabs","location":"symlink_to_node_modules\/ic-tabs"},{"name":"instructure-ui","location":"symlink_to_node_modules\/instructure-ui\/dist","main":"instructure-ui"},{"name":"instructure-icons","location":"symlink_to_node_modules\/instructure-icons","main":"react\/index"},{"name":"lodash","location":"symlink_to_node_modules\/lodash","main":"lodash"},{"name":"page","location":"symlink_to_node_modules\/page","main":"page"},{"name":"qs","location":"symlink_to_node_modules\/qs","main":"dist\/qs"},{"name":"react","location":"symlink_to_node_modules\/react","main":"dist\/react-with-addons"},{"name":"react-dom","location":"symlink_to_node_modules\/react-dom","main":"dist\/react-dom"},{"name":"react-dnd","location":"symlink_to_node_modules\/react-dnd","main":"dist\/ReactDnD.min"},{"name":"react-dnd-html5-backend","location":"symlink_to_node_modules\/react-dnd-html5-backend","main":"dist\/ReactDnDHTML5Backend.min"},{"name":"react-redux","location":"symlink_to_node_modules\/react-redux","main":"dist\/react-redux.min"},{"name":"react-select-box","location":"symlink_to_node_modules\/react-select-box","main":"dist\/react-select-box"},{"name":"react-tokeninput","location":"symlink_to_node_modules\/react-tokeninput","main":"dist\/react-tokeninput"},{"name":"react-tabs","location":"symlink_to_node_modules\/react-tabs","main":"dist\/react-tabs"},{"name":"react-tray","location":"symlink_to_node_modules\/react-tray","main":"dist\/react-tray"},{"name":"redux","location":"symlink_to_node_modules\/redux","main":"dist\/redux"},{"name":"redux-actions","location":"symlink_to_node_modules\/redux-actions","main":"dist\/redux-actions.min"},{"name":"redux-logger","location":"symlink_to_node_modules\/redux-logger","main":"dist\/index"},{"name":"redux-thunk","location":"symlink_to_node_modules\/redux-thunk","main":"dist\/redux-thunk"},{"name":"tinymce","location":"symlink_to_node_modules\/tinymce","main":"tinymce"},{"name":"spin.js","location":"symlink_to_node_modules\/spin.js","main":"spin"}],
+      shim: {
+    'ember': {
+      deps: ['jquery', 'handlebars'],
+      exports: 'Ember'
+    },
+    'vendor/FileAPI/FileAPI.min': {
+      deps: ['jquery', 'vendor/FileAPI/config'],
+      exports: 'FileAPI'
+    },
+    'fullcalendar/dist/lang-all': {
+      deps: ['fullcalendar']
+    },
+    'vendor/bootstrap-select/bootstrap-select' : { deps: ['jquery'] },
+    'vendor/jquery.jcrop': { deps: ['jquery'] },
+    'vendor/md5': {
+      exports: 'CryptoJS'
+    },
+    'vendor/i18n': {
+      exports: 'I18n'
+    },
+
+    'handlebars': {
+      exports: 'Handlebars'
+    },
+
+    'tinymce/tinymce' : { exports: 'tinymce'},
+    'tinymce/plugins/autolink/plugin' : { deps: ['tinymce'] },
+    'tinymce/plugins/media/plugin' : { deps: ['tinymce'] },
+    'tinymce/plugins/paste/plugin' : { deps: ['tinymce'] },
+    'tinymce/plugins/table/plugin' : { deps: ['tinymce'] },
+    'tinymce/plugins/textcolor/plugin' : { deps: ['tinymce'] },
+    'tinymce/plugins/link/plugin' : { deps: ['tinymce'] },
+    'tinymce/plugins/directionality/plugin' : { deps: ['tinymce'] },
+    'tinymce/plugins/lists/plugin' : { deps: ['tinymce'] },
+    'tinymce/themes/modern/theme' : { deps: ['tinymce'] },
+  }
+,
+      map: {"canvas_quizzes":{"lodash":"underscore","node_modules-version-of-backbone":"symlink_to_node_modules\/backbone\/backbone","backbone":"Backbone","jquery\/instructure_date_and_time":"jquery.instructure_date_and_time"},"*":{"spin":"spin.js\/spin"}},
+      waitSeconds: 60
+    };
+</script>
+
+  <script src="https://du11hjcvx0uqb.cloudfront.net/dist/optimized/vendor/require-749d0c60e9.js"></script>
+
+<script src="https://du11hjcvx0uqb.cloudfront.net/dist/optimized/compiled/bundles/common-9bd1c38185.js"></script>
+<script src="https://du11hjcvx0uqb.cloudfront.net/dist/optimized/compiled/bundles/assignment_show-5b97d89cd8.js"></script>
+<script src="https://du11hjcvx0uqb.cloudfront.net/dist/optimized/compiled/bundles/submit_assignment-790677890b.js"></script>
+<script src="https://du11hjcvx0uqb.cloudfront.net/dist/optimized/compiled/bundles/edit_rubric-c243c8c6a1.js"></script>
+<script src="https://du11hjcvx0uqb.cloudfront.net/dist/optimized/compiled/bundles/navigation_header-46a40a8f47.js"></script>
+<script>
+//<![CDATA[
+          require(['jquery'], function () {
+            ["https:\/\/instructure-uploads.s3.amazonaws.com\/account_30000000000113\/attachments\/30743816\/canvas_profile_badges.js?AWSAccessKeyId=AKIAJFNFXH2V2O7RPCAA\u0026Expires=1912836515\u0026Signature=bxcPRoLn764fBiD4rBhWJ4EdmLk%3D\u0026response-cache-control=Cache-Control%3Amax-age%3D473364000%2C%20public\u0026response-expires=473364000"].forEach(function (src) {
+              var s = document.createElement('script');
+              s.src = src;
+              document.body.appendChild(s);
+            });
+          });
+
+//]]>
+</script>
+
+
+
+  <script>
+  // Determines if the scripts are loaded.
+  // When we get everything out of the views, and have a single top-level
+  // `require`, this becomes meaningless and will be abandoned.
+  (function() {
+    var attempts = 0;
+    var timeout = 10;
+    var check = function() {
+      attempts++;
+      var done = !window.requirejs.s.contexts._.defQueue.length
+      var giveup = attempts === 100; // 1 second
+      if (done || giveup) {
+        var className = document.documentElement.className;
+        document.documentElement.className = className.replace(/scripts-not-loaded/, '');
+        return;
+      }
+      setTimeout(check, timeout);
+    };
+
+    check();
+  }).call(this);
+  </script>
+
+
+</div> <!-- #application -->
+</body>
+</html>
