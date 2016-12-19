@@ -1,0 +1,491 @@
+@import url('https://fonts.googleapis.com/css?family=Merriweather|Open+Sans+Condensed:300');
+
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+
+body {
+    min-width: 510px;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 400;
+}
+
+
+
+
+
+
+
+.template {
+    
+    display: none;
+}
+
+
+#mWeek1, #mWeek2, #mWeek3, #mWeek4, #mWeek5, #mWeek6, #mWeek7, #mWeek8, #mWeek9, #mWeek10, #mWeek11, #mWeek12, #mWeek13, #mWeek14{
+    display: none;
+    
+    
+}
+
+
+#icons svg #week1, #week2, #week3, #week4, #week5, #week6, #week7, #week8, #week9, #week10, #week11, #week12, #week13, #week14, #weekx {
+    display:none;
+    
+}
+
+
+#icons .weekx #weekx,
+#icons .week1 #week1,
+#icons .week2 #week2,
+#icons .week3 #week3,
+#icons .week3 #week4,
+#icons .week4 #week5,
+#icons .week5 #week6,
+#icons .week6 #week7,
+#icons .week7 #week8,
+#icons .week8 #week9,
+#icons .week9 #week10,
+#icons .week10 #week11,
+#icons .week11 #week12,
+#icons .week12 #week13,
+#icons .week13 #week14,
+#icons .week14 #week15
+{
+/*    display:none;*/
+    display: block;
+    
+    
+}
+
+
+#icons.week1 svg #weekx {
+    display:block;
+}
+
+
+
+
+
+#icons {
+    margin: 0 auto;
+    padding: auto auto;
+/*
+    padding-top: -30px;
+     padding-bottom: 5%;
+*/
+/*
+    padding-left: 5%;
+        padding-right: 5%;
+*/
+/*    margin-top: 10%;*/
+    
+}
+
+#icons svg{
+  width: 100%;
+  padding-right: 1%;
+padding-left:1%;
+   
+  height: auto;
+    margin: 0 auto;
+}
+
+
+#icons div {
+  width: 20%;
+    height: 24%;
+    display: inline-block;
+    
+}
+
+
+
+#icons svg:first-child {
+/*  display: none;*/
+/*    fill: #99cc00;*/
+}
+
+
+
+.btnClose {
+    clear: right;
+    top: 5px;
+    left: 5px;
+    float: right;
+    
+    
+}
+
+/*
+#icons.week1 svg#week1,
+#icons.week2 #week2,
+#icons.week3 #week3,
+#icons.week4 #week4,
+#icons.week5 #week5,
+#icons.week1 #week6,
+#icons.week7 #week7,
+#icons.week8 #week8,
+#icons.week9 #week9,
+#icons.week10 #week10,
+#icons.week11 #week11,
+#icons.week12 #week12,
+#icons.week13 #week13,
+#icons.week14 #week14
+
+{
+    display: block;
+}
+*/
+
+
+.tg  {border-collapse:collapse;border-spacing:0;border:none;}
+.tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:0px;overflow:hidden;word-break:normal;}
+.tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:0px;overflow:hidden;word-break:normal;}
+.tg .tg-yw4l{vertical-align:top}
+
+
+
+html {
+    font-family: 'Open Sans Condensed', Helvetica, Arial, sans-serif;
+    
+}
+
+h1, h2, h3, h4 {
+    font-family: 'Merriweather', Baskerville, Cooper,serif;
+    
+}
+
+.content {
+    width: 80%;
+
+}
+
+h1 {
+    text-align: left;
+    text-decoration: underline;
+    padding-bottom: 20px;
+    padding-top: 20px;
+    
+}
+
+html,body{
+            background-color: #E8E4C7;
+        }
+
+
+body {
+    
+    width: 80%;
+    margin: 0 auto;
+    background-color: cornsilk;
+    padding-left:10px; 
+    padding-right:10px;
+    
+}
+
+.overlay{
+  display:none;
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: hsla(0, 0%, 0%, 0.8);
+}
+
+.modal{
+  display: none;
+  position: fixed; /* so it doesn't matter about scrolling */
+  z-index: 200;  /* some number higher than the overlay */
+  top: 1vh;
+  left: 10vw;
+  right: 10vw;
+  bottom: 10vh;
+  background-color: #e4e4e4;
+    margin:0 auto;
+}
+
+header {
+
+  width:100%;
+/*  background-color:burlywood;*/
+  margin: 0 auto;
+  text-align: center;
+/*  padding: 60px;*/
+    padding: 5px 15px 5px 5px;
+  font-family: 'Open Sans', sans-serif;
+  color: #fff;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 32px;
+    display: inline-block;
+    color: #000000;
+}
+
+.jumbotron, .mainThings {
+    background-color: #EFFFE7;
+    
+}
+
+.title {
+/* float: left;*/
+/*    font: bold; 3.68rem*/
+}
+
+h4.mainTitle {
+/*    top: 11em;*/
+/*    font-size: 10px;*/
+    float: right;
+    color: black;
+    vertical-align: text-top;
+  
+/*    text-align: center;*/
+/*    clear:left;*/
+    
+}
+
+/*
+.hamburger {
+    display: none;
+    
+}
+*/
+
+
+
+
+.hamburger {
+    position: relative;
+    display: inline-block;
+    width: 1.25em;
+    height: 0.8em;
+    margin-right: 0.3em;
+    border-top: 0.2em solid #000000;
+    border-bottom: 0.2em solid #000000;
+    color: #000000;
+}
+
+
+.hamburger:before {
+    content: "";
+    position: absolute;
+    top: 0.11em;
+    left: 0px;
+    width: 100%;
+    border-top: 0.2em solid #000000;
+    color: #000000;
+}
+
+
+/*******************************
+          MOBILE FIRST
+*******************************/
+@media (max-width: 575px) and (min-width: 1px){
+     
+.nav-item{
+        display:block;
+           
+    }
+    
+       
+    
+    .navbar-toggle {
+/*        float: right;*/
+        
+    }
+    
+}
+
+@media (min-width: 578px){
+    
+    .navbar-brand {
+        display:block;
+    }    
+    
+    .boo {
+        
+        display:block;
+    }
+    
+    .mainTitle {
+        display: block;
+        
+    }
+   
+
+    
+}
+
+/*******************************
+              FORM
+*******************************/
+
+.contact {
+    padding-top: 15px;
+    
+}
+
+form {
+    display: center;
+    
+}
+
+form .name {
+    margin-bottom: 5px;
+    
+}
+
+form .email {
+    margin-bottom: 5px;
+    
+}
+
+.location {
+    margin-left: 10px;
+    
+}
+
+/*******************************
+              NAV
+*******************************/
+.navbar navbar-default, a {
+
+    list-style: none;
+    font: black;
+
+   
+    
+    
+}
+
+nav navbar-nav {
+    font: bold 1.618rem #000000;
+  
+}
+
+
+
+nav a,
+nav a:link,
+nav a:visited {
+
+    font: regular 1.618rem black;
+    
+}
+
+nav a:active,
+nav a:focus,
+nav a:hover {
+    color: #000000;
+    
+}
+
+
+[data-role="nav"] {
+    position: fixed;
+/*    z-index: 30;*/
+
+    bottom: 0;
+    width: 100%;
+    height: 4rem;
+
+/*    background-color: #ccc;*/
+}
+
+.tabs {
+    list-style: none;
+}
+
+.tabs li {
+    float: left;
+    width: 50%;
+}
+
+.tabs a {
+    display: block;
+    line-height: 2rem;
+    font-size: 2rem;
+    text-align: center;
+    text-decoration: none;
+    color: black;
+}
+
+.tabs a:first-child {
+    border-right: 1px solid #333;
+}
+
+/*END NAVIGATION*/
+
+/* Start 2 page display */
+/*pages are not displayed*/
+
+[data-role="page"] {
+    width: 100%;
+    min-height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none;
+    z-index: 10;
+    padding-bottom: 5rem;
+    /* to match the height of the nav bar */
+    padding-top: 4rem;
+    /* leaving space for the heading */
+}
+
+[data-role="page"].active {
+    display: block;
+    z-index: 20;
+}
+
+
+
+
+
+
+/*******************************
+              FOOTER
+*******************************/
+footer {
+    
+    background-color: #3BE8A2;
+}
+
+footer h4 {
+  font-size: 1.414rem;
+  padding: 0.5rem 2rem;
+  color: #7C593C; }
+footer p {
+  font-size: 1rem;
+  padding: 0.5rem 2rem;
+  color: #222; }
+
+footer .fa-circle {
+  color: #222; }
+
+ 	.st0{display:inline;}
+	.st1{display:inline;fill:#BF910C;stroke:#000000;stroke-width:6;stroke-miterlimit:10;}
+	.st2{display:inline;fill:none;}
+	.st3{display:inline;}
+	.st4{font-family:'Phosphate-Inline';}
+	.st5{font-size:300px;}
+	.st6{display:inline;fill:#BF910C;stroke:#000000;stroke-width:6;stroke-miterlimit:10;}
+	.st7{display:inline;fill:#BF910C;stroke:#000000;stroke-width:6;stroke-miterlimit:10;}
+	.st8{display:inline;fill:#BF910C;stroke:#000000;stroke-width:6;stroke-miterlimit:10;}
+	.st9{display:inline;fill:#BF910C;stroke:#000000;stroke-width:6;stroke-miterlimit:10;}
+	.st10{display:inline;fill:#BF910C;stroke:#000000;stroke-width:6;stroke-miterlimit:10;}
+	.st11{display:inline;fill:#BF910C;stroke:#000000;stroke-width:6;stroke-miterlimit:10;}
+	.st12{display:inline;fill:#BF910C;stroke:#000000;stroke-width:6;stroke-miterlimit:10;}
+	.st13{display:inline;fill:#BF910C;stroke:#000000;stroke-width:6;stroke-miterlimit:10;}
+	.st14{display:inline;fill:#BF910C;stroke:#000000;stroke-width:6;stroke-miterlimit:10;}
+	.st15{display:inline;fill:#BF910C;stroke:#000000;stroke-width:6;stroke-miterlimit:10;}
+    
+  
+    
+
+

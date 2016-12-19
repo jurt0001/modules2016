@@ -1,0 +1,195 @@
+@import url('https://fonts.googleapis.com/css?family=Merriweather|Open+Sans+Condensed:300');
+
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+
+body {
+    min-width: 510px;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 400;
+}
+
+pre {
+    display: block;
+    padding: 9.5px;
+    margin: 0 0 10px;
+    font-size: 13px;
+    font-size: .8125rem;
+    line-height: 20px;
+    word-break: break-all;
+    word-wrap: break-word;
+    white-space: pre;
+    white-space: pre-wrap;
+    background-color: #f5f5f5;
+    border: 1px solid #ccc;
+    border: 1px solid rgba(0,0,0,0.15);
+    border-radius: 3px;
+}
+
+
+code, pre {
+    padding: 0 3px 2px;
+    font-family: Monaco,Menlo,Consolas,"Courier New",monospace;
+    font-size: 12px;
+    font-size: .75rem;
+    color: #333;
+    border-radius: 3px;
+}
+
+
+
+
+
+.template {
+    
+    display: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+html {
+    font-family: 'Open Sans Condensed', Helvetica, Arial, sans-serif;
+    
+}
+
+h1, h2, h3, h4 {
+    font-family: 'Merriweather', Baskerville, Cooper,serif;
+    
+}
+
+.content {
+    width: 80%;
+
+}
+
+h1 {
+    text-align: left;
+    text-decoration: underline;
+    padding-bottom: 20px;
+    padding-top: 20px;
+    
+}
+
+html, body{
+            background-color: #E8E4C7;
+        }
+
+
+body {
+    
+    width: 80%;
+    margin: 0 auto;
+    background-color: cornsilk;
+    padding-left:10px; 
+    padding-right:10px;
+    
+}
+
+
+
+/*
+
+header {
+
+  width:100%;
+  margin: 0 auto;
+  text-align: center;
+    padding: 5px 15px 5px 5px;
+  font-family: 'Open Sans', sans-serif;
+  color: #fff;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 32px;
+    display: inline-block;
+    color: #000000;
+}
+*/
+
+
+
+
+/*******************************
+          MOBILE FIRST
+*******************************/
+@media (max-width: 575px) and (min-width: 1px){
+     
+
+    
+       
+    
+
+    
+}
+
+@media (min-width: 578px){
+    
+
+    
+ 
+
+    
+}
+
+
+/*******************************
+              NAV
+*******************************/
+.navbar navbar-default, a {
+
+    list-style: none;
+    font: black;
+
+    
+}
+
+nav navbar-nav {
+    font: bold 1.618rem #000000;
+  
+}
+
+
+
+nav a,
+nav a:link,
+nav a:visited {
+
+    font: regular 1.618rem black;
+    
+}
+
+nav a:active,
+nav a:focus,
+nav a:hover {
+    color: #000000;
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    
+
+
