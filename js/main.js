@@ -1,13 +1,10 @@
 
 document.addEventListener("DOMContentLoaded", init);
 
-var home = document.querySelector("#home");
-home.addEventListener("click", reload);
+//var home = document.querySelector("#home");
+//home.addEventListener("click", reload);
 
-function reload(){
-    
-    location."http://www.christianjurt.com"();
-}
+
 
 
 
@@ -51,6 +48,9 @@ function navigate(ev) {
 }
 
 
-
+//function reload(){
+//    
+//    location."http://www.christianjurt.com"();
+//}
 
 
