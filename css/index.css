@@ -14,10 +14,7 @@ h1, h2, h3, h4 {
     
 }
 
-.content {
-    width: 80%;
 
-}
 
 h1 {
     text-align: left;
@@ -28,19 +25,23 @@ h1 {
 }
 
 html,body{
-            background-color: #E8E4C7;
+/*            background-color: #E8E4C7;*/
         }
 
 body {
     
-background-color: #E8E4C7;
+/*background-color: #E8E4C7;*/
 ;
 }
 
+
+
+/*
 .jumbotron, .mainThings {
     background-color: #EFFFE7;
     
 }
+*/
 
 .title {
 /* float: right;*/
@@ -271,34 +272,51 @@ nav a:hover {
     
     text-align: center;
     padding-top: 10%;
+    color: white;
+    background-color: #000000;
 }
 
+#functionBlue {
+    
+    color: #6c9ef8;
+}
+
+#quoteOrange {
+    
+    color: #d89333 ;
+}
 
 /*******************************
               FOOTER
 *******************************/
-footer {
-    
-    background-color: #3BE8A2;
+#footer {
+    padding-top: 7.1rem;
+    background-color: #7C593C;
     width: 100%;
+    bottom: 0;
 }
 
 footer h4 {
   font-size: 1.414rem;
-  padding: 0.5rem 2rem;
+/*  padding: 0.5rem 2rem;*/
   color: #7C593C; }
 footer p {
   font-size: 1rem;
-  padding: 0.5rem 2rem;
+/*  padding: 0.5rem 2rem;*/
   color: #222; }
 
 footer .fa-circle {
   color: #222; }
+   
 
- 
-    
-    
-    
+
+#paragraphs {
+    width: 80%;
+    color: #000000;
+
+
 }
+
+
 
 
