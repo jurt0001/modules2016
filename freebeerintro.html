@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width">
-    <title>BootStrap Template</title>
+    <title>Hardware & Networking</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/index.css"> 
     <link rel="stylesheet" href="css/font-awesome.min.css" />
@@ -12,6 +12,8 @@
 
 
 <body>
+
+
 
 <nav class="navbar navbar-light" data-role="nav" id="nav">
   
@@ -33,6 +35,10 @@
           
 
 			  
+        <li class="nav-item" id="page active">
+            <a class="nav-week1" href="/index.html"><span id="functionBlue">MAD&D</span></a>
+			  </li>
+        
         <li class="nav-item" id="page active">
 				<a class="nav-week1" href="#mWeek1">1</a>
 			  </li>
@@ -88,16 +94,21 @@
 				<a class="nav-week14" href="#mWeek14">14</a>
 			  </li>
 			  
-			  <li class="nav-item" id="page">
-				<a class="nav-faWeek" href="#faWeek">Week</a>
+			  <li class="nav-item">
+				<a class="nav-faWeek" href="#faWeek">Quizzes</a>
 			  </li>
-			  <li class="nav-item" id="page">
+			  <li class="nav-item">
 				<a class="nav-labs" href="#labs">Labs</a>
 			  </li>
-			  <li class="nav-item" id="page">
+<!--
+			  <li class="nav-item">
 				<a class="nav-quizzes" href="#quizzes">Quizzes</a>
 			  </li>
+			  <li class="nav-item">
+				<a class="nav-quiz" href="#quiz">Quiz</a>
+			  </li>
 		
+-->
       </ul>
 		</div>
 		
@@ -109,9 +120,14 @@
         
 
         <div class="jumbotron" id="jumbo"> 
-            <p><span id="quoteOrange">"Free as in free beer"</span><span id="functionBlue">.Gerald Hurdle</span></p>
+            <p><span id="quoteOrange">"Free as in free beer"</span><span id="functionBlue">.Gerald Hurdle</span
+            ></p>
         
+           <h2><span id="jumboTitle" id="quoteOrange">Networking & Hardware</span></h2>
+          
            </div>
+           
+          
            
               
 <div class="mWeeks"> 
@@ -4427,7 +4443,7 @@ sudo cat /etc/selinux/config</pre>
 <p>Start (i.e. boot) &nbsp;<em>tuxserver</em>.</p>
 <h3>Pre-Conditions</h3>
 <ul>
-<li>SELinux has been disabled (refer to this lab:&nbsp;<a title="Lamp" href="https://algonquin.instructure.com/courses/501990/pages/lamp" data-api-endpoint="https://algonquin.instructure.com/api/v1/courses/501990/pages/lamp" data-api-returntype="Page">LAMP</a>)</li>
+<li>SELinux has been disabled (refer to this lab:&nbsp;LAMP</a>)</li>
 </ul>
 <h3>1.0 Download and Install the FTP Server</h3>
 <p>The name of the FTP server package on Linux is: <strong><em>vsftpd</em></strong> (<strong>v</strong>ery <strong>s</strong>ecure <strong>f</strong>ile <strong>t</strong>ransfer <strong>p</strong>rotocol <strong>d</strong>aemon).</p>
@@ -6956,104 +6972,23 @@ firefox &amp; ⏎
 
 </div>
 <div id="faWeek" class="page" data-role="page">
-<h1>Final Assesment Week</h1>
+<h1>Quizzes</h1>
 <div id="assignment_show" class="assignment content_underline_links">
-    <!--Student View-->
-    <div class="assignment-title">
-      <div class="title-content">
-        <h1 class="title">
-          Final Assessment - Practical
-        </h1>
-      </div>
-      <div class="assignment-buttons">
-        <span style="display: inline-block">
+   
+        <img src="img/quiz1.png" alt="quiz1" width="100%"/>
+        <img src="img/quiz22.png" alt="quiz2" width="100%"/>
+        <img src="img/quiz3.png" alt="quiz2" width="100%"/>
         
-
-  <div class="clear"></div>
-
-
-  <div class="clear"></div>
-
-  <div class="description user_content student-version enhanced"><h4>What You will Do</h4>
-<p>You are to implement a chat application based on HTML5 web sockets.</p>
-<p>The author of the chat application is <a href="https://www.flynsarmy.com/" class="external" target="_blank" rel="noreferrer"><span><span>Flynsarmy</span><span class="screenreader-only">&nbsp;</span></span><span class="ui-icon ui-icon-extlink ui-icon-inline" title="Links to an external site."></span></a>,&nbsp;and his&nbsp;github.com site hosts all of the source code:&nbsp;<a href="https://github.com/Flynsarmy/PHPWebSocket-Chat" class="external" target="_blank" rel="noreferrer"><span><span>https://github.com/Flynsarmy/PHPWebSocket-Chat</span><span class="screenreader-only">&nbsp;</span></span><span class="ui-icon ui-icon-extlink ui-icon-inline" title="Links to an external site."></span></a>.</p>
-<p>Begin by reading Flynsarmy's blog entry entitled <a href="https://www.flynsarmy.com/2012/02/php-websocket-chat-application-2-0/" class="external" target="_blank" rel="noreferrer"><span><span>PHP WebSocket Chat Application</span><span class="screenreader-only">&nbsp;</span></span><span class="ui-icon ui-icon-extlink ui-icon-inline" title="Links to an external site."></span></a>. His article describes how he implemented a PHP-based WebSocket server (<em>server.php</em> on his GitHub). The chat application page (<em>index.html</em> on his GitHub) uses an HTML5 web socket to communicate to the server.</p>
-<blockquote>
-<span class="instructure_file_link_holder link_holder"><span class="instructure_scribd_file_holder link_holder"><a class="" title="PHP WebSocket Chat Application 2.pdf" href="media/PHP+WebSocket+Chat+Application+2.pdf" target="" data-api-endpoint="media/PHP+WebSocket+Chat+Application+2.pdf" data-api-returntype="File">Here</a><a class="scribd_file_preview_link" aria-hidden="true" tabindex="-1" href="media/PHP+WebSocket+Chat+Application+2.pdf" title="Preview the document" style="padding-left: 5px;"></a></span>&nbsp;is the same PDF document if Flynarmy's blog site is unavailable.</blockquote>
-<p>To get the source code on your Mac, launch <em>Terminal.app</em> and perform a <strong>git clone</strong> of Flynsarmy's project. There are 6 files:</p>
-<ol>
-<li>LICENSE</li>
-<li>README</li>
-<li>class.PHPWebSocket.php</li>
-<li>fancywebsocket.js</li>
-<li>index.html</li>
-<li>server.php</li>
-</ol>
-<p><span style="text-decoration: underline;">Perform a thorough code inspection of these 6 files!</span> In particular, read his comments ---- he tells you where you need to make the necessary changes.</p>
-<p>Once the changes have been made:</p>
-<ul>
-<li>to your <strong>public_html</strong> on <em>tuxserver</em>, create a new directory named: <strong>chat</strong>
-</li>
-<li>SFTP these 6 files (see above) from your Mac to the newly created chat directory on <em>tuxserver</em>
-</li>
-</ul>
-<p>To perform SFTP, select one of: DreamWeaver, Transmission, Filezilla or ... My personal favourite is DreamWeaver: allows me to make the necessary changes, and to SFTP all 6 files to my Linux VM (tuxserver).</p>
-<p>The blog entry describes how to start the php server (the command is <strong>php</strong> on Fedora Linux), and how to view the chat application from a browser.</p>
-<p>From the Mac, launch a browser (e.g. Safari or Chrome), and enter the URL to the chat application:</p>
-<p style="padding-left: 30px;">http://tuxserver/~<em>yourLinuxUsername</em>/chat</p>
-<p>Once you've completed a chat session(s) and you wish to stop:</p>
-<ul>
-<li>close the browser (on Mac)</li>
-<li>stop the server (on tuxserver) by entering&nbsp;<em>control-c</em>.</li>
-</ul>
-<h4>Fix the PHP Warning</h4>
-<p>On <em>tuxserver</em>, notice PHP displays a warning message regarding the timezone.</p>
-<p><span style="text-decoration: underline;">You are to correct this warning.</span></p>
-<p>On Mac, edit the appropriate PHP file. The warning message identifies the PHP file, and line number.</p>
-<p>Here is a link to the PHP date manual:&nbsp;<a href="http://php.net/manual/en/function.date.php" class="external" target="_blank" rel="noreferrer"><span><span>http://php.net/manual/en/function.date.php</span><span class="screenreader-only">&nbsp;</span></span><span class="ui-icon ui-icon-extlink ui-icon-inline" title="Links to an external site."></span></a></p>
-<blockquote>
-<strong>Hint</strong>: scroll to <strong>Examples</strong> &gt; <strong>Example #1 date( ) examples</strong> &gt; the line after <strong>// set the default timezone</strong>...</blockquote>
-<h4>Deliverables</h4>
-<p>Prepare a zip file named: <strong>yourUsername_final.zip</strong></p>
-<p>For example: hurdleg_final.zip</p>
-<p>The contents of the zip file:</p>
-<ul>
-<li>[Mac] a screen-shot of a web browser showing <span style="text-decoration: underline;">two</span> active chat sessions:</li>
-<ul>
-<li>Tab 1: http://tuxserver/~<strong><em>yourUsernameOnTuxServer</em></strong>/chat</li>
-<li>Tab 2: http://tuxserver/~<strong><em>yourUsernameOnTuxServer</em></strong>/chat</li>
-</ul>
-<li>[<em>tuxserver</em>] a screen-shot showing the output of: <strong>php ./server.php</strong> (no warning messages!)</li>
-<li>[<em>tuxserver</em>] a screen-shot showing the output of the following CLI command: <strong>sudo firewall-cmd --zone=public&nbsp;--list-all</strong>
-</li>
-<li>[Mac] /Library/Preferences/VMware Fusion/vmnet8/dhcpd.conf</li>
-<li>[Mac] LICENSE</li>
-<li>[Mac] README</li>
-<li>[Mac] class.PHPWebSocket.php</li>
-<li>[Mac] fancywebsocket.js</li>
-<li>[Mac] index.html</li>
-<li>[Mac] server.php</li>
-</ul>
-<p>Upload and submit your zip file to Canvas before the due date (!)</p>
-<h4>Notes:</h4>
-<ul>
-<li>I'm not present to invigilate this practical question. I respectfully ask that you complete this question on your own, without assistance from classmates/PAs, and with honour.</li>
-</ul></div>
-
-
-  <div style="display: none;">
-    <span class="timestamp">1481777940</span>
-    <span class="due_date_string">12/14/2016</span>
-    <span class="due_time_string">11:59pm</span>
-  </div>
-</div>
-
-</div>
-
-        </div>
+    
     </div>
+</div>
+    
 <div id="labs" class="page" data-role="page">
 <h1>Labs</h1>
+
+  
+
+
 
 <div id="lab1">
    
@@ -8360,15 +8295,107 @@ James Bond (bond007@algonquincollege.com)</pre>
 
 </div>
        </div>
-        </div>    
-<div id="quizzes" class="page" data-role="page">
+       
+<h1>Final Assesment Week</h1>
+<div id="assignment_show" class="assignment content_underline_links">
+    <!--Student View-->
+    <div class="assignment-title">
+      <div class="title-content">
+        <h1 class="title">
+          Final Assessment - Practical
+        </h1>
+      </div>
+      <div class="assignment-buttons">
+        <span style="display: inline-block">
+        
+
+  <div class="clear"></div>
 
 
+  <div class="clear"></div>
+
+  <div class="description user_content student-version enhanced"><h4>What You will Do</h4>
+<p>You are to implement a chat application based on HTML5 web sockets.</p>
+<p>The author of the chat application is <a href="https://www.flynsarmy.com/" class="external" target="_blank" rel="noreferrer"><span><span>Flynsarmy</span><span class="screenreader-only">&nbsp;</span></span><span class="ui-icon ui-icon-extlink ui-icon-inline" title="Links to an external site."></span></a>,&nbsp;and his&nbsp;github.com site hosts all of the source code:&nbsp;<a href="https://github.com/Flynsarmy/PHPWebSocket-Chat" class="external" target="_blank" rel="noreferrer"><span><span>https://github.com/Flynsarmy/PHPWebSocket-Chat</span><span class="screenreader-only">&nbsp;</span></span><span class="ui-icon ui-icon-extlink ui-icon-inline" title="Links to an external site."></span></a>.</p>
+<p>Begin by reading Flynsarmy's blog entry entitled <a href="https://www.flynsarmy.com/2012/02/php-websocket-chat-application-2-0/" class="external" target="_blank" rel="noreferrer"><span><span>PHP WebSocket Chat Application</span><span class="screenreader-only">&nbsp;</span></span><span class="ui-icon ui-icon-extlink ui-icon-inline" title="Links to an external site."></span></a>. His article describes how he implemented a PHP-based WebSocket server (<em>server.php</em> on his GitHub). The chat application page (<em>index.html</em> on his GitHub) uses an HTML5 web socket to communicate to the server.</p>
+<blockquote>
+<span class="instructure_file_link_holder link_holder"><span class="instructure_scribd_file_holder link_holder"><a class="" title="PHP WebSocket Chat Application 2.pdf" href="media/PHP+WebSocket+Chat+Application+2.pdf" target="" data-api-endpoint="media/PHP+WebSocket+Chat+Application+2.pdf" data-api-returntype="File">Here</a><a class="scribd_file_preview_link" aria-hidden="true" tabindex="-1" href="media/PHP+WebSocket+Chat+Application+2.pdf" title="Preview the document" style="padding-left: 5px;"></a></span>&nbsp;is the same PDF document if Flynarmy's blog site is unavailable.</blockquote>
+<p>To get the source code on your Mac, launch <em>Terminal.app</em> and perform a <strong>git clone</strong> of Flynsarmy's project. There are 6 files:</p>
+<ol>
+<li>LICENSE</li>
+<li>README</li>
+<li>class.PHPWebSocket.php</li>
+<li>fancywebsocket.js</li>
+<li>index.html</li>
+<li>server.php</li>
+</ol>
+<p><span style="text-decoration: underline;">Perform a thorough code inspection of these 6 files!</span> In particular, read his comments ---- he tells you where you need to make the necessary changes.</p>
+<p>Once the changes have been made:</p>
+<ul>
+<li>to your <strong>public_html</strong> on <em>tuxserver</em>, create a new directory named: <strong>chat</strong>
+</li>
+<li>SFTP these 6 files (see above) from your Mac to the newly created chat directory on <em>tuxserver</em>
+</li>
+</ul>
+<p>To perform SFTP, select one of: DreamWeaver, Transmission, Filezilla or ... My personal favourite is DreamWeaver: allows me to make the necessary changes, and to SFTP all 6 files to my Linux VM (tuxserver).</p>
+<p>The blog entry describes how to start the php server (the command is <strong>php</strong> on Fedora Linux), and how to view the chat application from a browser.</p>
+<p>From the Mac, launch a browser (e.g. Safari or Chrome), and enter the URL to the chat application:</p>
+<p style="padding-left: 30px;">http://tuxserver/~<em>yourLinuxUsername</em>/chat</p>
+<p>Once you've completed a chat session(s) and you wish to stop:</p>
+<ul>
+<li>close the browser (on Mac)</li>
+<li>stop the server (on tuxserver) by entering&nbsp;<em>control-c</em>.</li>
+</ul>
+<h4>Fix the PHP Warning</h4>
+<p>On <em>tuxserver</em>, notice PHP displays a warning message regarding the timezone.</p>
+<p><span style="text-decoration: underline;">You are to correct this warning.</span></p>
+<p>On Mac, edit the appropriate PHP file. The warning message identifies the PHP file, and line number.</p>
+<p>Here is a link to the PHP date manual:&nbsp;<a href="http://php.net/manual/en/function.date.php" class="external" target="_blank" rel="noreferrer"><span><span>http://php.net/manual/en/function.date.php</span><span class="screenreader-only">&nbsp;</span></span><span class="ui-icon ui-icon-extlink ui-icon-inline" title="Links to an external site."></span></a></p>
+<blockquote>
+<strong>Hint</strong>: scroll to <strong>Examples</strong> &gt; <strong>Example #1 date( ) examples</strong> &gt; the line after <strong>// set the default timezone</strong>...</blockquote>
+<h4>Deliverables</h4>
+<p>Prepare a zip file named: <strong>yourUsername_final.zip</strong></p>
+<p>For example: hurdleg_final.zip</p>
+<p>The contents of the zip file:</p>
+<ul>
+<li>[Mac] a screen-shot of a web browser showing <span style="text-decoration: underline;">two</span> active chat sessions:</li>
+<ul>
+<li>Tab 1: http://tuxserver/~<strong><em>yourUsernameOnTuxServer</em></strong>/chat</li>
+<li>Tab 2: http://tuxserver/~<strong><em>yourUsernameOnTuxServer</em></strong>/chat</li>
+</ul>
+<li>[<em>tuxserver</em>] a screen-shot showing the output of: <strong>php ./server.php</strong> (no warning messages!)</li>
+<li>[<em>tuxserver</em>] a screen-shot showing the output of the following CLI command: <strong>sudo firewall-cmd --zone=public&nbsp;--list-all</strong>
+</li>
+<li>[Mac] /Library/Preferences/VMware Fusion/vmnet8/dhcpd.conf</li>
+<li>[Mac] LICENSE</li>
+<li>[Mac] README</li>
+<li>[Mac] class.PHPWebSocket.php</li>
+<li>[Mac] fancywebsocket.js</li>
+<li>[Mac] index.html</li>
+<li>[Mac] server.php</li>
+</ul>
+<p>Upload and submit your zip file to Canvas before the due date (!)</p>
+<h4>Notes:</h4>
+<ul>
+<li>I'm not present to invigilate this practical question. I respectfully ask that you complete this question on your own, without assistance from classmates/PAs, and with honour.</li>
+</ul></div>
 
 
+  <div style="display: none;">
+    <span class="timestamp">1481777940</span>
+    <span class="due_date_string">12/14/2016</span>
+    <span class="due_time_string">11:59pm</span>
+  </div>
+</div>
 
 </div>
+
+        </div>       
+       
+        </div>   
         
+        
+       
     
 
     </div> 
@@ -8378,19 +8405,19 @@ James Bond (bond007@algonquincollege.com)</pre>
            
            <content class="content" id="contentP"> 
         <div class="container" id="paragraphs">
-           <h1>Networking & Hardware</h1>
+<!--            <h2><span id="quoteOrange">Networking & Hardware</span></h2>-->
             <div class="row">
                 <div class="col-md-4, col-lg-4">       
                     <h2><span id="quoteOrange">"Modules"</span></h2>
-                    <p><span id="functionBlue">All the notes! Get them here. No need for the those annoying PDF's. All 14 weeks at your fingers tips.</span></p>
+                    <p>All the notes! Get them here. No need for the those annoying PDF's. All 14 weeks at your fingers tips.</p>
                 </div>
                 <div class="col-md-4, col-lg-4">
                     <h2><span id="quoteOrange">"Labs"</span></h2>
-                    <p><span id="functionBlue">Remember all those labs we had to do? If the answer is no as in no spaghettio, then hounare in luck cuz they are all here for your review.</span></p>
+                    <p>Remember all those labs we had to do? If the answer is no as in no spaghettio, then you are in luck cuz they are all here for your review.</p>
                 </div>
                 <div class="col-md-4, col-lg-4">
                     <h2><span id="quoteOrange">"Quizzes"</span></h2>
-                    <p><span id="functionBlue">Oh Boy those quizzes were tough. Relive them anytime in the throw back quozzes section. Are you a super user?</span></p>
+                    <p>Oh Boy those quizzes were tough. Re-live them anytime in the throw back quizzes section. Are you a super user?</p>
                 </div>
             </div>
         </div>
@@ -8398,29 +8425,19 @@ James Bond (bond007@algonquincollege.com)</pre>
     </main>
     <footer class="container" id="footer">
             <div class="row">
-                <div class="col-md-6">
-                    
-                    <h4>Catch me on Social Media!</h4>
-            <p> <span class="fa-stack fa-lg">
-                            <i class="fa fa-circle fa-stack-2x"></i>
-                            <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
-                        </span> <span class="fa-stack fa-lg">
-                            <i class="fa fa-circle fa-stack-2x"></i>
-                            <i class="fa fa-reddit fa-stack-1x fa-inverse"></i>
-                        </span> <span class="fa-stack fa-lg">
-                            <i class="fa fa-circle fa-stack-2x"></i>
-                            <i class="fa fa-tumblr fa-stack-1x fa-inverse"></i>
-                        </span> <span class="fa-stack fa-lg">
-                            <i class="fa fa-circle fa-stack-2x"></i>
-                            <i class="fa fa-vimeo fa-stack-1x fa-inverse"></i>
-                        </span> </p>
+
+        <div class="col-md-4">
+                 <img class="me1" src="img/me1.png" alt="image" width="150px" /> 
+                 <img class="me1" src="img/me1.png" alt="image" width="150px" /> 
         </div>
-        <div class="col-md-6">
-            <h4 lang="en">Contact</h4>
-            <p>Telephone: (613) 292-6770</p>
-            <p>E-mail: yurt.christian@gmail.com</p>
-            <p>&copy; 2017 Christian Jurt</p>
-        </div>
+        <div class="col-md-4">
+        <img class="me1" src="img/me1.png" alt="image" width="150px" /> 
+                 <img class="me1" src="img/me1.png" alt="image" width="150px" /> 
+                </div>
+        <div class="col-md-4">
+          <img class="me1" src="img/me1.png" alt="image" width="150px" /> 
+                 <img class="me1" src="img/me1.png" alt="image" width="150px" /> 
+            </div>
     </div>
     </footer>
     <script src="js/bootstrap.min.js"></script>
