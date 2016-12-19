@@ -1,6 +1,14 @@
 
 document.addEventListener("DOMContentLoaded", init);
 
+var home = document.querySelector("#home");
+home.addEventListener("click", reload);
+
+function reload(){
+    
+    location."http://www.christianjurt.com"();
+}
+
 
 
 let pages = []; // used to store all our screens/pages
@@ -41,6 +49,8 @@ function navigate(ev) {
   document.querySelector("#paragraphs").style.display = "none";
   document.querySelector("#footer").style.display = "none";
 }
-h
+
+
+
 
 
