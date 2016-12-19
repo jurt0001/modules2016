@@ -1,10 +1,13 @@
 
 document.addEventListener("DOMContentLoaded", init);
 
-//var home = document.querySelector("#home");
-//home.addEventListener("click", reload);
+var home = document.querySelector("nav-week1");
 
 
+function reload(){
+    
+    location."http://www.christianjurt.com"();
+}
 
 
 
@@ -42,15 +45,13 @@ function navigate(ev) {
         }           
     }
     
+    home.addEventListener("click", reload);
     document.querySelector("#jumbo").style.display = "none";
   document.querySelector("#paragraphs").style.display = "none";
   document.querySelector("#footer").style.display = "none";
 }
 
 
-//function reload(){
-//    
-//    location."http://www.christianjurt.com"();
-//}
+
 
 
